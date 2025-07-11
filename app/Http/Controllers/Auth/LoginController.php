@@ -30,7 +30,7 @@ class LoginController extends Controller
             $user = $userModel::where('email', $credentials['email'])->first();
             \Log::info('User fetched:', ['user' => $user]);
     
-            if ($user && $user->status == 'Approved') {
+            if ($user && $user->status == '1') {
                 if (Auth::guard($guard)->attempt($credentials)) {
                     \Log::info('Authentication successful.');
                     return redirect()->route($guard.'-dashboard'); //redirect()->intended($guard.'/dashboard');

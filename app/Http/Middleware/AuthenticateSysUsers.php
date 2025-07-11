@@ -36,7 +36,7 @@ class AuthenticateSysUsers
         // }
 
         if (Auth::guard($guard)->check()) {
-            if ($user->status == 'Approved') {
+            if ($user->status == '1') {
                     \Log::info('AuthenticateSysUsers: Approved Guard Check');
                     return $next($request);
                 }

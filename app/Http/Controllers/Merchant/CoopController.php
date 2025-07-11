@@ -53,7 +53,7 @@ class CoopController extends Controller
         $data['user_id'] = Functions::IDGenerator(new CoopModel, 'user_id', 5, 'VNDR');
         $data['user_role'] = $data['user_role'] ?? 'Coop';
         $data['date'] = $data['date'] ?? date('Y-m-d');
-        $data['status'] = $data['status'] ?? 'For approval';
+        $data['status'] = $data['status'] ?? '0';
         $data['profile_picture'] = $request->hasFile('profile_picture') ? $request->file('profile_picture')->store('profile_pictures', 'public') : null;
         $data['valid_id_picture'] = $request->hasFile('valid_id_picture') ? $request->file('valid_id_picture')->store('valid_id_picture', 'public') : null;
         $data['approved_by'] = $data['approved_by'] ?? '';

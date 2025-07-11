@@ -16,13 +16,12 @@ body{
 }
 
 .fontcolor-white{color: whitesmoke;}
-.color-danger{color: #dc3545;}
-.color-success{color: #28a745;}
-.color-warning{color: #ffc107;}
-
-.coop-color{background-color: #549ca4;}
-.merchant-color{background-color: #E68268;}
-.buyer-color{background-color: #6C9470;}
+.user-block{float: none;}
+.img-bordered-sm.admin-review{border-radius: 0; border: 0px;}
 
 .wrapper {display: flex; flex-direction: column;}
+
+.toast-warning .toast-message{color: #dc3545;}
+
+
 

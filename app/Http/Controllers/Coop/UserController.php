@@ -61,7 +61,7 @@ class UserController extends Controller
         $data['profile_picture'] = $data['profile_picture'] ?? '';
         $data['valid_id_picture'] = $data['valid_id_picture'] ?? '';
         $data['user_role'] = $data['user_role'] ?? 'Merchant';
-        $data['status'] = $data['status'] ?? 'For approval';
+        $data['status'] = $data['status'] ?? '0';
         $data['date'] = $data['date'] ?? date('Y-m-d');
 
         // Encrypt the password before storing it

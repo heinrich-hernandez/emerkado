@@ -18,8 +18,8 @@ function initializeFileUploads() {
     const fileInputs = [
         'coop_profile_picture',
         'coop_valid_id_picture',
-        'merchant_profile_pictures',
-        'merchant_valid_id_pictures',
+        'merchant_profile_picture',
+        'merchant_valid_id_picture',
         // Add more input IDS as needed
     ];
 

@@ -73,7 +73,7 @@ use App\Helpers\CreatedAt;
                     <tr>
                         <td class="align-middle">{{$column->user_id}}</td>
                         <td class="align-middle">
-                            <img src="{{ $column->profile_picture ? URL::to('/storage') . '/' . $column->profile_picture : asset('images/icons8-user.png') }}" alt="Profile" class="table-avatar" onerror="this.onerror=null;this.src='{{ asset('images/icons8-user.png') }}">
+                            <img src="{{ $column->profile_picture ? URL::to('/storage') . '/' . $column->profile_picture : asset('images/guest.jpg') }}" alt="Profile" class="table-avatar" onerror="this.onerror=null;this.src='{{ asset('images/guest.jpg') }}">
                             {{$column->name}}
                         </td>
                         <td class="align-middle">{{$column->email}}</td>

@@ -24,13 +24,6 @@
                 showError('Error processing merchant record.'); //SHOW WARNING MESSAGE VIA TOASTER.JS
             });
         </script>
-        <!--div class="alert alert-danger">
-                                              <ul>
-                                                  @foreach ($errors->all() as $error)
-    <li>{{ $error }}</li>
-    @endforeach
-                                              </ul>
-                                          </div-->
     @endif
     <!-- Main content -->
     <div class="content">
@@ -48,9 +41,7 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" name="name"
-                                class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" id="name"
-                                placeholder="Enter name" value="{{ old('name') }}" name="name">
+                            <input type="text" name="name" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" id="name" placeholder="Enter name" value="{{ old('name') }}" name="name">
                             <div class="error-container text-danger" style="font-size: 12px;"></div>
                             <p class="text-danger">
                                 @error('name')
@@ -61,8 +52,7 @@
                         <div class="form-group">
                             <label for="address">Address</label>
                             <input type="text" name="address"
-                                class="form-control {{ $errors->has('address') ? 'is-invalid' : '' }}" id="address"
-                                placeholder="Enter address" value="{{ old('address') }}" name="address">
+                                class="form-control {{ $errors->has('address') ? 'is-invalid' : '' }}" id="address" placeholder="Enter address" value="{{ old('address') }}" name="address">
                             <div class="error-container text-danger" style="font-size: 12px;"></div>
                             <p class="text-danger">
                                 @error('address')
@@ -72,9 +62,7 @@
                         </div>
                         <div class="form-group">
                             <label for="contact_number">Contact Number</label>
-                            <input type="text" name="contact_number"
-                                class="form-control {{ $errors->has('contact_number') ? 'is-invalid' : '' }}"
-                                id="contact_number" placeholder="Enter contact" value="{{ old('contact_number') }}" name="contact_number">
+                            <input type="text" name="contact_number" class="form-control {{ $errors->has('contact_number') ? 'is-invalid' : '' }}" id="contact_number" placeholder="Enter contact" value="{{ old('contact_number') }}" name="contact_number">
                             <div class="error-container text-danger" style="font-size: 12px;"></div>
                             <p class="text-danger">
                                 @error('contact_number')
@@ -84,9 +72,7 @@
                         </div>
                         <div class="form-group">
                             <label for="email">E-mail Address</label>
-                            <input type="email" name="email"
-                                class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" id="email"
-                                placeholder="Enter email" value="{{ old('email') }}" nam="email">
+                            <input type="email" name="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" id="email" placeholder="Enter email" value="{{ old('email') }}" nam="email">
                             <div class="error-container text-danger" style="font-size: 12px;"></div>
                             <p class="text-danger">
                                 @error('email')
@@ -96,9 +82,7 @@
                         </div>
                         <div class="form-group">
                             <label for="username">Username</label>
-                            <input type="text" name="username"
-                                class="form-control {{ $errors->has('username') ? 'is-invalid' : '' }}" id="username"
-                                placeholder="Enter Username" value="{{ old('username') }}" name="username">
+                            <input type="text" name="username" class="form-control {{ $errors->has('username') ? 'is-invalid' : '' }}" id="username" placeholder="Enter Username" value="{{ old('username') }}" name="username">
                             <div class="error-container text-danger" style="font-size: 12px;"></div>
                             <p class="text-danger">
                                 @error('username')
@@ -108,9 +92,7 @@
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="password" name="password"
-                                class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" id="password"
-                                placeholder="Password" name="password">
+                            <input type="password" name="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" id="password" placeholder="Password" name="password">
                             <div class="error-container text-danger" style="font-size: 12px;"></div>
                             <p class="text-danger">
                                 @error('password')
@@ -120,9 +102,7 @@
                         </div>
                         <div class="form-group">
                             <label for="password">Confirm Password</label>
-                            <input type="password" name="password_confirmation"
-                                class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" id="password"
-                                placeholder="Password" name="password_confirmation">
+                            <input type="password" name="password_confirmation" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" id="password" placeholder="Password" name="password_confirmation">
                             <div class="error-container text-danger" style="font-size: 12px;"></div>
                             <p class="text-danger">
                                 @error('password')
@@ -131,20 +111,20 @@
                             </p>
                         </div>
                         <div class="form-group">
-                            <label for="merchant_profile_pictures">Profile Picture</label>
+                            <label for="merchant_profile_picture">Profile Picture</label>
                             <div class="input-group">
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="merchant_profile_pictures" name="merchant_profile_pictures">
-                                    <label class="custom-file-label" for="merchant_profile_pictures" id="merchant_profile_pictures" aria-describedby="merchant_profile_pictures">Choose file</label>
+                                    <input type="file" class="custom-file-input" id="merchant_profile_picture" name="merchant_profile_picture">
+                                    <label class="custom-file-label" for="merchant_profile_picture" aria-describedby="merchant_profile_picture">Choose file</label>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="merchant_valid_id_pictures">Valid ID</label>
+                            <label for="merchant_valid_id_picture">Valid ID</label>
                             <div class="input-group">
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="merchant_valid_id_pictures" name="merchant_valid_id_pictures">
-                                    <label class="custom-file-label" for="merchant_valid_id_pictures" id="merchant_valid_id_pictures" aria-describedby="merchant_valid_id_pictures">Choose file</label>
+                                    <input type="file" class="custom-file-input" id="merchant_valid_id_picture" name="merchant_valid_id_picture">
+                                    <label class="custom-file-label" for="merchant_valid_id_picture" aria-describedby="merchant_valid_id_picture">Choose file</label>
                                 </div>
                             </div>
                         </div>
