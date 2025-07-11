@@ -7,7 +7,7 @@ use Illuminate\Support\Carbon;
 class Functions
 {
 
-    public static function IDGenerator($model, $trow, $length = 5, $prefix)
+    public static function IDGenerator($model, $trow, $prefix, $id, $length = 5)
     {
         $data = $model::orderBy('id', 'desc')->first();
         if (!$data) {
