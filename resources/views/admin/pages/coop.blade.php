@@ -21,7 +21,7 @@
     </section>
 
 <!-- start -->
-    <div class="table-striped table-responsive">
+    <!-- <div class="table-striped table-responsive">
         <table class="table m-0">
             <thead>
             <tr>
@@ -46,12 +46,12 @@
             @endforeach
             </tbody>
         </table>
-    </div>
+    </div> -->
 <!-- end -->
 
-<div style="float: right"><b>Current Logged In ID:</b> {{Auth::user()->user_id; }}</div>
+<div class="identity-clause"><b>Current Logged In ID:</b> {{Auth::user()->user_id; }}</div>
 
-<br><br><br>
+<br>
     <!-- Main content -->
     <div class="content">
         <div class="container-fluid">

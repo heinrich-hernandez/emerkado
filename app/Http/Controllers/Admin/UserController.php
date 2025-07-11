@@ -189,4 +189,44 @@ class UserController extends Controller
         }
     }
 
+    // REVIEW MERCHANT PAGE
+    public function review_merchants(Request $request, $id){
+        $merchants = merchantsModel::find($id); 
+        $data = [
+            'title' => 'Review Merchants',
+            'review_merchants' => $review_merchants
+        ];
+        return view('admin.pages.review_review_merchants', $data);
+    }
+
+    // APPROVED REVIEW MERCHANTS PAGE
+    public function approved_review_merchants(Request $request, $id){
+        $merchants = MerchantsModel::find($id);
+        // Check if the merchant record exists
+        if ($merchants) {
+            // Check which button was clicked
+            if ($request->has('approved-account-modal')) {
+                // Update the approve_merchants column for approval
+                $merchants->review_status = 'Approved';
+                $notif = 'approved_account';
+                // Save the changes to the database
+                $merchants->save();
+            } elseif ($request->has('denied-account-modal')) {
+                // Update the approve_merchants column for denial
+                $merchants->review_status = 'In Progress';
+                $notif = 'denied_account';
+                 // Save the changes to the database
+                 $merchants->save();
+            }
+
+            
+
+            $status = ['status' => $notif];
+            return redirect()->route('pages.merchants', $status); //url path in folder resources/views/admin/pages/merchants.blade.php
+        } else {
+            $success = ['status' => 'denied_account'];
+            return redirect()->route('pages.merchants', $success); //url path in folder resources/views/admin/pages/merchants.blade.php
+        }
+    }
+
 } //end of controller

@@ -197,7 +197,8 @@
                         <br/><br/>
                         Please review your account information provided below:
                         <br/><br/>
-                        <table>
+                      <div class="active tab-pane" id="information" >
+                        <table class="table table-bordered table-striped">
                         <tr>
                             <th></th>
                             <th style="width: 40px"></th>
@@ -256,6 +257,7 @@
                             <td>{{ $coop->business_description }}</td>
                           </tr>
                         </table>
+                      </div>
                       <br/><br/>
                       <i>To edit your account information, you may access the <b>"Information"</b> tab provided on the top of this form.</i>
                       <div class="banner-review-bottom"><img src="{{asset('images/banner-design-review-line.png') }}" alt="banner image"></div>
