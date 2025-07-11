@@ -49,6 +49,7 @@ use App\Helpers\CreatedAt;
                         <button class="btn btn-primary">Registration</button>
                     </a>
                 </div>
+                Role: <span id="status-badgeRole" class="badge badge-pill fontcolor-white {{ Functions::userrole_color('Coop') }}">Merchant</span>
 
 
 

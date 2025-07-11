@@ -59,14 +59,19 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <div class="card-tools">
+                            <div class="card-tools border-transparent">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse">
                                     <i class="fas fa-minus"></i>
                                 </button>
                             </div>
-                            <a href="{{ route('pages.create_coop') }}" class="pt-2">Add record >></a>
-                            <br>
-                            Role: <span id="status-badgeRole" class="badge badge-pill fontcolor-white {{ Functions::userrole_color('Coop') }}">Coop</span>
+
+                            <div class="d-flex flex-column">
+                                <h3 class="card-title">Coop Users</h3>
+                                <a href="{{ route('pages.create_coop') }}" class="pt-2">
+                                    <button class="btn btn-primary">Add Coop</button>
+                                </a>
+                                </div>
+                                Role: <span id="status-badgeRole" class="badge badge-pill fontcolor-white {{ Functions::userrole_color('Coop') }}">Coop</span>
                             <!--div class="d-flex flex-column">
                                 <h3 class="card-title">Coop Users</h3>
                             </div-->
