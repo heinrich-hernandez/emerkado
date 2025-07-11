@@ -67,25 +67,27 @@ class Functions
     }*/
 
     //start // Create_at interval
+    //switch case argument instead of if else
     public static function interval_status($interval) {
-        if ($interval < 60) {
-            return "Just now";
-        } elseif ($interval < 1440) {
-            return "Less than a day ago";
-        } elseif ($interval < 2880) {
-            return "1 day ago";
-        } elseif ($interval < 4320) {
-            return "2 days ago";
-        } elseif ($interval < 5760) {
-            return "3 days ago";
-        } elseif ($interval < 7200) {
-            return "4 days ago";
-        } elseif ($interval < 8640) {
-            return "5 days ago";
-        } elseif ($interval < 10080) {
-            return "6 days ago";
-        } else {
-            return "More than a week ago";
+        switch (true) {
+            case ($interval < 60):
+                return "Just now";
+            case ($interval < 1440):
+                return "Less than a day ago";
+            case ($interval < 2880):
+                return "1 day ago";
+            case ($interval < 4320):
+                return "2 days ago";
+            case ($interval < 5760):
+                return "3 days ago";
+            case ($interval < 7200):
+                return "4 days ago";
+            case ($interval < 8640):
+                return "5 days ago";
+            case ($interval < 10080):
+                return "6 days ago";
+            default:
+                return "More than a week ago";
         }
     }
 
