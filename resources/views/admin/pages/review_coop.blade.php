@@ -20,6 +20,13 @@
             </div>
         </div><!-- /.container-fluid -->
     </section>
+        
+    <div>
+      <p>
+        <span class="identity-clause">Logged In ID:</span> 
+        {{Auth::user()->user_id; }}<br/>
+      </p>
+    </div>  
     @if ($errors->any())
         <script>
             document.addEventListener('DOMContentLoaded', function() {
@@ -34,9 +41,7 @@
         </ul>
     </div>
     @endif
-    
-    <b>Current Logged In ID:</b> {{Auth::user()->user_id; }}<br/>
-    <a href="javascript:void(0)" class="btn btn-default" data-toggle="modal" data-target="#modal-default">xxxxxxxxxxxxx</a>
+
 <!-- Modal -->
 <form action="{{ route('approved.review_coop', $coop->id ) }}" method="post" enctype="multipart/form-data">
 @csrf
