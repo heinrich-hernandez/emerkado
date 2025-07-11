@@ -37,10 +37,16 @@ use App\Http\Middleware\AuthenticateSysUsers;
 
 // Auth::routes();
 
+// Redirect root URL to user login if not authenticated
+Route::get('/', function () {
+    return redirect()->route('getLogin');
+})->middleware('guest'); // Only redirect if the user is a guest
+
 Route::get('/user-login', [LoginController::class, 'getLogin'])->name('getLogin');
 // Route::get('/login', [LoginController::class, 'getLogin'])->name('login');
 Route::post('/user-login', [LoginController::class, 'postLogin'])->name('postLogin');
 Route::post('/user-logout', [LoginController::class, 'Logout'])->name('Logout');
+
 
 Route::middleware(['auth:merchant', AuthenticateSysUsers::class])->group(function () {
     Route::get('/merchant/dashboard', [MerchantProfileController::class, 'dashboard'])->name('merchant-dashboard');
