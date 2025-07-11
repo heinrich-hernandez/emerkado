@@ -75,7 +75,7 @@ use App\Helpers\CreatedAt;
                         </td>
                         <td class="align-middle">{{$merchants->email}}</td>
                         <td>
-                            <input data-id="{{$merchants->id}}" class="approve_merchants" type="checkbox" data-onstyle="success {{ $merchants->review_status == 'Approved' ? '' : 'warning-disabled' }}" data-offstyle="warning {{ $merchants->review_status == 'Approved' ? '' : 'warning-disabled' }}" data-toggle="toggle" data-on="Activate" data-off="Deactivate" {{ $merchants->status ? 'checked' : '' }} {{ $merchants->review_status == 'Approved' ? '' : 'disabled' }}>
+                            <input data-id="{{$merchants->id}}" class="approve_merchants" type="checkbox" data-onstyle="success {{ $merchants->review_status == 'Approved' ? '' : 'warning-disabled' }}" data-offstyle="warning {{ $merchants->review_status == 'Approved' ? '' : 'warning-disabled' }}" data-toggle="toggle" data-on="Activated" data-off="Inactive" {{ $merchants->status ? 'checked' : '' }} {{ $merchants->review_status == 'Approved' ? '' : 'disabled' }}>
                         </td>
                         <td class="align-middle">{{ Functions::GetDateInterval($merchants->created_at)  === "More than a week ago" ? $merchants->created_at :  Functions::GetDateInterval($merchants->created_at)}}</td>
                         <td class="align-middle">

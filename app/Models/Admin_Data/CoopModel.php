@@ -28,6 +28,7 @@ class CoopModel extends Model
         'status',
         'reviewed_by',
         'date',
+        'review_status',
         'created_at',
         'updated_at'
     ];
