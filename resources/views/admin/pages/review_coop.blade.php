@@ -21,11 +21,22 @@
         </div><!-- /.container-fluid -->
     </section>
         
-    <div>
-      <p>
-        <span class="identity-clause">Logged In ID:</span> 
-        {{Auth::user()->user_id; }}<br/>
-      </p>
+    <div class="d-flex align-items-center">
+      <div>
+        <p>
+          <span class="identity-clause">Logged In ID:</span> 
+          {{Auth::user()->user_id; }}<br/>
+        </p>
+      </div>
+      <div class="ml-auto">
+        <a href="javascript:void(0)"
+          class="btn {{ $coop->review_status == 'For Review' ? 'btn-danger' : ($coop->review_status == 'In Progress' ? 'btn-warning' : 'btn-success') }} approval-button fw-bolder " 
+          data-bs-toggle="modal"
+          data-bs-target="#modal-default">
+            <!-- Approval : {{ $coop->review_status == 'For Review' ? 'Unassigned' : $coop->review_status }} -->
+            Approval : {{ $coop->review_status }}
+        </a>
+      </div>
     </div>  
     @if ($errors->any())
         <script>
@@ -42,6 +53,7 @@
     </div>
     @endif
 
+ 
 <!-- Modal -->
 <form action="{{ route('approved.review_coop', $coop->id ) }}" method="post" enctype="multipart/form-data">
 @csrf
@@ -56,7 +68,7 @@
       <!-- Modal right: Form section -->
       <div class="modal-right">
         <div class="modal-header modal-userapproval">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
         </button>
         </div>
@@ -183,7 +195,7 @@
                 </ul>
               </div><!-- /.card-header -->
               <div class="card-body">
-                <div class="tab-content">
+                <div class="tab-content" id="information">
                   <div class="active tab-pane" id="activity">
                     <!-- Post -->
                     @if($coop->review_status !='Approved')
@@ -466,5 +478,13 @@
 @endsection
 
 @push('scripts')
+    <script src="{{ asset('js/jquery-3.7.1.min.js') }}" defer></script>
+    <script src="{{ asset('js/summernote.min.js') }}" defer></script>
+    <script src="{{ asset('js/adminlte.min.js') }}" defer></script>
+    <script src="{{ asset('js/jquery.validate.min.js') }}" defer></script>
+    <script src="{{ asset('js/sweetalert2.all.min.js') }}" defer></
     <script src="{{ asset('js/display_file_name.js') }}"></script>
+    <script src="{{ asset('js/popper.min.js') }}" defer></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}" defer></script>
+    <script src="{{ asset('js/bootstrap-toggle.min.js') }}" defer></script>
 @endpush

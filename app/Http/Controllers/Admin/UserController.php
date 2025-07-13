@@ -16,9 +16,6 @@ class UserController extends Controller
     public function coop()
     {
         $coop = CoopModel::all();
-        // $reviewer = CoopModel::find('COOP-00000');
-        // $reviews = $reviewer->reviewer_id;
-        // $account = AdminModel::find('ADMN-00000');
         $user_id = Auth::user()->user_id;
         $reviews = Review_AccountModel::with('reviewer')->where('reviewer_id', $user_id)->get();
 
@@ -66,7 +63,6 @@ class UserController extends Controller
             'password' => 'required|confirmed|min:8',
             'merchant_profile_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:512',
             'merchant_valid_id_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:512',
-            //'password' => 'required|min:8',
             'address' => 'required'
         ]);
 
@@ -191,12 +187,12 @@ class UserController extends Controller
 
     // REVIEW MERCHANT PAGE
     public function review_merchants(Request $request, $id){
-        $merchants = merchantsModel::find($id); 
+        $merchants = MerchantModel::find($id); 
         $data = [
             'title' => 'Review Merchants',
-            'review_merchants' => $review_merchants
+            'review_merchants' => $merchants
         ];
-        return view('admin.pages.review_review_merchants', $data);
+        return view('admin.pages.review_merchants', $data);
     }
 
     // APPROVED REVIEW MERCHANTS PAGE

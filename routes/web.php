@@ -20,9 +20,15 @@ Route::get('/', function () {
 
 
 // Admin routes
-Route::get('/', function () {
-    return redirect()->route('admin-dashboard');
-})->middleware('auth:admin'); // Redirect to admin dashboard if authenticated as admin
+Route::middleware('auth:admin')->group(function () {
+    Route::get('/', function () {
+        return redirect()->route('admin-dashboard');
+    });
+
+    Route::get('/admin', function () {
+        return redirect()->route('admin-dashboard');
+    });
+});
 
 Route::middleware(['auth:admin', AuthenticateSysUsers::class])->group(function () {
     Route::get('/admin/dashboard', [AdminProfileController::class, 'dashboard'])->name('admin-dashboard');

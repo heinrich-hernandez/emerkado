@@ -99,13 +99,18 @@
 
     @vite('resources/js/app.js')
     <!-- AdminLTE App -->
+    <script src="{{ asset('js/jquery-3.7.1.min.js') }}" defer></script>
+    <script src="{{ asset('js/summernote.min.js') }}" defer></script>
     <script src="{{ asset('js/adminlte.min.js') }}" defer></script>
     <script src="{{ asset('js/jquery.validate.min.js') }}" defer></script>
-    <script src="{{ asset('js/custom_functions.js') }}" defer></script>
-    <script src="{{ asset('js/sweetalert2.all.min.js') }}" defer></script> <!-- optimized file, please refer the readable css on template file -->
-    <script src="{{ asset('js/toastr.min.js') }}" defer></script> <!-- optimized file, please refer the readable css on template file -->
+    <script src="{{ asset('js/sweetalert2.all.min.js') }}" defer></script>
+    <script src="{{ asset('js/sweetalert2@11.js') }}" defer></script> 
+    <script src="{{ asset('js/toastr.min.js') }}" defer></script> 
     <script src="{{ asset('js/form_validation.js') }}" defer></script>
     <script src="{{ asset('js/ajax_functions.js') }}" defer></script>
+    <script src="{{ asset('js/bootstrap-toggle.min.js') }}"  defer></script>
+    <script src="{{ asset('js/summernote-bs4.min.js') }}" defer></script>
+    <script src="{{ asset('js/custom_functions.js') }}" defer></script>
     @yield('scripts')
     @stack('scripts')
 </body>

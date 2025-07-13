@@ -5,3 +5,8 @@
     animation: blink 1s infinite; 
 }
 
+.approval-button {
+    padding: 5px 10px;
+    margin: 5px 0.9rem 0px 0px;
+    font-weight: bolder;
+}

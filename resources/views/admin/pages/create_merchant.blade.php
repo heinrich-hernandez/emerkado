@@ -102,7 +102,7 @@
                         </div>
                         <div class="form-group">
                             <label for="password">Confirm Password</label>
-                            <input type="password" name="password_confirmation" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" id="password" placeholder="Password" name="password_confirmation">
+                            <input type="password" name="password_confirmation" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" id="password_confirmation" placeholder="Password" name="password_confirmation">
                             <div class="error-container text-danger" style="font-size: 12px;"></div>
                             <p class="text-danger">
                                 @error('password')

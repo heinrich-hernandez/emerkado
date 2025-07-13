@@ -50,7 +50,6 @@ class UserController extends Controller
             'email' => 'required|email|unique:merchants',
             'username' => 'required',
             'password' => 'required|confirmed|min:8',
-            //'password' => 'required|min:8',
             'address' => 'required',
             'profile_picture' => 'nullable',
             'valid_id_picture' => 'nullable'
