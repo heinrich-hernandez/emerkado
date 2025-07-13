@@ -7,50 +7,22 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Middleware\AdminAuth;
 use App\Http\Middleware\AuthenticateSysUsers;
 
-// Route::get('/', function () {
-//     return view('auth.login');
-// });
 
-//ADMIN FUNCTIONS
-// Route::get('/admin/login', [AuthController::class, 'getLogin'])->name('getLogin');
-// Route::post('/admin/login', [AuthController::class, 'postLogin'])->name('postLogin');
-// Route::post('/admin/logout', [AuthController::class, 'adminLogout'])->name('adminLogout');
+Route::get('/user-login', [LoginController::class, 'getLogin'])->name('getLogin');
+Route::post('/user-login', [LoginController::class, 'postLogin'])->name('postLogin');
+Route::post('/user-logout', [LoginController::class, 'Logout'])->name('Logout');
 
-
-
-//Route::group(['middleware'=>['admin_auth']],function(){});
-
-// Route::middleware([AdminAuth::class])->group(function () {
-//     Route::get('/admin/dashboard', [AdminProfileController::class, 'dashboard'])->name('admin-dashboard');
-//     Route::get('/admin/coop', [UserController::class, 'coop'])->name('pages.coop');
-//     Route::get('/admin/merchant', [UserController::class, 'merchant'])->name('pages.merchant');
-//     Route::get('/admin/coop/create_coop', [UserController::class, 'create_coop'])->name('pages.create_coop');
-//     Route::post('/admin/merchant', [UserController::class, 'add_merchant'])->name('create.merchant');
-//     Route::post('/admin/coop', [CoopController::class, 'add_coop'])->name('create.coop');
-//     Route::get('/admin/merchant/create_merchant', [UserController::class, 'create_merchant'])->name('pages.create_merchant');
-//     Route::get('/admin/buyer', [UserController::class, 'buyer'])->name('pages.buyer');
-// });
-
-// xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-
-// FOR TESTING ...
-
-// Auth::routes();
 
 // Redirect root URL to user login if not authenticated
 Route::get('/', function () {
     return redirect()->route('getLogin');
 })->middleware('guest'); // Only redirect if the user is a guest
 
-Route::get('/user-login', [LoginController::class, 'getLogin'])->name('getLogin');
-// Route::get('/login', [LoginController::class, 'getLogin'])->name('login');
-Route::post('/user-login', [LoginController::class, 'postLogin'])->name('postLogin');
-Route::post('/user-logout', [LoginController::class, 'Logout'])->name('Logout');
 
-
-Route::middleware(['auth:merchant', AuthenticateSysUsers::class])->group(function () {
-    Route::get('/merchant/dashboard', [MerchantProfileController::class, 'dashboard'])->name('merchant-dashboard');
-});
+// Admin routes
+Route::get('/', function () {
+    return redirect()->route('admin-dashboard');
+})->middleware('auth:admin'); // Redirect to admin dashboard if authenticated as admin
 
 Route::middleware(['auth:admin', AuthenticateSysUsers::class])->group(function () {
     Route::get('/admin/dashboard', [AdminProfileController::class, 'dashboard'])->name('admin-dashboard');
@@ -73,27 +45,12 @@ Route::middleware(['auth:admin', AuthenticateSysUsers::class])->group(function (
 //     Route::get('/coop/dashboard', [CoopProfileController::class, 'dashboard'])->name('coop-dashboard');
 // });
 
+// Route::middleware(['auth:merchant', AuthenticateSysUsers::class])->group(function () {
+//     Route::get('/merchant/dashboard', [MerchantProfileController::class, 'dashboard'])->name('merchant-dashboard');
+// });
+
+
 // Route::middleware(['auth:buyer', AuthenticateSysUsers::class])->group(function () {
 //     Route::get('/buyer/dashboard', [BuyerProfileController::class, 'dashboard'])->name('buyer-dashboard');
 // });
-
-
-// xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-
-
-
-//TEMPLATE FUNCTIONS (from the original template. it might broke something if this code be remove.)
-
-
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-// Route::middleware('auth')->group(function () {
-//     Route::view('about', 'about')->name('about');
-
-//     Route::get('users', [\App\Http\Controllers\UserController::class, 'index'])->name('users.index');
-
-//     Route::get('profile', [\App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show');
-//     Route::put('profile', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
-// });
-
 

@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="{{ asset('css/sweetalert2.min.css') }}"> <!-- optimized file, please refer the readable css on template file -->
     <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}"><!-- optimized file, please refer the readable css on template file -->
     <link rel="stylesheet" href="{{ asset('css/summernote-bs4.min.css') }}"><!-- optimized file, please refer the readable css on template file -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" integrity="sha512-hievggED+/IcfxhYRSr4Auo1jbiOczpqpLZwfTVL/6hFACdbI3WQ8S9NCX50gsM9QVE+zLk/8wb9TlgriFbX+Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-toggle.min.css') }}">
     @yield('styles')
 </head>
 
@@ -108,7 +108,7 @@
     <script src="{{ asset('js/form_validation.js') }}" defer></script>
     <script src="{{ asset('js/ajax_functions.js') }}" defer></script>
     <script src="{{ asset('js/summernote-bs4.min.js') }}" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js" integrity="sha512-F636MAkMAhtTplahL9F6KmTfxTmYcAcjcCkyu0f0voT3N/6vzAuJ4Num55a0gEJ+hRLHhdz3vDvZpf6kqgEa5w==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+    <script src="{{ asset('js/bootstrap-toggle.min.js') }}"  defer></script>
     @yield('scripts')
     @stack('scripts')
 </body>
