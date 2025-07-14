@@ -43,6 +43,7 @@ class CoopController extends Controller
                 'required_if:agency_affiliation,yes'
             ],
             'user_role' => 'nullable|string|max:255',
+            'business_discription' => 'nullable|string|max:255',
             'review_status' => 'nullable|string|max:255',
             'date' => 'nullable|date'
         ]);

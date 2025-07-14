@@ -65,17 +65,17 @@ use App\Helpers\CreatedAt;
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach ($merchants as $merchants)
-                    <tr>
-                        <td class="align-middle">{{$merchants->user_id}}</td>
+                    @foreach ($merchant as $merchant)
+                    <tr id="table_row_{{$merchant->id}}">
+                        <td class="align-middle">{{$merchant->user_id}}</td>
                         <td class="align-middle">
-                            <img src="{{ $merchants->profile_picture ? URL::to('/storage') . '/' . $merchants->profile_picture : asset('images/guest.jpg') }}" alt="Profile" class="table-avatar" onerror="this.onerror=null;this.src='{{ asset('images/guest.jpg') }}">
-                            {{$merchants->name}}
+                            <img src="{{ $merchant->profile_picture ? URL::to('/storage') . '/' . $merchant->profile_picture : asset('images/guest.jpg') }}" alt="Profile" class="table-avatar" onerror="this.onerror=null;this.src='{{ asset('images/guest.jpg') }}">
+                            {{$merchant->name}}
                         </td>
-                        <td class="align-middle">{{$merchants->email}}</td>
-                        <td class="align-middle">{{ Functions::GetDateInterval($merchants->created_at)  === "More than a week ago" ? $merchants->created_at :  Functions::GetDateInterval($merchants->created_at)}}</td>
+                        <td class="align-middle">{{$merchant->email}}</td>
+                        <td class="align-middle">{{ Functions::GetDateInterval($merchant->created_at)  === "More than a week ago" ? $merchant->created_at :  Functions::GetDateInterval($merchant->created_at)}}</td>
                         <td class="align-middle">
-                            <a href="javascript:void(0)" onclick="delete_merchants('{{ $merchants->id }}')" class="btn btn-tool"><i class="fa fa-trash color-danger"></i></a>
+                            <a href="javascript:void(0)" onclick="delete_merchant('{{ $merchant->id }}')" class="btn btn-tool"><i class="fa fa-trash color-danger"></i></a>
                         </td>
                       </tr>
                     @endforeach

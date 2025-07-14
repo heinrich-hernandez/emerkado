@@ -31,10 +31,11 @@ class UserController extends Controller
     // MERCHANT PAGE
     public function merchant()
     {
-        $merchants = MerchantModel::all();
+        $merchant = MerchantModel::all();
+        $user_id = Auth::user()->user_id;
         $data = [
             'title' => 'Merchant',
-            'merchants' => $merchants
+            'merchant' => $merchant
         ];
         return view('admin.pages.merchant', $data); //url path in folder resources/views/admin/pages/merchant.blade.php
     }
@@ -64,7 +65,7 @@ class UserController extends Controller
 
     // DELETE MERCHANT
     public function delete_merchant($id){
-        $data= CoopModel::find($id);
+        $data= MerchantModel::find($id);
         if (!$data) {
             return response()->json(['success' => false, 'message' => 'Record not found'], 404);
         }
@@ -159,42 +160,42 @@ class UserController extends Controller
     }
 
     // REVIEW MERCHANT PAGE
-    public function review_merchants(Request $request, $id){
-        $merchants = MerchantModel::find($id); 
+    public function review_merchant(Request $request, $id){
+        $merchant = MerchantModel::find($id); 
         $data = [
-            'title' => 'Review Merchants',
-            'review_merchants' => $merchants
+            'title' => 'Review merchant',
+            'review_merchant' => $merchant
         ];
-        return view('admin.pages.review_merchants', $data);
+        return view('admin.pages.review_merchant', $data);
     }
 
-    // APPROVED REVIEW MERCHANTS PAGE
-    public function approved_review_merchants(Request $request, $id){
-        $merchants = MerchantsModel::find($id);
+    // APPROVED REVIEW merchant PAGE
+    public function approved_review_merchant(Request $request, $id){
+        $merchant = merchantModel::find($id);
         // Check if the merchant record exists
-        if ($merchants) {
+        if ($merchant) {
             // Check which button was clicked
             if ($request->has('approved-account-modal')) {
-                // Update the approve_merchants column for approval
-                $merchants->review_status = 'Approved';
+                // Update the approve_merchant column for approval
+                $merchant->review_status = 'Approved';
                 $notif = 'approved_account';
                 // Save the changes to the database
-                $merchants->save();
+                $merchant->save();
             } elseif ($request->has('denied-account-modal')) {
-                // Update the approve_merchants column for denial
-                $merchants->review_status = 'In Progress';
+                // Update the approve_merchant column for denial
+                $merchant->review_status = 'In Progress';
                 $notif = 'denied_account';
                  // Save the changes to the database
-                 $merchants->save();
+                 $merchant->save();
             }
 
             
 
             $status = ['status' => $notif];
-            return redirect()->route('pages.merchants', $status); //url path in folder resources/views/admin/pages/merchants.blade.php
+            return redirect()->route('pages.merchant', $status); //url path in folder resources/views/admin/pages/merchant.blade.php
         } else {
             $success = ['status' => 'denied_account'];
-            return redirect()->route('pages.merchants', $success); //url path in folder resources/views/admin/pages/merchants.blade.php
+            return redirect()->route('pages.merchant', $success); //url path in folder resources/views/admin/pages/merchant.blade.php
         }
     }
 

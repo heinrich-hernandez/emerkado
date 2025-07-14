@@ -54,10 +54,10 @@ Route::middleware(['auth:admin', AuthenticateSysUsers::class])->group(function (
     Route::get('/admin/merchant/create_merchant', [AdminUserController::class, 'create_merchant'])->name('pages.create_merchant');
     Route::post('/admin/merchant', [MerchantController::class, 'add_merchant'])->name('create.merchant');
     // Delete
-    Route::delete('/admin/merchants/delete_merchant/{id}', [AdminUserController::class, 'delete_merchant']);
-    // // Review Merchants -- removed since it is no longer needed
-    // Route::get('/admin/merchant/review_merchants/id={id}', [AdminUserController::class, 'review_merchants'])->name('pages.review_merchants');
-    // Route::post('/admin/merchant/review_merchants/id={id}', [AdminUserController::class, 'approved_review_merchants'])->name('approved.review_merchants');
+    Route::delete('/admin/merchant/delete_merchant/{id}', [AdminUserController::class, 'delete_merchant']);
+    // // Review merchant -- removed since it is no longer needed
+    // Route::get('/admin/merchant/review_merchant/id={id}', [AdminUserController::class, 'review_merchant'])->name('pages.review_merchant');
+    // Route::post('/admin/merchant/review_merchant/id={id}', [AdminUserController::class, 'approved_review_merchant'])->name('approved.review_merchant');
     
 
     // Buyer routes

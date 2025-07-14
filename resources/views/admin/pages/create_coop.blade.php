@@ -179,6 +179,16 @@
                                         </div>
                                         <div class="form-row">
                                             <div class="col-12">
+                                                <div class="form-group mb-3">
+                                                    <div class="mb-3">
+                                                        <label for="business_description">Business Description</label>
+                                                        <textarea class="form-control" id="business_description" rows="3"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-12">
                                                 <div class="form-group">
                                                     <label for="username">Username</label>
                                                     <input type="text" class="form-control {{ $errors->has('username') ? 'is-invalid' : '' }}" value="{{ old('username') }}" id="username" aria-describedby="username" name="username">

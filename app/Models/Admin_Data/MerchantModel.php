@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class MerchantModel extends Model
 {
     use HasFactory;
-    protected $table = 'merchants';
+    protected $table = 'merchant';
 
     protected $fillable = [
         'id',

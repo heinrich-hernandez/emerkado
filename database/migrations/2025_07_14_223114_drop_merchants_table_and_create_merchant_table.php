@@ -18,13 +18,13 @@ return new class extends Migration
             $table->string('address');
             $table->string('contact_number');
             $table->string('email')->unique();
-            $table->string('profile_picture');
-            $table->string('valid_id_picture');
+            $table->string('profile_picture')->nullable();
+            $table->string('valid_id_picture')->nullable();
             $table->string('username');
             $table->string('password');
             $table->string('user_role');
             $table->string('status');
-            $table->rememberToken();
+            $table->rememberToken()->nullable();
             $table->date('date');
             $table->timestamps();
         });

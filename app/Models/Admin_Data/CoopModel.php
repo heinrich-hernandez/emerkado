@@ -27,6 +27,7 @@ class CoopModel extends Model
         'user_role',
         'status',
         'date',
+        'business_discription',
         'review_status',
         'reviewed_by',
         'created_at',

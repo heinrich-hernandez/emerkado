@@ -12,10 +12,10 @@ class UserController extends Controller
 
     public function merchant()
     {
-        $merchants = MerchantModel::all();
+        $merchant = MerchantModel::all();
         $data = [
             'title' => 'Merchant',
-            'merchants' => $merchants
+            'merchant' => $merchant
         ];
         return view('admin.pages.merchant', $data); //url path in folder resources/views/admin/pages/merchant.blade.php
     }
