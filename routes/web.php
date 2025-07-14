@@ -33,6 +33,7 @@ Route::middleware('auth:admin')->group(function () {
 Route::middleware(['auth:admin', AuthenticateSysUsers::class])->group(function () {
     Route::get('/admin/dashboard', [AdminProfileController::class, 'dashboard'])->name('admin-dashboard');
 
+
     // Coop routes
     Route::get('/admin/coop', [AdminUserController::class, 'coop'])->name('pages.coop');
     // Create  
@@ -46,12 +47,18 @@ Route::middleware(['auth:admin', AuthenticateSysUsers::class])->group(function (
     Route::get('/admin/coop/review_coop/id={id}', [AdminUserController::class, 'review_coop'])->name('pages.review_coop');
     Route::post('/admin/coop/review_coop/id={id}', [AdminUserController::class, 'approved_review_coop'])->name('approved.review_coop');
 
+
     // Merchant routes
     Route::get('/admin/merchant', [AdminUserController::class, 'merchant'])->name('pages.merchant');
-    Route::post('/admin/merchant', [AdminUserController::class, 'add_merchant'])->name('create.merchant');
+    // Create
     Route::get('/admin/merchant/create_merchant', [AdminUserController::class, 'create_merchant'])->name('pages.create_merchant');
-    Route::get('/admin/merchant/review_merchants/id={id}', [AdminUserController::class, 'review_merchants'])->name('pages.review_merchants');
-    Route::post('/admin/merchant/review_merchants/id={id}', [AdminUserController::class, 'approved_review_merchants'])->name('approved.review_merchants');
+    Route::post('/admin/merchant', [MerchantController::class, 'add_merchant'])->name('create.merchant');
+    // Delete
+    Route::delete('/admin/merchants/delete_merchant/{id}', [AdminUserController::class, 'delete_merchant']);
+    // // Review Merchants -- removed since it is no longer needed
+    // Route::get('/admin/merchant/review_merchants/id={id}', [AdminUserController::class, 'review_merchants'])->name('pages.review_merchants');
+    // Route::post('/admin/merchant/review_merchants/id={id}', [AdminUserController::class, 'approved_review_merchants'])->name('approved.review_merchants');
+    
 
     // Buyer routes
     Route::get('/admin/buyer', [AdminUserController::class, 'buyer'])->name('pages.buyer');

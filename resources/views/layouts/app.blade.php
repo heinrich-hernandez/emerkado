@@ -39,8 +39,8 @@
                         {{ __('My profile') }}
                     </a>
                     <div class="dropdown-divider"></div>
-                    <form method="POST" action="{{ route('logout') }}">
-                        <a href="{{ route('logout') }}" class="dropdown-item"
+                    <form method="POST" action="{{ route('Logout') }}">
+                        <a href="{{ route('Logout') }}" class="dropdown-item"
                            onclick="event.preventDefault(); this.closest('form').submit();">
                             <i class="mr-2 fas fa-sign-out-alt"></i>
                             {{ __('Log Out') }}

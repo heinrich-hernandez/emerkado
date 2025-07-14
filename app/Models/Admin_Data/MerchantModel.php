@@ -25,8 +25,6 @@ class MerchantModel extends Model
         'status',
         'remember_token',
         'date',
-        'review_status',
-        'reviewed_by',
         'created_at',
         'updated_at',
     ];

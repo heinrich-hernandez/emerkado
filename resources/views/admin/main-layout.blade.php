@@ -39,7 +39,6 @@
             </ul>
 
             <!-- Right navbar links -->
-            @csrf
             <ul class="navbar-nav ml-auto"> 
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"> 
@@ -55,6 +54,7 @@
                             <a href="{{ route('Logout') }}" class="dropdown-item"
                                 onclick="event.preventDefault(); this.closest('form').submit();">
                                 <i class="mr-2 fas fa-sign-out-alt"></i>
+                                @csrf
                                 {{ __('Log Out') }}
                             </a>
                         </form>

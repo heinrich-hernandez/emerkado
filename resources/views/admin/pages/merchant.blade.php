@@ -62,7 +62,6 @@ use App\Helpers\CreatedAt;
                       <th>Email</th>
                       <th>Status</th>
                       <th>Created at</th>
-                      <th>Update Record</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -74,12 +73,8 @@ use App\Helpers\CreatedAt;
                             {{$merchants->name}}
                         </td>
                         <td class="align-middle">{{$merchants->email}}</td>
-                        <td>
-                            <input data-id="{{$merchants->id}}" class="approve_merchants" type="checkbox" data-onstyle="success {{ $merchants->review_status == 'Approved' ? '' : 'warning-disabled' }}" data-offstyle="warning {{ $merchants->review_status == 'Approved' ? '' : 'warning-disabled' }}" data-toggle="toggle" data-on="Activated" data-off="Inactive" {{ $merchants->status ? 'checked' : '' }} {{ $merchants->review_status == 'Approved' ? '' : 'disabled' }}>
-                        </td>
                         <td class="align-middle">{{ Functions::GetDateInterval($merchants->created_at)  === "More than a week ago" ? $merchants->created_at :  Functions::GetDateInterval($merchants->created_at)}}</td>
                         <td class="align-middle">
-                            <a href="{{ route('pages.review_merchants', $merchants->id ) }}" class="btn btn-tool"><i class="fas fa-pen"></i></a>
                             <a href="javascript:void(0)" onclick="delete_merchants('{{ $merchants->id }}')" class="btn btn-tool"><i class="fa fa-trash color-danger"></i></a>
                         </td>
                       </tr>

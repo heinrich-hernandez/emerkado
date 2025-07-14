@@ -39,17 +39,31 @@ class UserController extends Controller
         return view('admin.pages.merchant', $data); //url path in folder resources/views/admin/pages/merchant.blade.php
     }
 
-    // CREATE MERCHANT PAGE
-    public function create_merchant(Request $request)
-    {
-        $data = [
-            'title' => 'Create Merchant'
-        ];
-        return view('admin.pages.create_merchant', $data); //url path in folder resources/views/admin/pages/create_merchant.blade.php
-    }
 
     // DELETE COOP
     public function delete_coop($id){
+        $data= CoopModel::find($id);
+        if (!$data) {
+            return response()->json(['success' => false, 'message' => 'Record not found'], 404);
+        }
+
+        // Delete the profile_picture
+        if ($data->profile_picture && file_exists(public_path('storage/'.$data->profile_picture))) {
+            unlink(public_path('storage/'.$data->profile_picture));
+        }
+
+
+        // Delete the valid_picture
+        if ($data->valid_id_picture && file_exists(public_path('storage/'.$data->valid_id_picture))) {
+            unlink(public_path('storage/'.$data->valid_id_picture));
+        }
+
+        $data->delete();
+        return response()->json(['success'=>true, 'table_row'=>'table_row_'.$id]);
+    }
+
+    // DELETE MERCHANT
+    public function delete_merchant($id){
         $data= CoopModel::find($id);
         if (!$data) {
             return response()->json(['success' => false, 'message' => 'Record not found'], 404);
@@ -94,6 +108,15 @@ class UserController extends Controller
             ];
             return view('admin.pages.create_coop', $data);
         }
+
+    // CREATE MERCHANT PAGE
+    public function create_merchant(Request $request)
+    {
+        $data = [
+            'title' => 'Create Merchant'
+        ];
+        return view('admin.pages.create_merchant', $data); //url path in folder resources/views/admin/pages/create_merchant.blade.php
+    }
 
     // REVIEW COOP PAGE
     public function review_coop(Request $request, $id){
