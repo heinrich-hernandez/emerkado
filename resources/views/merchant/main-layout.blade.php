@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{csrf_token()}}">
     <title>Merchant Panel {{ isset($title) ? '| ' . $title : '' }}</title>
 
     <!-- Google Font: Source Sans Pro -->
@@ -16,6 +17,7 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/default.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <link rel="stylesheet" href="{{ asset('css/sweetalert2.min.css') }}">
     <!-- optimized file, please refer the readable css on template file -->
     <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}">
@@ -35,7 +37,7 @@
                             class="fas fa-bars"></i></a>
                 </li>
             </ul>
-
+            @csrf
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
@@ -49,7 +51,6 @@
                         </a>
                         <div class="dropdown-divider"></div>
                         <form method="POST" action="{{ route('Logout') }}">
-                            @csrf
                             <a href="{{ route('Logout') }}" class="dropdown-item"
                                 onclick="event.preventDefault(); this.closest('form').submit();">
                                 <i class="mr-2 fas fa-sign-out-alt"></i>
@@ -98,12 +99,18 @@
 
     @vite('resources/js/app.js')
     <!-- AdminLTE App -->
+    <script src="{{ asset('js/jquery-3.7.1.min.js') }}" defer></script>
+    <script src="{{ asset('js/summernote.min.js') }}" defer></script>
     <script src="{{ asset('js/adminlte.min.js') }}" defer></script>
     <script src="{{ asset('js/jquery.validate.min.js') }}" defer></script>
-    <script src="{{ asset('js/custom_functions.js') }}" defer></script>
-    <script src="{{ asset('js/sweetalert2.all.min.js') }}" defer></script> <!-- optimized file, please refer the readable css on template file -->
-    <script src="{{ asset('js/toastr.min.js') }}" defer></script> <!-- optimized file, please refer the readable css on template file -->
+    <script src="{{ asset('js/sweetalert2.all.min.js') }}" defer></script>
+    <script src="{{ asset('js/sweetalert2@11.js') }}" defer></script> 
+    <script src="{{ asset('js/toastr.min.js') }}" defer></script> 
     <script src="{{ asset('js/form_validation.js') }}" defer></script>
+    <script src="{{ asset('js/ajax_functions.js') }}" defer></script>
+    <script src="{{ asset('js/bootstrap-toggle.min.js') }}"  defer></script>
+    <script src="{{ asset('js/summernote-bs4.min.js') }}" defer></script>
+    <script src="{{ asset('js/custom_functions.js') }}" defer></script>
     @yield('scripts')
     @stack('scripts')
 </body>

@@ -1,5 +1,48 @@
 
-img.table-avatar,
-.table-avatar img {
-    border-radius: 50%; display: inline; width: 2.5rem;
+.color-danger{color: #dc3545;}
+.color-success{color: #28a745;}
+.color-warning{color: #ffc107;}
+.color-disabled{color: #808080;}
+.color-in_progress{color: #dc3545; animation: blinker 3s linear infinite;}
+
+.coop-color{background-color: #549ca4; color: whitesmoke;}
+.merchant-color{background-color: #E68268; color: whitesmoke;}
+.buyer-color{background-color: #6C9470;}
+
+.warning-disabled{background-color: #808080 !important; border-color: #808080 !important;}
+
+.for-review{background-color: #549ca4;}
+.banner-review{}
+.banner-review-bottom{margin-top: 15px;}
+.banner-review img{width: 100%; height: auto;}
+.banner-review-bottom img{width: 100%; height: auto;}
+.account-review h5{text-align: center; padding: 20px; color: #dc3545; font-style: italic;}
+.account-approved h5{text-align: center; padding: 20px; color: #28a745; font-style: italic;}
+
+img.table-avatar, .table-avatar img {border-radius: 50%; display: inline; width: 2.5rem;}
+
+.toggle.btn {min-width: 75px !important; min-height: 27px !important;}
+
+.btn {font-size: 12px; font-weight:400 !important;}
+
+
+/* MODAL */
+.modal-dialog.modal-userapproval {max-width: 700px; /* Wider modal */}
+.modal-header.modal-userapproval {border-bottom: 0px}
+.modal-body.modal-userapproval{padding: 0 1rem;}
+.modal-content.modal-userapproval { display: flex;  flex-direction: row; /* Align left and right horizontally */}
+.modal-left {  flex: 1;  display: flex;  justify-content: center;  align-items: center;  padding-right: 15px;}
+.modal-left img {width: 100%; height: auto;}
+.modal-checklist{padding: 4px 0px;}
+.modal-right {flex: 2; padding-left: 15px;}
+.modal-right p{color:#757575;}
+.modal-body.modal-userapproval p {font-weight: bold;}
+.modal-footer.modal-userapproval {border-top: 0px}
+#approvalModalLabel{font-size: 1.5rem; font-weight: bolder;}
+
+
+@keyframes blinker {
+    50% {
+      opacity: 0;
+    }
 }

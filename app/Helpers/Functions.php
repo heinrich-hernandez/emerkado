@@ -6,27 +6,24 @@ use Illuminate\Support\Carbon;
 
 class Functions
 {
-
-    public static function IDGenerator($model, $trow, $length = 5, $prefix)
+    public static function IDGenerator($model, $user_id, $prefix, $id, $length = 5)
     {
-        $data = $model::orderBy('id', 'desc')->first();
-        if (!$data) {
-            $og_length = $length;
-            $last_number = '';
-        } else {
-            $code = substr($data->$trow, strlen($prefix) + 1);
-            //$actual_last_number = ($code/1)*1;  intval($code);
-            $actual_last_number = intval($code);
-            $increment_last_number = $actual_last_number + 1;
-            $last_number_length = strlen($increment_last_number);
-            $og_length = $length - $last_number_length;
-            $last_number = $increment_last_number;
+        // Directly use the provided ID
+        $last_number = $id;
+    
+        // Determine the length of the numeric part
+        $last_number_length = strlen($last_number);
+        $og_length = $length - $last_number_length;
+    
+        // Ensure $og_length is not negative
+        if ($og_length < 0) {
+            $og_length = 0;
         }
-        $zeros = "";
-        for ($i = 0; $i < $og_length; $i++) {
-            $zeros .= "0";
-        }
-
+    
+        // Add leading zeros to maintain the desired length
+        $zeros = str_repeat("0", $og_length);
+    
+        // Return the generated ID with the prefix
         return $prefix . '-' . $zeros . $last_number;
     }
 
@@ -34,9 +31,9 @@ class Functions
     public static function status_color($status)
     {
         switch ($status) {
-            case 'Approved':
+            case '1':
                 return 'badge-success';
-            case 'For approval':
+            case '0':
                 return 'badge-warning';
             case 'Disapproved':
                 return 'badge-danger';
@@ -60,6 +57,35 @@ class Functions
         }
     }
 
+    //REVIEW STATUS
+    public static function review_status($status)
+    {
+        switch ($status) {
+            case 'For Review':
+                return 'fa-magnifying-glass-chart';
+            case 'Approved':
+                return 'fa-check-circle';
+            case 'In Progress':
+                return 'fa-circle';
+            default:
+                return 'badge-dark';
+        }
+    }
+
+    public static function review_status_color($status)
+    {
+        switch ($status) {
+            case 'For Review':
+                return 'color-disabled';
+            case 'Approved':
+                return 'color-success';
+            case 'In Progress':
+                return 'color-in_progress';
+            default:
+                return 'badge-dark';
+        }
+    }
+
     /*  if (! function_exists('show')) {
         function show() {
             echo('asdasd');
@@ -67,25 +93,27 @@ class Functions
     }*/
 
     //start // Create_at interval
+    //switch case argument instead of if else
     public static function interval_status($interval) {
-        if ($interval < 60) {
-            return "Just now";
-        } elseif ($interval < 1440) {
-            return "Less than a day ago";
-        } elseif ($interval < 2880) {
-            return "1 day ago";
-        } elseif ($interval < 4320) {
-            return "2 days ago";
-        } elseif ($interval < 5760) {
-            return "3 days ago";
-        } elseif ($interval < 7200) {
-            return "4 days ago";
-        } elseif ($interval < 8640) {
-            return "5 days ago";
-        } elseif ($interval < 10080) {
-            return "6 days ago";
-        } else {
-            return "More than a week ago";
+        switch (true) {
+            case ($interval < 60):
+                return "Just now";
+            case ($interval < 1440):
+                return "Less than a day ago";
+            case ($interval < 2880):
+                return "1 day ago";
+            case ($interval < 4320):
+                return "2 days ago";
+            case ($interval < 5760):
+                return "3 days ago";
+            case ($interval < 7200):
+                return "4 days ago";
+            case ($interval < 8640):
+                return "5 days ago";
+            case ($interval < 10080):
+                return "6 days ago";
+            default:
+                return "More than a week ago";
         }
     }
 

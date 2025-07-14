@@ -1,6 +1,7 @@
 @extends('layouts.guest')
 
 @section('content')
+<div class="card ">
     <div class="card-body login-card-body">
          @if(session('error'))
         <div class="text-danger text-center">{{session('error')}}</div> {{-- if invalid credentials show error --}}
@@ -64,4 +65,5 @@
         @endif
     </div>
     <!-- /.login-card-body -->
+</div>
 @endsection

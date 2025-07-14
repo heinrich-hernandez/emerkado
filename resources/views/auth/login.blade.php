@@ -2,16 +2,16 @@
 
 @section('content')
     <div class="card-body login-card-body">
-         @if(session('error'))
+        <p class="login-box-msg">{{ __('Login') }}</p>
+        @if(session('error'))
         <div class="text-danger text-center">{{session('error')}}</div> {{-- if invalid credentials show error --}}
         @endif
         @if(session('success'))
         <div class="text-success text-center">{{session('success')}}</div> {{-- if invalid credentials show error --}}
         @endif
-        <p class="login-box-msg">{{ __('Login') }}</p>
         <form action="{{ route('postLogin') }}" method="post">
             @csrf
-            test form
+            <!-- test form -->
             <div class="input-group mb-3">
                 <input type="hidden" name="user_type" value="admin" />
                 <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="{{ __('Email') }}" required autofocus>

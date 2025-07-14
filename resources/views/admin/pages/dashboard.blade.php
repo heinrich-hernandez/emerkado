@@ -88,7 +88,7 @@
         <!-- /.row -->
 
         
-        <!-- TABLE: LATEST ORDERS -->
+        <!-- TABLE: DASHBOARD -->
         <div class="card">
               <div class="card-header border-transparent">
                 <h3 class="card-title">System Users</h3>
@@ -110,15 +110,15 @@
                       <th>User Role</th>
                       <th>Status</th>
                       <th>View Profile</th>
-                    </tr>
+                    </tr> 
                     </thead>
                     <tbody>
-                    @foreach($coop as $column)
+                    @foreach($users as $column)
                     <tr>
                         <td>{{$column->user_id}}</td>
                         <td>{{$column->name}}</td>
                         <td><span id="status-badgeRole" class="badge badge-pill {{ Functions::userrole_color($column->user_role) }}">{{$column->user_role}}</span></td>
-                        <td><span id="status-badgeStatus" class="badge badge-pill {{ Functions::status_color($column->status) }}">{{$column->status}}</span></td>
+                        <td><span id="status-badgeStatus" class="badge badge-pill {{ Functions::status_color($column->status) }}">{{ $column->status ? 'Activated' : 'Deactivated' }}</span></td>
                         <td class="align-middle"><i class="fas fa-search"></i></td>
                     </tr>
                     @endforeach
@@ -128,6 +128,7 @@
                 <!-- /.table-responsive -->
               </div>
           </div> <!-- /.card-body -->
+          <!-- END TABLE: DASHBOARD -->
 
         </div>
     </div><!-- /.container-fluid -->

@@ -35,8 +35,8 @@ $current_route=request()->route()->getName();
                     </a>
                 </li>
 
-                <li class="nav-item {{ in_array($current_route, ['pages.coop', 'pages.buyer', 'pages.merchant', 'pages.create_merchant' ]) ? 'menu-open' : '' }}">
-                    <a href="#" class="nav-link {{ in_array($current_route, ['pages.coop', 'pages.buyer', 'pages.merchant', 'pages.create_merchant']) ? 'active' : '' }}">
+                <li class="nav-item {{ in_array($current_route, ['pages.coop', 'pages.buyer', 'pages.merchant', 'pages.create_merchant', 'pages.create_coop', 'pages.review_coop' ]) ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ in_array($current_route, ['pages.coop', 'pages.buyer', 'pages.merchant', 'pages.create_merchant', 'pages.create_coop', 'pages.review_coop']) ? 'active' : '' }}">
                         <i class="nav-icon fas fa-users nav-icon"></i>
                         <p>
                             {{ __('Users Management') }}
@@ -45,7 +45,7 @@ $current_route=request()->route()->getName();
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('pages.coop') }}" class="nav-link {{ $current_route=='pages.coop'?'active':'' }}">
+                            <a href="{{ route('pages.coop') }}" class="nav-link {{ $current_route=='pages.coop' || $current_route == 'pages.create_coop' || $current_route == 'pages.review_coop' ? 'active':'' }}">
                                 <i class="nav-icon fas fa-store"></i>
                                 <p>Coop</p>
                             </a>

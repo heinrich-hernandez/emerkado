@@ -49,9 +49,7 @@ use App\Helpers\CreatedAt;
                         <button class="btn btn-primary">Registration</button>
                     </a>
                 </div>
-
-
-
+                Role: <span id="status-badgeRole" class="badge badge-pill fontcolor-white {{ Functions::userrole_color('Coop') }}">Merchant</span>
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0">
@@ -62,26 +60,29 @@ use App\Helpers\CreatedAt;
                       <th>User ID</th>
                       <th>Name</th>
                       <th>Email</th>
-                      <th>User Role</th>
                       <th>Status</th>
                       <th>Created at</th>
                       <th>Update Record</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($merchants as $column)
+                    @foreach ($merchants as $merchants)
                     <tr>
-                        <td class="align-middle">{{$column->user_id}}</td>
+                        <td class="align-middle">{{$merchants->user_id}}</td>
                         <td class="align-middle">
-                            <img src="{{ $column->profile_picture ? URL::to('/storage') . '/' . $column->profile_picture : asset('images/icons8-user.png') }}" alt="Profile" class="table-avatar" onerror="this.onerror=null;this.src='{{ asset('images/icons8-user.png') }}">
-                            {{$column->name}}
+                            <img src="{{ $merchants->profile_picture ? URL::to('/storage') . '/' . $merchants->profile_picture : asset('images/guest.jpg') }}" alt="Profile" class="table-avatar" onerror="this.onerror=null;this.src='{{ asset('images/guest.jpg') }}">
+                            {{$merchants->name}}
                         </td>
-                        <td class="align-middle">{{$column->email}}</td>
-                        <td class="align-middle"><span id="status-badgeRole" class="badge badge-pill fontcolor-white {{ Functions::userrole_color($column->user_role) }}">{{$column->user_role}}</span></td>
-                        <td class="align-middle"><span id="status-badgeStatus" class="badge badge-pill {{ Functions::status_color($column->status) }}">{{$column->status}}</span></td>
-                        <td class="align-middle">{{ Functions::GetDateInterval($column->created_at)  === "More than a week ago" ? $column->created_at :  Functions::GetDateInterval($column->created_at)}}</td>
-                        <td class="align-middle"><a href="#" class="btn btn-tool"><i class="fas fa-pen"></i></a><a href="#" class="btn btn-tool"><i class="fas fa-check color-success"></i></a><a href="#" class="btn btn-tool"><i class="fas fa-trash color-danger"></i></a></td>
-                    </tr>
+                        <td class="align-middle">{{$merchants->email}}</td>
+                        <td>
+                            <input data-id="{{$merchants->id}}" class="approve_merchants" type="checkbox" data-onstyle="success {{ $merchants->review_status == 'Approved' ? '' : 'warning-disabled' }}" data-offstyle="warning {{ $merchants->review_status == 'Approved' ? '' : 'warning-disabled' }}" data-toggle="toggle" data-on="Activated" data-off="Inactive" {{ $merchants->status ? 'checked' : '' }} {{ $merchants->review_status == 'Approved' ? '' : 'disabled' }}>
+                        </td>
+                        <td class="align-middle">{{ Functions::GetDateInterval($merchants->created_at)  === "More than a week ago" ? $merchants->created_at :  Functions::GetDateInterval($merchants->created_at)}}</td>
+                        <td class="align-middle">
+                            <a href="{{ route('pages.review_merchants', $merchants->id ) }}" class="btn btn-tool"><i class="fas fa-pen"></i></a>
+                            <a href="javascript:void(0)" onclick="delete_merchants('{{ $merchants->id }}')" class="btn btn-tool"><i class="fa fa-trash color-danger"></i></a>
+                        </td>
+                      </tr>
                     @endforeach
                     </tbody>
                   </table>

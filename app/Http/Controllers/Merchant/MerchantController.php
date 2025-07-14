@@ -15,12 +15,9 @@ class CoopController extends Controller
         $validatedData = $request->validate([
             'user_id' => 'nullable',
             'name' => 'required|string|max:255',
-            'business_name' => 'required|string|max:255',
             'address' => 'required|string|max:255',
             'contact_number' => 'required|string|max:11',
             'email' => 'required|email|max:255',
-            'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:512',
-            'valid_id_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:512',
             'username' => 'required|string|max:255|unique:coop',
             'password' => [
                 'required',
@@ -33,11 +30,8 @@ class CoopController extends Controller
                 'regex:/[@$!%*?&]/'  // at least one special character
             ],
             'password_confirmation' => 'nullable|string|min:8',
-            'agency_affiliation' => 'required|string|max:255',
-            'agency_affiliation_name' => [
-                'nullable',
-                'required_if:agency_affiliation,yes'
-            ],
+            'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:512',
+            'valid_id_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:512',
             'user_role' => 'nullable|string|max:255',
             'approved_by' => 'nullable|string|max:255',
             'date' => 'nullable|date'
@@ -53,7 +47,7 @@ class CoopController extends Controller
         $data['user_id'] = Functions::IDGenerator(new CoopModel, 'user_id', 5, 'VNDR');
         $data['user_role'] = $data['user_role'] ?? 'Coop';
         $data['date'] = $data['date'] ?? date('Y-m-d');
-        $data['status'] = $data['status'] ?? 'For approval';
+        $data['status'] = $data['status'] ?? '0';
         $data['profile_picture'] = $request->hasFile('profile_picture') ? $request->file('profile_picture')->store('profile_pictures', 'public') : null;
         $data['valid_id_picture'] = $request->hasFile('valid_id_picture') ? $request->file('valid_id_picture')->store('valid_id_picture', 'public') : null;
         $data['approved_by'] = $data['approved_by'] ?? '';

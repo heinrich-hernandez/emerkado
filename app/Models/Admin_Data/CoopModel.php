@@ -9,11 +9,12 @@ class CoopModel extends Model
 {
     use HasFactory;
     protected $table = 'coop';
+
     protected $fillable = [
         'id',
         'user_id',
-        'name',
-        'business_name',
+        'authorized_representative',
+        'coop_name',
         'address',
         'contact_number',
         'email',
@@ -25,9 +26,16 @@ class CoopModel extends Model
         'password',
         'user_role',
         'status',
-        'approved_by',
         'date',
+        'review_status',
+        'reviewed_by',
         'created_at',
         'updated_at'
     ];
+
+    public function reviews(){ 
+        return $this->hasMany(Review_AccountModel::class, 'review_id', 'user_id');
+        // First 'review_id' is the foreign key in review_account db
+        // Second 'user_id' is the local key (primary key) in coop db
+    }
 }

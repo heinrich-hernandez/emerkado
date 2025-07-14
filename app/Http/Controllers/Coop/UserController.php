@@ -50,7 +50,6 @@ class UserController extends Controller
             'email' => 'required|email|unique:merchants',
             'username' => 'required',
             'password' => 'required|confirmed|min:8',
-            //'password' => 'required|min:8',
             'address' => 'required',
             'profile_picture' => 'nullable',
             'valid_id_picture' => 'nullable'
@@ -61,7 +60,7 @@ class UserController extends Controller
         $data['profile_picture'] = $data['profile_picture'] ?? '';
         $data['valid_id_picture'] = $data['valid_id_picture'] ?? '';
         $data['user_role'] = $data['user_role'] ?? 'Merchant';
-        $data['status'] = $data['status'] ?? 'For approval';
+        $data['status'] = $data['status'] ?? '0';
         $data['date'] = $data['date'] ?? date('Y-m-d');
 
         // Encrypt the password before storing it
