@@ -43,7 +43,7 @@ class UserController extends Controller
         // \Log::info('add_merchant method called');
         //return $request->input(); //checking of all input fields, no storing of records executed here
 
-        $student_id = Functions::IDGenerator(new MerchantModel, 'user_id', 5, 'MRCHNT');
+        $student_id = Functions::IDGenerator(new MerchantModel, 'user_id', 'MRCHNT', $length, $id );
         $data = $request->validate([
             'name' => 'required',
             'contact_number' => 'required|numeric',

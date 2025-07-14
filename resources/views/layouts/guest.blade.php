@@ -15,7 +15,7 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
 </head>
-<body class="hold-transition login-page">
+<body class="hold-transition login-page layout-fixed">
 <div class="login-box">
     <div class="login-logo">
         <a href="/">{{ config('app.name', 'eMerkado') }}</a>

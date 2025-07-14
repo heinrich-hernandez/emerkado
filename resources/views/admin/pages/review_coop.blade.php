@@ -478,13 +478,13 @@
 @endsection
 
 @push('scripts')
-    <script src="{{ asset('js/jquery-3.7.1.min.js') }}" defer></script>
-    <script src="{{ asset('js/summernote.min.js') }}" defer></script>
-    <script src="{{ asset('js/adminlte.min.js') }}" defer></script>
-    <script src="{{ asset('js/jquery.validate.min.js') }}" defer></script>
-    <script src="{{ asset('js/sweetalert2.all.min.js') }}" defer></
+    <script src="{{ asset('js/jquery-3.7.1.min.js') }}" ></script>
+    <script src="{{ asset('js/summernote.min.js') }}" ></script>
+    <script src="{{ asset('js/adminlte.min.js') }}" ></script>
+    <script src="{{ asset('js/jquery.validate.min.js') }}" ></script>
+    <script src="{{ asset('js/sweetalert2.all.min.js') }}" ></
     <script src="{{ asset('js/display_file_name.js') }}"></script>
-    <script src="{{ asset('js/popper.min.js') }}" defer></script>
-    <script src="{{ asset('js/bootstrap.min.js') }}" defer></script>
-    <script src="{{ asset('js/bootstrap-toggle.min.js') }}" defer></script>
+    <script src="{{ asset('js/popper.min.js') }}" ></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}" ></script>
+    <script src="{{ asset('js/bootstrap-toggle.min.js') }}" ></script>
 @endpush

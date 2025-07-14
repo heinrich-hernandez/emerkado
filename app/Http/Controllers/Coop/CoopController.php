@@ -50,7 +50,7 @@ class CoopController extends Controller
 
 
         $data = $validatedData;
-        $data['user_id'] = Functions::IDGenerator(new CoopModel, 'user_id', 5, 'VNDR');
+        $data['user_id'] = Functions::IDGenerator(new CoopModel, 'user_id', 'COOP', $length, $id );
         $data['user_role'] = $data['user_role'] ?? 'Coop';
         $data['date'] = $data['date'] ?? date('Y-m-d');
         $data['status'] = $data['status'] ?? '0';

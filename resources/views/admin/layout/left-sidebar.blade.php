@@ -70,4 +70,4 @@ $current_route=request()->route()->getName();
     </div>
     <!-- /.sidebar -->
 
-    </aside>
+</aside>

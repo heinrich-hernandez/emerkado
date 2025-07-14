@@ -3,14 +3,15 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Admin_Data\CoopModel;
+use App\Models\Admin_Data\MerchantModel;
 use Illuminate\Http\Request;
 use App\Helpers\Functions;
 
-class CoopController extends Controller
+
+class MerchantController extends Controller
 {
 
-    public function add_coop(Request $request)
+    public function add_merchant(Request $request)
     {
         $validatedData = $request->validate([
             'user_id' => 'nullable',
@@ -44,7 +45,7 @@ class CoopController extends Controller
 
 
         $data = $validatedData;
-        $data['user_id'] = Functions::IDGenerator(new CoopModel, 'user_id', 5, 'VNDR');
+        $data['user_id'] = Functions::IDGenerator(new CoopModel, 'user_id', 'MRCHNT', $length, $id );
         $data['user_role'] = $data['user_role'] ?? 'Coop';
         $data['date'] = $data['date'] ?? date('Y-m-d');
         $data['status'] = $data['status'] ?? '0';
@@ -55,13 +56,13 @@ class CoopController extends Controller
         //dd($data);
 
         try {
-            CoopModel::create($data);
+            MerchantModel::create($data);
 
             $success = ['status' => 'success', 'user_id' => $data['user_id']];
-            return redirect()->route('pages.coop', $success);
+            return redirect()->route('pages.merchant', $success);
         } catch (\Exception $e) {
             $error = ['status' => 'error', 'user_id' => $data['user_id']];
-            return redirect()->route('create.coop', $error);
+            return redirect()->route('create.merchant', $error);
         }
     }
 }

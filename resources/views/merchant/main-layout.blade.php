@@ -41,10 +41,10 @@
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
-                    <a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
+                    <a class="nav-link" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">  
                         <i class="far fa-user"></i>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right" style="left: inherit; right: 0px;">
+                    <div class="dropdown-menu dropdown-menu-right" >
                         <a href="#" class="dropdown-item">
                             <i class="mr-2 fas fa-file"></i>
                             {{ __('My profile') }}
@@ -64,7 +64,7 @@
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
-        @include('merchant.layout.left-sidebar')
+        @include('layouts.navigation')
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">

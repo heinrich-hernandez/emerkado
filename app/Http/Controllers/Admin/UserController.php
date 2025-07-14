@@ -48,56 +48,6 @@ class UserController extends Controller
         return view('admin.pages.create_merchant', $data); //url path in folder resources/views/admin/pages/create_merchant.blade.php
     }
 
-    // CREATE MERCHANT
-    public function add_merchant(Request $request)
-    {
-        \Log::info('add_merchant method called');
-        //return $request->input(); //checking of all input fields, no storing of records executed here
-
-        $user_id = Functions::IDGenerator(new MerchantModel, 'user_id', 5, 'MRCHNT');
-        $data = $request->validate([
-            'name' => 'required',
-            'contact_number' => 'required|numeric',
-            'email' => 'required|email|unique:merchants',
-            'username' => 'required',
-            'password' => 'required|confirmed|min:8',
-            'merchant_profile_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:512',
-            'merchant_valid_id_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:512',
-            'address' => 'required'
-        ]);
-
-
-        $data['user_id'] = $user_id;
-        $data['address'] = $data['address'] ?? '';
-        // $data['profile_picture'] = $data['profile_picture'] ?? '';
-        // $data['valid_id_picture'] = $data['valid_id_picture'] ?? '';
-        // $data['profile_picture'] = $request->hasFile('merchant_profile_picture') ? $request->file('merchant_profile_picture')->store('merchant_profile_pictures', 'public') : ' ';
-        // $data['valid_id_picture'] = $request->hasFile('merchant_valid_id_picture') ? $request->file('merchant_valid_id_picture')->store('merchant_valid_id_picture', 'public') : ' ';
-        $data['user_role'] = $data['user_role'] ?? 'Merchant';
-        $data['status'] = $data['status'] ?? '0';
-        $data['date'] = $data['date'] ?? date('Y-m-d');
-        $data['reviewed_status'] = $data['reviewed_status'] ?? 'For Review';
-
-        if ($request->hasFile('merchant_profile_picture')) {
-            $data['profile_picture'] = ImageResizer::resizeAndSaveImage($request->file('merchant_profile_picture'), 'merchant_profile_picture', $user_id); 
-        }
-
-        // Handle and resize valid ID picture
-        if ($request->hasFile('merchant_valid_id_picture')) {
-            $data['valid_id_picture'] = ImageResizer::resizeAndSaveImage($request->file('merchant_valid_id_picture'), 'merchant_valid_id_picture', $user_id);
-        }
-
-        // Encrypt the password before storing it
-        $data['password'] = bcrypt($data['password']);
-
-       // dd($data);
-
-        //$newProduct = MerchantModel::create($data);
-        MerchantModel::create($data);
-        $success = ['status' => 'success', 'user_id' => $user_id];
-        return redirect()->route('pages.merchant', $success); //url path in folder resources/views/admin/pages/create_merchant.blade.php
-    }
-
     // DELETE COOP
     public function delete_coop($id){
         $data= CoopModel::find($id);
