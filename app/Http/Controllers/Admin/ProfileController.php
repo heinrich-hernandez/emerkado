@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Admin_Data\{AdminModel, CoopModel, MerchantModel};
+use App\Models\Admin_Data\{AdminModel, CoopModel, MerchantModel, BuyerModel};
 
 class ProfileController extends Controller
 {
@@ -21,9 +21,10 @@ class ProfileController extends Controller
         $admin = AdminModel::select('user_id', 'name as name', 'user_role', 'status')->get();
         $coop = CoopModel::select('user_id', 'authorized_representative as name', 'user_role', 'status')->get();
         $merchant = MerchantModel::select('user_id', 'name as name', 'user_role', 'status')->get();
+        $buyer = BuyerModel::select('user_id', 'name as name', 'user_role', 'status')->get();
 
         // Merge both collections
-        $users = $admin->concat($coop)->concat($merchant);
+        $users = $admin->concat($coop)->concat($merchant)->concat($buyer);
 
         // Sort by id if needed
         $users = $users->sortBy('id');

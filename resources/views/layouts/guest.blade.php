@@ -28,7 +28,7 @@
 <!-- /.login-box -->
 
 @vite('resources/js/app.js')
-<!-- Bootstrap 4 -->
+<!-- Bootstrap 5 -->
 <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('js/adminlte.min.js') }}" defer></script>

@@ -1,16 +1,4 @@
-<?php
-use App\Helpers\Functions;
-use App\Helpers\CreatedAt;
-?>
-
-<!-- GET URL VARIABLES STATUS AND USER_ID -->
-  @if (request()->query('status') === 'success' && request()->query('user_id'))
-  <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    showSuccess("{{ request()->query('user_id') }} was successfully created!"); //SHOW SUCCESS MESSAGE VIA TOASTER.JS
-  });
-  </script>
-  @endif
+<?php use App\Helpers\Functions; ?>
 
 @extends('admin.main-layout')
 @section('content')
@@ -30,7 +18,10 @@ use App\Helpers\CreatedAt;
         </div>
       </div><!-- /.container-fluid -->
     </section>
+    
+    <div class="identity-clause"><b>Current Logged In ID:</b> {{Auth::user()->user_id; }}</div>
 
+    <br>
     <!-- Main content -->
     <div class="content">
         <div class="container-fluid">
@@ -46,10 +37,10 @@ use App\Helpers\CreatedAt;
                 <div class="d-flex flex-column">
                     <h3 class="card-title">Merchant Users</h3>
                     <a href="{{ route('pages.create_merchant') }}" class="pt-2">
-                        <button class="btn btn-primary">Registration</button>
+                        <button class="btn btn-primary">Add Merchant</button>
                     </a>
                 </div>
-                Role: <span id="status-badgeRole" class="badge badge-pill fontcolor-white {{ Functions::userrole_color('Coop') }}">Merchant</span>
+                Role: <span id="status-badgeRole" class="badge badge-pill fontcolor-white {{ Functions::userrole_color('Merchant') }}">Merchant</span>
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0">
@@ -62,6 +53,7 @@ use App\Helpers\CreatedAt;
                       <th>Email</th>
                       <th>Status</th>
                       <th>Created at</th>
+                      <th>Update Record</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -73,6 +65,9 @@ use App\Helpers\CreatedAt;
                             {{$merchant->name}}
                         </td>
                         <td class="align-middle">{{$merchant->email}}</td>
+                        <td>
+                            <input data-id="{{$merchant->id}}" class="approve_merchant" type="checkbox" data-onstyle="success" data-offstyle="warning" data-toggle="toggle" data-on="Activated" data-off="Inactive" {{ $merchant->status ? 'checked' : '' }}>
+                        </td>
                         <td class="align-middle">{{ Functions::GetDateInterval($merchant->created_at)  === "More than a week ago" ? $merchant->created_at :  Functions::GetDateInterval($merchant->created_at)}}</td>
                         <td class="align-middle">
                             <a href="javascript:void(0)" onclick="delete_merchant('{{ $merchant->id }}')" class="btn btn-tool"><i class="fa fa-trash color-danger"></i></a>

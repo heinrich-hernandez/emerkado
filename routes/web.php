@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\{AuthController, ProfileController as AdminProfileController, UserController as AdminUserController, CoopController, MerchantController};
+use App\Http\Controllers\Admin\{AuthController, ProfileController as AdminProfileController, UserController as AdminUserController, CoopController, MerchantController, BuyerController};
 use App\Http\Controllers\Merchant\ProfileController as MerchantProfileController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Middleware\AdminAuth;
@@ -55,14 +55,23 @@ Route::middleware(['auth:admin', AuthenticateSysUsers::class])->group(function (
     Route::post('/admin/merchant', [MerchantController::class, 'add_merchant'])->name('create.merchant');
     // Delete
     Route::delete('/admin/merchant/delete_merchant/{id}', [AdminUserController::class, 'delete_merchant']);
-    // // Review merchant -- removed since it is no longer needed
-    // Route::get('/admin/merchant/review_merchant/id={id}', [AdminUserController::class, 'review_merchant'])->name('pages.review_merchant');
-    // Route::post('/admin/merchant/review_merchant/id={id}', [AdminUserController::class, 'approved_review_merchant'])->name('approved.review_merchant');
+    //Review merchant -- removed since it is no longer needed
+    //Route::get('/admin/merchant/review_merchant/id={id}', [AdminUserController::class, 'review_merchant'])->name('pages.review_merchant');
+    Route::get('/admin/merchant/approve_merchant', [AdminUserController::class, 'approve_merchant']);
     
 
     // Buyer routes
     Route::get('/admin/buyer', [AdminUserController::class, 'buyer'])->name('pages.buyer');
-
+    // Create  
+    Route::get('/admin/buyer/create_buyer', [AdminUserController::class, 'create_buyer'])->name('pages.create_buyer');
+    Route::post('/admin/buyer', [BuyerController::class, 'add_buyer'])->name('create.buyer');
+    // Delete
+    Route::delete('/admin/buyer/delete_buyer/{id}', [AdminUserController::class, 'delete_buyer']);
+    // Approve
+    Route::get('/admin/buyer/approve_buyer', [AdminUserController::class, 'approve_buyer']);
+    // Review Buyer
+    Route::get('/admin/buyer/review_buyer/id={id}', [AdminUserController::class, 'review_buyer'])->name('pages.review_buyer');
+    Route::post('/admin/buyer/review_buyer/id={id}', [AdminUserController::class, 'approved_review_buyer'])->name('approved.review_buyer');
 
 });
 

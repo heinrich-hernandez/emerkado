@@ -133,4 +133,55 @@ $(document).ready(function(){
     });
 
 
+    $('#BuyerForm').validate({
+        rules: {
+            'authorized_representative' : {
+                required: false,
+                minlength: 3
+            },
+            'name': {
+                required: true,
+                minlength:2
+            },
+            'address': {
+                required: true,
+                minlength: 3
+            },
+            'contact_number': {
+                required: true,
+                validNumber: true
+            },
+            'email': {
+                required: true,
+                email: true
+            },
+            'username': {
+                required: true,
+                minlength: 3
+            },
+            'password': {
+                required: true,
+                minlength: 8,
+                password_regex: '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).{8,}$'
+            },
+            'password_confirmation': {
+                required: true,
+                equalTo: '#password'
+            },
+        },
+        errorPlacement: function(error, element) {
+            error.appendTo(element.closest('.form-group').find('.error-container'));
+        },
+        highlight: function(element) {
+            $(element).removeClass('is-valid').addClass('is-invalid');
+        },
+        unhighlight: function(element) {
+            $(element).removeClass('is-invalid').addClass('is-valid');
+        },
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
+
+
 });
