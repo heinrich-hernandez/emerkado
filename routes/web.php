@@ -18,6 +18,10 @@ Route::get('/', function () {
     \Log::info('Redirecting to login');
     return redirect()->route('getLogin');
 });
+Route::post('/', function () {
+    \Log::info('Redirecting to login');
+    return redirect()->route('postLogin');
+});
 
 
 // Admin routes
