@@ -15,12 +15,15 @@ Route::post('/user-logout', [LoginController::class, 'Logout'])->name('Logout');
 
 // Redirect root URL to user login if not authenticated
 Route::get('/', function () {
+    \Log::info('Redirecting to login');
     return redirect()->route('getLogin');
-})->middleware('guest'); // Only redirect if the user is a guest
+});
 
 
 // Admin routes
-Route::middleware('auth:admin')->group(function () {
+Route::middleware(['auth:admin', AuthenticateSysUsers::class])->group(function () {
+    Route::get('/admin/dashboard', [AdminProfileController::class, 'dashboard'])->name('admin-dashboard');
+
     Route::get('/', function () {
         return redirect()->route('admin-dashboard');
     });
@@ -28,11 +31,6 @@ Route::middleware('auth:admin')->group(function () {
     Route::get('/admin', function () {
         return redirect()->route('admin-dashboard');
     });
-});
-
-Route::middleware(['auth:admin', AuthenticateSysUsers::class])->group(function () {
-    Route::get('/admin/dashboard', [AdminProfileController::class, 'dashboard'])->name('admin-dashboard');
-
 
     // Coop routes
     Route::get('/admin/coop', [AdminUserController::class, 'coop'])->name('pages.coop');
@@ -76,3 +74,15 @@ Route::middleware(['auth:admin', AuthenticateSysUsers::class])->group(function (
 });
 
 
+// Admin routes
+Route::middleware(['auth:admin', AuthenticateSysUsers::class])->group(function () {
+    Route::get('/admin/dashboard', [AdminProfileController::class, 'dashboard'])->name('admin-dashboard');
+
+    Route::get('/', function () {
+        return redirect()->route('admin-dashboard');
+    });
+
+    Route::get('/admin', function () {
+        return redirect()->route('admin-dashboard');
+    });
+});

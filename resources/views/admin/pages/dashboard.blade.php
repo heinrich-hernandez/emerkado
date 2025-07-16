@@ -109,7 +109,7 @@
                       <th>Name</th>
                       <th>User Role</th>
                       <th>Status</th>
-                      <th>View Profile</th>
+                      <!-- <th>View Profile</th> -->
                     </tr> 
                     </thead>
                     <tbody>
@@ -119,7 +119,7 @@
                         <td>{{$column->name}}</td>
                         <td><span id="status-badgeRole" class="badge badge-pill {{ Functions::userrole_color($column->user_role) }}">{{$column->user_role}}</span></td>
                         <td><span id="status-badgeStatus" class="badge badge-pill {{ Functions::status_color($column->status) }}">{{ $column->status ? 'Activated' : 'Deactivated' }}</span></td>
-                        <td class="align-middle"><i class="fas fa-search"></i></td>
+                        <!-- <td class="align-middle"><i class="fas fa-search"></i></td> -->
                     </tr>
                     @endforeach
                     </tbody>
