@@ -8,20 +8,11 @@ use App\Http\Middleware\AdminAuth;
 use App\Http\Middleware\AuthenticateSysUsers;
 
 
-Route::get('/user-login', [LoginController::class, 'getLogin'])->name('getLogin');
-Route::post('/user-login', [LoginController::class, 'postLogin'])->name('postLogin');
+Route::get('/user-login', [LoginController::class, 'getLogin'])->name('getLogin')->middleware('guest');
+Route::post('/user-login', [LoginController::class, 'postLogin'])->name('postLogin')->middleware('guest');
 Route::post('/user-logout', [LoginController::class, 'Logout'])->name('Logout');
 
 
-// Redirect root URL to user login if not authenticated
-Route::get('/', function () {
-    \Log::info('Redirecting to login');
-    return redirect()->route('getLogin');
-});
-Route::post('/', function () {
-    \Log::info('Redirecting to login');
-    return redirect()->route('postLogin');
-});
 
 
 // Admin routes
@@ -77,16 +68,7 @@ Route::middleware(['auth:admin', AuthenticateSysUsers::class])->group(function (
 
 });
 
-
-// Admin routes
-Route::middleware(['auth:admin', AuthenticateSysUsers::class])->group(function () {
-    Route::get('/admin/dashboard', [AdminProfileController::class, 'dashboard'])->name('admin-dashboard');
-
-    Route::get('/', function () {
-        return redirect()->route('admin-dashboard');
-    });
-
-    Route::get('/admin', function () {
-        return redirect()->route('admin-dashboard');
-    });
-});
+Route::get('/', function () {
+    \Log::info('Redirecting to login');
+    return redirect()->route('getLogin');
+})->middleware('guest');
