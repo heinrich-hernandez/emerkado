@@ -1,5 +1,1 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="dark-mode-image.png">
-  <source media="(prefers-color-scheme: light)" srcset="light-mode-image.png">
-  <img alt="Fallback image description" src="./app/icons/eMerkado.icon.png">
-</picture>
+![icon_image](https://github.com/heinrich-hernandez/emerkado/blob/main/app/icons/eMerkado.icon.png?raw=true)
