@@ -1,6 +1,8 @@
 <img src="https://github.com/heinrich-hernandez/emerkado/blob/main/app/icons/eMerkado.icon.png" width="280" height="314" alt="eMerkado">
 ##eMerkado
+
 -----
+
 ###Get Started
 
 Let's start with:
@@ -22,6 +24,7 @@ And then install dependencies:
 ```
 
 -----
+
 ###Task List
 
 - [ ] User Login
