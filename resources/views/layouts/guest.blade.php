@@ -15,7 +15,7 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
 </head>
-<body class="hold-transition login-page">
+<body class="hold-transition login-page layout-fixed">
 <div class="login-box">
     <div class="login-logo">
         <a href="/">{{ config('app.name', 'eMerkado') }}</a>
@@ -28,7 +28,7 @@
 <!-- /.login-box -->
 
 @vite('resources/js/app.js')
-<!-- Bootstrap 4 -->
+<!-- Bootstrap 5 -->
 <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('js/adminlte.min.js') }}" defer></script>

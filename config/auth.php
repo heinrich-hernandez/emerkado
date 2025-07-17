@@ -50,11 +50,11 @@ return [
         ],
         'merchant' => [
             'driver' => 'session',
-            'provider' => 'merchants',
+            'provider' => 'merchant',
         ],
         'buyer' => [
             'driver' => 'session',
-            'provider' => 'buyers',
+            'provider' => 'buyer',
         ],
     ],
 
@@ -85,11 +85,11 @@ return [
         'driver' => 'eloquent',
         'model' => env('AUTH_MODEL', App\Models\Coop::class),
         ],
-        'merchants' => [
+        'merchant' => [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\Merchant::class),
         ],
-        'buyers' => [
+        'buyer' => [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\Buyer::class),
         ],
@@ -126,13 +126,13 @@ return [
             'throttle' => 60,
         ],
         'merchant' => [
-            'provider' => 'merchants',
+            'provider' => 'merchant',
             'table' => env('AUTH_PASSWORD_RESET_TOKEN_TABLE', 'password_reset_tokens'),
             'expire' => 60,
             'throttle' => 60,
         ],
         'buyer' => [
-            'provider' => 'buyers',
+            'provider' => 'buyer',
             'table' => env('AUTH_PASSWORD_RESET_TOKEN_TABLE', 'password_reset_tokens'),
             'expire' => 60,
             'throttle' => 60,

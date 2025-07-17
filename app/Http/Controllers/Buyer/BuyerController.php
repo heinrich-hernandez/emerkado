@@ -3,23 +3,24 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Admin_Data\MerchantModel;
+use App\Models\Admin_Data\BuyerModel;
 use Illuminate\Http\Request;
 use App\Helpers\Functions;
 
-
-class MerchantController extends Controller
+class BuyerController extends Controller
 {
 
-    public function add_merchant(Request $request)
+    public function add_buyer(Request $request)
     {
         $validatedData = $request->validate([
             'user_id' => 'nullable',
-            'merchant_name' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
             'address' => 'required|string|max:255',
             'contact_number' => 'required|string|max:11',
             'email' => 'required|email|max:255',
-            'username' => 'required|string|max:255|unique:merchant',
+            'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:512',
+            'valid_id_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:512',
+            'username' => 'required|string|max:255|unique:buyer',
             'password' => [
                 'required',
                 'string',
@@ -31,23 +32,20 @@ class MerchantController extends Controller
                 'regex:/[@$!%*?&]/'  // at least one special character
             ],
             'password_confirmation' => 'nullable|string|min:8',
-            'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:512',
-            'valid_id_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:512',
             'user_role' => 'nullable|string|max:255',
             'approved_by' => 'nullable|string|max:255',
-            'status' => 'nullable|boolean',
             'date' => 'nullable|date'
         ]);
 
-        // $latestMerchant = MerchantModel::orderBy('id', 'desc')->first();
-        // $nextId = $latestMerchant ? $latestMerchant->id + 1 : 1;
+        // $latestBuyer = BuyerModel::orderBy('id', 'desc')->first();
+        // $nextId = $latestBuyer ? $latestBuyer->id + 1 : 1;
         // $formattedId = 'VNDR-' . str_pad($nextId, 4, '0', STR_PAD_LEFT);
 
 
 
         $data = $validatedData;
-        $data['user_id'] = Functions::IDGenerator(new MerchantModel, 'user_id', 'MRCHNT', $length, $id );
-        $data['user_role'] = $data['user_role'] ?? 'Merchant';
+        $data['user_id'] = Functions::IDGenerator(new BuyerModel, 'user_id', 'COOP', $length, $id );
+        $data['user_role'] = $data['user_role'] ?? 'Buyer';
         $data['date'] = $data['date'] ?? date('Y-m-d');
         $data['status'] = $data['status'] ?? '0';
         $data['profile_picture'] = $request->hasFile('profile_picture') ? $request->file('profile_picture')->store('profile_pictures', 'public') : null;
@@ -57,13 +55,13 @@ class MerchantController extends Controller
         //dd($data);
 
         try {
-            MerchantModel::create($data);
+            BuyerModel::create($data);
 
             $success = ['status' => 'success', 'user_id' => $data['user_id']];
-            return redirect()->route('pages.merchant', $success);
+            return redirect()->route('pages.buyer', $success);
         } catch (\Exception $e) {
             $error = ['status' => 'error', 'user_id' => $data['user_id']];
-            return redirect()->route('create.merchant', $error);
+            return redirect()->route('create.buyer', $error);
         }
     }
 }

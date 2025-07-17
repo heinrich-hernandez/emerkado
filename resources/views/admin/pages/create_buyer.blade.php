@@ -6,12 +6,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>{{ __('Coop') }}</h1>
+                    <h1>{{ __('Buyer') }}</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ route('admin-dashboard') }}">Home</a></li>
-                        <li class="breadcrumb-item active"><a href="{{ route('pages.coop') }}">Coop</a></li>
+                        <li class="breadcrumb-item active"><a href="{{ route('pages.buyer') }}">Buyer</a></li>
                         <li class="breadcrumb-item active">Registration</li>
                     </ol>
                 </div>
@@ -41,9 +41,9 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header bg-primary">
-                            <h4>Add New Coop</h4>
+                            <h4>Add New Buyer</h4>
                         </div>
-                        <form id="coopForm" action="{{ route('create.coop') }}" method="post" enctype="multipart/form-data">
+                        <form id="BuyerForm" action="{{ route('create.buyer') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('post')
                             <div class="card-body">
@@ -65,11 +65,11 @@
                                             </div>
                                             <div class="col-12 col-md-6">
                                                 <div class="form-group">
-                                                    <label for="coop_name">Coop name</label>
-                                                    <input type="text" class="form-control {{ $errors->has('coop_name') ? 'is-invalid' : '' }}" value="{{ old('coop_name') }}" id="coop_name" aria-describedby="coop_name" name="coop_name">
+                                                    <label for="name">Buyer name</label>
+                                                    <input type="text" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" value="{{ old('name') }}" id="name" aria-describedby="name" name="name">
                                                     <div class="error-container text-danger mt-1" style="font-size: 12px;">
                                                     <p class="text-danger">
-                                                        @error('coop_name')
+                                                        @error('name')
                                                             {{ $message }}
                                                         @enderror
                                                     </p>
@@ -122,67 +122,28 @@
                                         </div>
                                         <div class="form-row">
                                             <div class="col-12">
-                                                <label for="coop_profile_picture">Profile picture</label>
+                                                <label for="buyer_profile_picture">Profile picture</label>
                                                 <div class="input-group mb-3">
                                                     <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="coop_profile_picture" name="coop_profile_picture">
-                                                        <label class="custom-file-label" for="coop_profile_picture" aria-describedby="coop_profile_picture">Choose File</label>
+                                                        <input type="file" class="custom-file-input" id="buyer_profile_picture" name="buyer_profile_picture">
+                                                        <label class="custom-file-label" for="buyer_profile_picture" aria-describedby="buyer_profile_picture">Choose File</label>
                                                     </div>
                                                     <div class="input-group-append">
-                                                        <span class="input-group-text" id="coop_profile_picture">Upload</span>
+                                                        <span class="input-group-text" id="buyer_profile_picture">Upload</span>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="col-12">
-                                                <label for="coop_valid_id_picture">Valid ID picture</label>
+                                                <label for="buyer_valid_id_picture">Valid ID picture</label>
                                                 <div class="input-group mb-3">
                                                     <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="coop_valid_id_picture" name="coop_valid_id_picture">
-                                                        <label class="custom-file-label" for="coop_valid_id_picture" aria-describedby="coop_valid_id_picture">Choose File</label>
+                                                        <input type="file" class="custom-file-input" id="buyer_valid_id_picture" name="buyer_valid_id_picture">
+                                                        <label class="custom-file-label" for="buyer_valid_id_picture" aria-describedby="buyer_valid_id_picture">Choose File</label>
                                                     </div>
                                                     <div class="input-group-append">
-                                                        <span class="input-group-text" id="coop_valid_id_picture">Upload</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="col-12">
-                                                <div class="form-group mb-3">
-                                                    <label for="agency_affiliation">Agency Affiliation</label>
-                                                    <select class="custom-select" id="agency_affiliation" name="agency_affiliation">
-                                                        <option selected disabled>Are your business affiliated with any government agencies?</option>
-                                                        <option value="yes">Yes</option>
-                                                        <option value="no">No</option>
-                                                    </select>
-                                                    <div class="error-container text-danger mt-1" style="font-size: 12px;">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-12 mb-1">
-                                                <div id="agency_affiliation_details" class="d-none">
-                                                    <div class="form-group">
-                                                        <label for="agency_affiliation_name">Agency Affiliation Name</label>
-                                                        <input type="text" id="agency_affiliation_name" name="agency_affiliation_name" class="form-control {{ $errors->has('agency_affiliation_name') ? 'is-invalid' : '' }}" value="{{ old('agency_affiliation_name') }}">
-                                                        <div class="error-container text-danger mt-1" style="font-size: 12px;">
-                                                        <p class="text-danger">
-                                                            @error('agency_affiliation_name')
-                                                                {{ $message }}
-                                                            @enderror
-                                                        </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="col-12">
-                                                <div class="form-group mb-3">
-                                                    <div class="mb-3">
-                                                        <label for="business_description">Business Description</label>
-                                                        <textarea class="form-control" id="business_description" rows="3"></textarea>
+                                                        <span class="input-group-text" id="buyer_valid_id_picture">Upload</span>
                                                     </div>
                                                 </div>
                                             </div>

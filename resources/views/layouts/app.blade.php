@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
     @yield('styles')
 </head>
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
     <!-- Navbar -->
@@ -33,14 +33,14 @@
                 <a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
                     {{ Auth::user()->name }}
                 </a>
-                <div class="dropdown-menu dropdown-menu-right" style="left: inherit; right: 0px;">
+                <div class="dropdown-menu dropdown-menu-right">
                     <a href="{{ route('profile.show') }}" class="dropdown-item">
                         <i class="mr-2 fas fa-file"></i>
                         {{ __('My profile') }}
                     </a>
                     <div class="dropdown-divider"></div>
-                    <form method="POST" action="{{ route('logout') }}">
-                        <a href="{{ route('logout') }}" class="dropdown-item"
+                    <form method="POST" action="{{ route('Logout') }}">
+                        <a href="{{ route('Logout') }}" class="dropdown-item"
                            onclick="event.preventDefault(); this.closest('form').submit();">
                             <i class="mr-2 fas fa-sign-out-alt"></i>
                             {{ __('Log Out') }}
@@ -97,7 +97,17 @@
 
 @vite('resources/js/app.js')
 <!-- AdminLTE App -->
-<script src="{{ asset('js/adminlte.min.js') }}" defer></script>
+<script src="{{ asset('js/adminlte.min.js') }}" ></script>
+<script src="{{ asset('js/jquery.validate.min.js') }}" ></script>
+<script src="{{ asset('js/sweetalert2.all.min.js') }}" ></script>
+<script src="{{ asset('js/sweetalert2@11.js') }}" ></script>
+<script src="{{ asset('js/toastr.min.js') }}" ></script>
+<script src="{{ asset('js/form_validation.js') }}" ></script>
+<script src="{{ asset('js/ajax_functions.js') }}" ></script>
+<script src="{{ asset('js/bootstrap-toggle.min.js') }}" ></script>
+<script src="{{ asset('js/summernote-bs4.min.js') }}" ></script>
+<script src="{{ asset('js/summernote-bs5.min.js') }}" ></script>
+<script src="{{ asset('js/custom_functions.js') }}" ></script>
 
 @yield('scripts')
 </body>

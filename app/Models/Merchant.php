@@ -11,7 +11,7 @@ class Merchant extends Authenticatable
 {
     use HasFactory, Notifiable;
 
-    protected $table = 'merchants';
+    protected $table = 'merchant';
 
     /**
      * The attributes that are mass assignable.

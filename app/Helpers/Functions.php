@@ -6,9 +6,10 @@ use Illuminate\Support\Carbon;
 
 class Functions
 {
-    public static function IDGenerator($model, $user_id, $prefix, $id, $length = 5)
+    public static function IDGenerator($model, $user_id, $prefix, $length,$id)
     {
         // Directly use the provided ID
+        $length = 5;
         $last_number = $id;
     
         // Determine the length of the numeric part

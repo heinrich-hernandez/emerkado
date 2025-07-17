@@ -35,8 +35,8 @@ $current_route=request()->route()->getName();
                     </a>
                 </li>
 
-                <li class="nav-item {{ in_array($current_route, ['pages.coop', 'pages.buyer', 'pages.merchant', 'pages.create_merchant', 'pages.create_coop', 'pages.review_coop' ]) ? 'menu-open' : '' }}">
-                    <a href="#" class="nav-link {{ in_array($current_route, ['pages.coop', 'pages.buyer', 'pages.merchant', 'pages.create_merchant', 'pages.create_coop', 'pages.review_coop']) ? 'active' : '' }}">
+                <li class="nav-item {{ in_array($current_route, ['pages.coop', 'pages.buyer', 'pages.merchant', 'pages.create_merchant', 'pages.create_coop', 'pages.review_coop', 'pages.create_buyer', 'pages.review_buyer' ]) ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ in_array($current_route, ['pages.coop', 'pages.buyer', 'pages.merchant', 'pages.create_merchant', 'pages.create_coop', 'pages.review_coop', 'pages.create_buyer', 'pages.review_buyer']) ? 'active' : '' }}">
                         <i class="nav-icon fas fa-users nav-icon"></i>
                         <p>
                             {{ __('Users Management') }}
@@ -57,8 +57,8 @@ $current_route=request()->route()->getName();
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('pages.buyer') }}" class="nav-link {{ $current_route=='pages.buyer'?'active':'' }}">
-                                <i class="nav-icon fas fa-user-tie"></i>
+                            <a href="{{ route('pages.buyer') }}" class="nav-link {{ $current_route=='pages.buyer' || $current_route == 'pages.create_buyer' || $current_route == 'pages.review_buyer' ? 'active':'' }}">
+                                <i class="nav-icon fas fa-store"></i>
                                 <p>Buyer</p>
                             </a>
                         </li>
@@ -70,4 +70,4 @@ $current_route=request()->route()->getName();
     </div>
     <!-- /.sidebar -->
 
-    </aside>
+</aside>

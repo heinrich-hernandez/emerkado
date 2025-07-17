@@ -12,6 +12,6 @@ class ProfileController extends Controller
         $data=[
             'title'=>'Dashboard',
         ];
-        return view('coop.pages.dashboard',$data); //url path in folder resources/views/admin/dashboard.blade.php
+        return view('buyer.pages.dashboard',$data); //url path in folder resources/views/admin/dashboard.blade.php
     }
 }
