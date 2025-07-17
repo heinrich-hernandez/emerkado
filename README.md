@@ -1,21 +1,22 @@
-<img src="https://github.com/heinrich-hernandez/emerkado/blob/main/app/icons/eMerkado.icon.png" width="280" height="314" alt="eMerkado">
-
-## eMerkado
-
------
-
-#### Tech Stack
-<div align="center">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg" height="40" alt="laravel logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/npm/npm-original-wordmark.svg" height="40" alt="npm logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" height="40" alt="laravel logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" height="40" alt="laravel logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/composer/composer-original.svg" height="40" alt="composer logo" />
-  <img width="12" />
+<div style="display: flex; align-items: center; justify-content: center;">
+    <div style="margin-right: 20px; text-align: center;">
+        <img src="https://github.com/heinrich-hernandez/emerkado/blob/main/app/icons/eMerkado.icon.png?raw=true" alt="eMerkado" />
+        <h2>eMerkado</h2>
+    </div>
+    <div style="text-align: center;">
+        <h4>Tech Stack</h4>
+        <div>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg" height="40" alt="Node.js logo" />
+            <img width="12" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/npm/npm-original-wordmark.svg" height="40" alt="npm logo" />
+            <img width="12" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" height="40" alt="PHP logo" />
+            <img width="12" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" height="40" alt="Laravel logo" />
+            <img width="12" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/composer/composer-original.svg" height="40" alt="Composer logo" />
+        </div>
+    </div>
 </div>
 
 -----
