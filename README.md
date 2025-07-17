@@ -1,9 +1,10 @@
 <img src="https://github.com/heinrich-hernandez/emerkado/blob/main/app/icons/eMerkado.icon.png" width="280" height="314" alt="eMerkado">
-##eMerkado
+
+## eMerkado
 
 -----
 
-###Get Started
+### Get Started
 
 Let's start with:
 ```shell
@@ -25,7 +26,7 @@ And then install dependencies:
 
 -----
 
-###Task List
+### Task List
 
 - [ ] User Login
     - [x] Admin Login
