@@ -1,6 +1,6 @@
 <div style="display: flex; align-items: center; justify-content: center;">
     <div style="margin-right: 20px; text-align: center;">
-        <img src="https://github.com/heinrich-hernandez/emerkado/blob/main/app/icons/eMerkado.icon.png" alt="eMerkado" />
+        <img src="https://github.com/heinrich-hernandez/emerkado/blob/main/app/icons/eMerkado.icon.png" width="280" height="314" alt="eMerkado" alt="eMerkado" />
         <h2>eMerkado</h2>
     </div>
     <div style="text-align: center;">
