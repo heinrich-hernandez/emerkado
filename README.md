@@ -10,7 +10,7 @@
                 <img width="12" />
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/npm/npm-original-wordmark.svg" height="40" alt="npm logo" />
                 <img width="12" />
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicons@latest/icons/php/php-original.svg" height="40" alt="PHP logo" />
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" height="40" alt="PHP logo" />
                 <img width="12" />
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" height="40" alt="Laravel logo" />
                 <img width="12" />
