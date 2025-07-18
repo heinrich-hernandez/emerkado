@@ -1,32 +1,26 @@
-## eMerkado
-
------
-
-\<br\>
-
-\<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;"\>
-\<div style="text-align: center;"\>
-\<img src="[https://github.com/heinrich-hernandez/emerkado/blob/main/app/icons/eMerkado.icon.png](https://github.com/heinrich-hernandez/emerkado/blob/main/app/icons/eMerkado.icon.png)" width="280" height="314" alt="eMerkado" /\>
-\<br\>
-\</div\>
-\<div style="text-align: center;"\>
-\<h4\>Tech Stack\</h4\>
-\<div\>
-\<img src="[https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg](https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg)" height="40" alt="Node.js logo" /\>
-\<img width="12" /\>
-\<img src="[https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/npm/npm-original-wordmark.svg](https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/npm/npm-original-wordmark.svg)" height="40" alt="npm logo" /\>
-\<img width="12" /\>
-\<img src="[https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg](https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg)" height="40" alt="PHP logo" /\>
-\<img width="12" /\>
-\<img src="[https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg](https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg)" height="40" alt="Laravel logo" /\>
-\<img width="12" /\>
-\<img src="[https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/composer/composer-original.svg](https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/composer/composer-original.svg)" height="40" alt="Composer logo" /\>
-\<img width="12" /\>
-\<img src="[https://upload.wikimedia.org/wikipedia/commons/0/03/Xampp\_logo.svg](https://upload.wikimedia.org/wikipedia/commons/0/03/Xampp_logo.svg)" height="40" alt="Xampp logo" /\>
-\<img width="12" /\>
-\</div\>
-\</div\>
-\</div\>
+ <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+        <div style="text-align: center;">
+            <img src="https://github.com/heinrich-hernandez/emerkado/blob/main/app/icons/eMerkado.icon.png" width="280" height="314" alt="eMerkado" />
+            <h2>eMerkado</h2>
+        </div>
+        <div style="text-align: center;">
+            <h4>Tech Stack</h4>
+            <div>
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg" height="40" alt="Node.js logo" />
+                <img width="12" />
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/npm/npm-original-wordmark.svg" height="40" alt="npm logo" />
+                <img width="12" />
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicons@latest/icons/php/php-original.svg" height="40" alt="PHP logo" />
+                <img width="12" />
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" height="40" alt="Laravel logo" />
+                <img width="12" />
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/composer/composer-original.svg" height="40" alt="Composer logo" />
+                <img width="12" />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/03/Xampp_logo.svg" height="40" alt="Xampp logo" />
+                <img width="12" />
+            </div>
+        </div>
+</div>
 
 -----
 
