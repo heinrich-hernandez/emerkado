@@ -1,10 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\{AuthController, ProfileController as AdminProfileController, UserController as AdminUserController, CoopController, MerchantController, BuyerController};
+use App\Http\Controllers\Admin\{AuthAdminController, ProfileController as AdminProfileController, UserController as AdminUserController, CoopController, MerchantController, BuyerController};
+use App\Http\Controllers\Coop\{AuthCoopController, ProfileCoopController as CoopProfileController};
 use App\Http\Controllers\Merchant\ProfileController as MerchantProfileController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Middleware\AdminAuth;
+use App\Http\Middleware\Auth;
 use App\Http\Middleware\AuthenticateSysUsers;
 
 
@@ -65,9 +66,21 @@ Route::middleware(['auth:admin', AuthenticateSysUsers::class])->group(function (
     // Review Buyer
     Route::get('/admin/buyer/review_buyer/id={id}', [AdminUserController::class, 'review_buyer'])->name('pages.review_buyer');
     Route::post('/admin/buyer/review_buyer/id={id}', [AdminUserController::class, 'approved_review_buyer'])->name('approved.review_buyer');
-
 });
 
+// Coop routes
+Route::middleware(['auth:coop', AuthenticateSysUsers::class])->group(function () {
+    Route::get('/coop/dashboard', [CoopProfileController::class, 'dashboard'])->name('coop-dashboard');
+});
+
+// Merchant routes
+Route::middleware(['auth:merchant', AuthenticateSysUsers::class])->group(function () {
+    Route::get('/merchant/dashboard', [MerchantProfileController::class, 'dashboard'])->name('merchant-dashboard');
+});
+
+
+
+// Redirect to login if not authenticated
 Route::get('/', function () {
     \Log::info('Redirecting to login');
     return redirect()->route('getLogin');

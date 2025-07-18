@@ -20,3 +20,4 @@ yarn-error.log
 /.vscode
 .backup
 .v2
+.vite/deps

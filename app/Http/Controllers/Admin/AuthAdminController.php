@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class AuthController extends Controller
+class AuthAdminController extends Controller
 {
     public function getLogin(){
         return view('admin.auth.login'); //url path in folder resources/views/admin/auth/login.blade.php

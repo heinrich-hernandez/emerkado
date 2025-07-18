@@ -29,7 +29,8 @@ Let's start with:
 git clone https://github.com/heinrich-hernandez/emerkado.git
 ```
 
-Make sure to both have node, php and composer installed.
+Make sure to have both node, php and composer installed.
+
 
 Now let's go to our project directory:
 
@@ -40,11 +41,14 @@ cd .\emerkado\
 And then install dependencies:
 
 ```shell
+
 composer install
+
 npm install
 ```
 
 Now let's start debugging:
+
 ```shell
 composer run dev
 ```
@@ -57,8 +61,20 @@ composer run dev
     - [x] Admin Login
         - [x] Admin Dashboard
             - [x] Coop Page
+                - [x] Create Coop
+                - [x] Delete Coop 
+                - [x] Approve Coop 
+                - [x] Review Coop  
             - [x] Merchant Page
+                - [x] Create Merchant
+                - [x] Delete Merchant
+                - [x] Approve Merchant
             - [x] Buyer Page
+                - [x] Create Buyer
+                - [x] Delete Buyer
+                - [x] Approve Buyer
+                - [x] Review Buyer
+
     - [ ] Coop Login
         - [ ] Coop Dashboard
     - [ ] Merchant Login

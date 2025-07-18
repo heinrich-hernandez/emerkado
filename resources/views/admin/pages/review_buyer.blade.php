@@ -1,6 +1,4 @@
-<?php use App\Helpers\Functions; 
-use App\Helpers\CreatedAt;
-?>
+<?php use App\Helpers\Functions;?>
 
 @extends('admin.main-layout')
 
@@ -117,7 +115,7 @@ use App\Helpers\CreatedAt;
 
     <!-- Main content -->
     <div class="content">
-    <div class="container-fluid">
+      <div class="container-fluid">
         <div class="row">
           <div class="col-md-3">
             <!-- Profile Image -->
@@ -466,12 +464,11 @@ use App\Helpers\CreatedAt;
 
 @push('scripts')
     <script src="{{ asset('js/jquery-3.7.1.min.js') }}" ></script>
-    <script src="{{ asset('js/summernote.min.js') }}" ></script>
     <script src="{{ asset('js/adminlte.min.js') }}" ></script>
-    <script src="{{ asset('js/jquery.validate.min.js') }}" ></script>
-    <script src="{{ asset('js/sweetalert2.all.min.js') }}" ></
-    <script src="{{ asset('js/display_file_name.js') }}"></script>
-    <script src="{{ asset('js/popper.min.js') }}" ></script>
+    <script src="{{ asset('js/summernote.min.js') }}" ></script>
     <script src="{{ asset('js/bootstrap.min.js') }}" ></script>
+    <script src="{{ asset('js/sweetalert2.all.min.js') }}" ></
+    <script src="{{ asset('js/popper.min.js') }}" ></script>
     <script src="{{ asset('js/bootstrap-toggle.min.js') }}" ></script>
+    <script src="{{ asset('js/display_file_name.js') }}"></script>
 @endpush
