@@ -1,9 +1,9 @@
-<div style="display: flex; align-items: center; justify-content: center;">
-    <div style="align: center;">
-        <img src="https://github.com/heinrich-hernandez/emerkado/blob/main/app/icons/eMerkado.icon.png" width="280" height="314" alt="eMerkado" alt="eMerkado" />
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+    <div style="text-align: center;">
+        <img src="https://github.com/heinrich-hernandez/emerkado/blob/main/app/icons/eMerkado.icon.png" width="280" height="314" alt="eMerkado" />
         <h2>eMerkado</h2>
     </div>
-    <div style="align: center;">
+    <div style="text-align: center;">
         <h4>Tech Stack</h4>
         <div>
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg" height="40" alt="Node.js logo" />
