@@ -1,9 +1,9 @@
 <div style="display: flex; align-items: center; justify-content: center;">
-    <div style="margin-right: 20px; text-align: center;">
+    <div style="align: center;">
         <img src="https://github.com/heinrich-hernandez/emerkado/blob/main/app/icons/eMerkado.icon.png" width="280" height="314" alt="eMerkado" alt="eMerkado" />
         <h2>eMerkado</h2>
     </div>
-    <div style="text-align: center;">
+    <div style="align: center;">
         <h4>Tech Stack</h4>
         <div>
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg" height="40" alt="Node.js logo" />
@@ -15,6 +15,9 @@
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" height="40" alt="Laravel logo" />
             <img width="12" />
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/composer/composer-original.svg" height="40" alt="Composer logo" />
+            <img width="12" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/03/Xampp_logo.svg" height="40" alt="Xampp logo" />
+            <img width="12" />
         </div>
     </div>
 </div>
@@ -53,8 +56,7 @@ Now let's start debugging:
 composer run dev
 ```
 
-Install XAMPP:
-phpMyAdmin (comes with XAMPP):
+#### Install and run XAMPP
 
 Open your browser and navigate to http://localhost/phpmyadmin (or similar URL provided by your bundle).
 
