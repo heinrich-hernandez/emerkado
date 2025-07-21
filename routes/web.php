@@ -5,8 +5,9 @@ use App\Http\Controllers\Admin\{AuthAdminController, ProfileController as AdminP
 use App\Http\Controllers\Coop\{AuthCoopController, ProfileCoopController as CoopProfileController};
 use App\Http\Controllers\Merchant\ProfileController as MerchantProfileController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Middleware\Auth;
+use App\Http\Middleware\AdminAuth;
 use App\Http\Middleware\AuthenticateSysUsers;
+use Illuminate\Support\Facades\Auth; // Import Auth facade
 
 
 Route::get('/user-login', [LoginController::class, 'getLogin'])->name('getLogin')->middleware('guest');
@@ -79,9 +80,15 @@ Route::middleware(['auth:merchant', AuthenticateSysUsers::class])->group(functio
 });
 
 
-
-// Redirect to login if not authenticated
 Route::get('/', function () {
-    \Log::info('Redirecting to login');
+    if (Auth::guard('admin')->check()) {
+        return redirect()->route('admin-dashboard');
+    } //elseif (Auth::guard('Coop')->check()) {
+    //     return redirect()->route('coop-dashboard');
+    // } elseif (Auth::guard('Buyer')->check()) {
+    //     return redirect()->route('buyer-dashboard');
+    // } elseif (Auth::guard('Merchant')->check()) {
+    // return redirect()->route('merchant-dashboard');
+    // }
     return redirect()->route('getLogin');
-})->middleware('guest');
+});

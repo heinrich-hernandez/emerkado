@@ -123,20 +123,21 @@ Finally create your own admin.
                 - [x] Approve Buyer
                 - [x] Review Buyer
 
+        (create a condition if profile is diapproved, user should immediately only view and be able to edit their profile.)
     - [ ] Coop Login
         - [ ] Coop Dashboard
         - [ ] Coop Profile
-        - [ ] Coop Profile Edit
+            - [ ] Coop Profile Edit
 
     - [ ] Merchant Login
         - [ ] Merchant Dashboard
         - [ ] Merchant Profile
-        - [ ] Merchant Profile Edit
+            - [ ] Merchant Profile Edit
         
     - [ ] Buyer Login
         - [ ] Buyer Dashboard
         - [ ] Buyer Profile
-        - [ ] Buyer Profile Edit
+            - [ ] Buyer Profile Edit
 
 #### End Notes.
 This is currently is a work in progress project with lots to debug and optimize.
