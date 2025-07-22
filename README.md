@@ -32,7 +32,7 @@ Let's start with:
 git clone https://github.com/heinrich-hernandez/emerkado.git
 ```
 
-Make sure to have both node, php and composer installed.
+Make sure to have node, php and composer installed.
 
 
 Now let's go to our project directory:
@@ -108,7 +108,7 @@ Finally create your own admin.
 - [ ] User Registration Form
     -[ ] Review Step Process
         - [ ] Logging
-        
+
 - [x] User Login
     - [x] Admin Login
         - [x] Admin Dashboard

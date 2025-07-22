@@ -6,7 +6,7 @@ $current_route=request()->route()->getName();
 <!-- Left Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
-        <a href="/buyer/dashboard" class="brand-link">
+        <a href="/merchant/dashboard" class="brand-link">
             <img src="{{ asset('images/eMerkado.icon.png') }}" width="128" height="114" alt="AdminLTE Logo"
                  class="brand-image img-circle elevation-3"
                  style="opacity: .8">
@@ -27,7 +27,7 @@ $current_route=request()->route()->getName();
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
                 <li class="nav-item">
-                    <a href="{{ route('buyer-dashboard') }}" class="nav-link {{ $current_route=='buyer-dashboard'?'active':'' }}"> {{-- route('buyer-dashboard') is the name route in web.php --}}
+                    <a href="{{ route('merchant-dashboard') }}" class="nav-link {{ $current_route=='merchant-dashboard'?'active':'' }}"> {{-- route('merchant-dashboard') is the name route in web.php --}}
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             {{ __('Dashboard') }}

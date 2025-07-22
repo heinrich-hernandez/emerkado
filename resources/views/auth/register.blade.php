@@ -7,6 +7,27 @@
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
+            {{-- User Type Selection --}}
+            <div class="input-group mb-3">
+                <select name="user_type" class="form-control @error('user_type') is-invalid @enderror" required>
+                    <option value="">{{ __('Select User Type') }}</option>
+                    <option value="coop">{{ __('Coop') }}</option>
+                    <option value="merchant">{{ __('Merchant') }}</option>
+                    <option value="buyer">{{ __('Buyer') }}</option>
+                </select>
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                        <span class="fas fa-user-tag"></span> {{-- You might need to adjust this icon --}}
+                    </div>
+                </div>
+                @error('user_type')
+                <span class="error invalid-feedback">
+                    {{ $message }}
+                </span>
+                @enderror
+            </div>
+            {{-- End User Type Selection --}}
+
             <div class="input-group mb-3">
                 <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
                        placeholder="{{ __('Name') }}" required autocomplete="name" autofocus>
