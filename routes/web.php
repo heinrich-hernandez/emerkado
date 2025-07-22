@@ -3,9 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\{AuthAdminController, ProfileController as AdminProfileController, UserController as AdminUserController, CoopController, MerchantController, BuyerController};
 use App\Http\Controllers\Coop\{AuthCoopController, ProfileCoopController as CoopProfileController};
-use App\Http\Controllers\Merchant\ProfileController as MerchantProfileController;
+use App\Http\Controllers\Merchant\{AuthMerchantController, ProfileMerchantController as MerchantProfileController};
+use App\Http\Controllers\Buyer\{AuthBuyerController, ProfileBuyerController as BuyerProfileController};
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Middleware\AdminAuth;
+use App\Http\Middleware\CoopAuth;
+use App\Http\Middleware\MerchantAuth;
+use App\Http\Middleware\BuyerAuth;
 use App\Http\Middleware\AuthenticateSysUsers;
 use Illuminate\Support\Facades\Auth; // Import Auth facade
 
@@ -79,16 +83,21 @@ Route::middleware(['auth:merchant', AuthenticateSysUsers::class])->group(functio
     Route::get('/merchant/dashboard', [MerchantProfileController::class, 'dashboard'])->name('merchant-dashboard');
 });
 
+// Buyer routes
+Route::middleware(['auth:buyer', AuthenticateSysUsers::class])->group(function () {
+    Route::get('/buyer/dashboard', [BuyerProfileController::class, 'dashboard'])->name('buyer-dashboard');
+});
+
 
 Route::get('/', function () {
     if (Auth::guard('admin')->check()) {
         return redirect()->route('admin-dashboard');
-    } //elseif (Auth::guard('Coop')->check()) {
-    //     return redirect()->route('coop-dashboard');
-    // } elseif (Auth::guard('Buyer')->check()) {
-    //     return redirect()->route('buyer-dashboard');
-    // } elseif (Auth::guard('Merchant')->check()) {
-    // return redirect()->route('merchant-dashboard');
-    // }
+    } elseif (Auth::guard('coop')->check()) {
+        return redirect()->route('coop-dashboard');
+    } elseif (Auth::guard('buyer')->check()) {
+        return redirect()->route('buyer-dashboard');
+    } elseif (Auth::guard('merchant')->check()) {
+    return redirect()->route('merchant-dashboard');
+    }
     return redirect()->route('getLogin');
 });

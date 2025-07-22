@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Buyer;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin_Data\BuyerModel;
@@ -15,6 +15,7 @@ class BuyerController extends Controller
         $validatedData = $request->validate([
             'user_id' => 'nullable',
             'name' => 'required|string|max:255',
+            'business_name' => 'required|string|max:255',
             'address' => 'required|string|max:255',
             'contact_number' => 'required|string|max:11',
             'email' => 'required|email|max:255',
@@ -32,7 +33,13 @@ class BuyerController extends Controller
                 'regex:/[@$!%*?&]/'  // at least one special character
             ],
             'password_confirmation' => 'nullable|string|min:8',
+            'agency_affiliation' => 'required|string|max:255',
+            'agency_affiliation_name' => [
+                'nullable',
+                'required_if:agency_affiliation,yes'
+            ],
             'user_role' => 'nullable|string|max:255',
+            'business_discription' => 'nullable|string|max:255',
             'approved_by' => 'nullable|string|max:255',
             'date' => 'nullable|date'
         ]);
@@ -44,7 +51,7 @@ class BuyerController extends Controller
 
 
         $data = $validatedData;
-        $data['user_id'] = Functions::IDGenerator(new BuyerModel, 'user_id', 'COOP', $length, $id );
+        $data['user_id'] = Functions::IDGenerator(new BuyerModel, 'user_id', 'Buyer', $length, $id );
         $data['user_role'] = $data['user_role'] ?? 'Buyer';
         $data['date'] = $data['date'] ?? date('Y-m-d');
         $data['status'] = $data['status'] ?? '0';

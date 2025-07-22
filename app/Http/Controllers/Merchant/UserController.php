@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Admin_Data\{AdminModel, CoopModel, MerchantModel};
+use App\Models\Admin_Data\{MerchantModel};
 use App\Helpers\Functions;
 
 class UserController extends Controller

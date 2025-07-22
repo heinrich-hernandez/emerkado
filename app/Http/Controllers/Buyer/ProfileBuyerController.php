@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Merchant;
+namespace App\Http\Controllers\Buyer;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 // use App\Models\Admin_Data\{AdminModel, CoopModel, MerchantModel}; //Insert Merchant Models here..
 
-class ProfileController extends Controller
+class ProfileBuyerController extends Controller
 {
     public function dashboard(){
         $data=[

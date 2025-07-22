@@ -18,7 +18,7 @@ $current_route=request()->route()->getName();
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="info">
-                <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+                <a href="#" class="d-block">{{ Auth::user()->coop_name }}</a>
             </div>
         </div>
 
@@ -27,42 +27,12 @@ $current_route=request()->route()->getName();
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
                 <li class="nav-item">
-                    <a href="{{ route('admin-dashboard') }}" class="nav-link {{ $current_route=='admin-dashboard'?'active':'' }}"> {{-- route('admin-dashboard') is the name route in web.php --}}
+                    <a href="{{ route('coop-dashboard') }}" class="nav-link {{ $current_route=='coop-dashboard'?'active':'' }}"> {{-- route('coop-dashboard') is the name route in web.php --}}
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             {{ __('Dashboard') }}
                         </p>
                     </a>
-                </li>
-
-                <li class="nav-item {{ in_array($current_route, ['pages.coop', 'pages.buyer', 'pages.merchant', 'pages.create_merchant', 'pages.create_coop', 'pages.review_coop', 'pages.create_buyer', 'pages.review_buyer' ]) ? 'menu-open' : '' }}">
-                    <a href="#" class="nav-link {{ in_array($current_route, ['pages.coop', 'pages.buyer', 'pages.merchant', 'pages.create_merchant', 'pages.create_coop', 'pages.review_coop', 'pages.create_buyer', 'pages.review_buyer']) ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-users nav-icon"></i>
-                        <p>
-                            {{ __('Users Management') }}
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route('pages.coop') }}" class="nav-link {{ $current_route=='pages.coop' || $current_route == 'pages.create_coop' || $current_route == 'pages.review_coop' ? 'active':'' }}">
-                                <i class="nav-icon fas fa-store"></i>
-                                <p>Coop</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('pages.merchant') }}" class="nav-link {{ $current_route == 'pages.merchant' || $current_route == 'pages.create_merchant' ? 'active':'' }}">
-                                <i class="nav-icon fas fa-comments-dollar"></i>
-                                <p>Merchant</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('pages.buyer') }}" class="nav-link {{ $current_route=='pages.buyer' || $current_route == 'pages.create_buyer' || $current_route == 'pages.review_buyer' ? 'active':'' }}">
-                                <i class="nav-icon fas fa-store"></i>
-                                <p>Buyer</p>
-                            </a>
-                        </li>
-                    </ul>
                 </li>
             </ul>
         </nav>

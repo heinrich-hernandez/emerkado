@@ -1,5 +1,5 @@
 <?php use App\Helpers\Functions; ?>
-@extends('merchant.main-layout')
+@extends('buyer.main-layout')
 
 @section('content')
     <!-- Content Header (Page header) -->
