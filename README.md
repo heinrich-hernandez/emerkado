@@ -1,66 +1,147 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+ <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+        <div style="text-align: center;">
+            <img src="https://github.com/heinrich-hernandez/emerkado/blob/main/app/icons/eMerkado.icon.png" width="280" height="314" alt="eMerkado" />
+            <h2>eMerkado</h2>
+        </div>
+        <div style="text-align: center;">
+            <h4>Tech Stack</h4>
+            <div>
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg" height="40" alt="Node.js logo" />
+                <img width="12" />
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/npm/npm-original-wordmark.svg" height="40" alt="npm logo" />
+                <img width="12" />
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" height="40" alt="PHP logo" />
+                <img width="12" />
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" height="40" alt="Laravel logo" />
+                <img width="12" />
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/composer/composer-original.svg" height="40" alt="Composer logo" />
+                <img width="12" />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/03/Xampp_logo.svg" height="40" alt="Xampp logo" />
+                <img width="12" />
+            </div>
+        </div>
+</div>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+-----
 
-## About Laravel
+### Get Started
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Let's start with:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+```shell
+git clone https://github.com/heinrich-hernandez/emerkado.git
+```
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Make sure to have both node, php and composer installed.
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Now let's go to our project directory:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+```shell
+cd .\emerkado\
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+And then install dependencies:
 
-## Laravel Sponsors
+```shell
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+composer install
 
-### Premium Partners
+npm install
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+Now let's start debugging:
 
-## Contributing
+```shell
+composer run dev
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+#### Install and run XAMPP
 
-## Code of Conduct
+Open your browser and navigate to http://localhost/phpmyadmin (or similar URL provided by your bundle).
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+1. Log in (default for XAMPP is root with no password).
 
-## Security Vulnerabilities
+2. Click on "New" or "Databases" in the left sidebar.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+3. Enter emarkado_db in the "Database name" field.
 
-## License
+4. Choose a collation (e.g., <strong>utf8mb4_unicode_ci</strong> is a good general choice for Laravel as it supports emojis and various characters).
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+5. Click "Create."
+
+Success, now let's go back to our editor and find our .env file inside our application.
+
+Then configure our .env file, find and, replace or uncomment:
+
+```mysql
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=emarkado_db
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+Note. Please be aware that this is for testing purposes only and not advisable when deploying.
+
+Run Laravel Migrations
+Laravel uses migrations to create your database tables.
+
+Open your terminal or command prompt.
+
+Navigate to your Laravel project's root directory.
+
+Run the migrations:
+
+```php
+php artisan migrate
+```
+
+Finally create your own admin.
+
+
+-----
+
+### Task List
+
+- [ ] User Registration Form
+    -[ ] Review Step Process
+        - [ ] Logging
+        
+- [x] User Login
+    - [x] Admin Login
+        - [x] Admin Dashboard
+            - [x] Coop Page
+                - [x] Create Coop
+                - [x] Delete Coop 
+                - [x] Approve Coop 
+                - [x] Review Coop  
+            - [x] Merchant Page
+                - [x] Create Merchant
+                - [x] Delete Merchant
+                - [x] Approve Merchant
+            - [x] Buyer Page
+                - [x] Create Buyer
+                - [x] Delete Buyer
+                - [x] Approve Buyer
+                - [x] Review Buyer
+
+        (create a condition if profile is diapproved, user should immediately only view and be able to edit their profile.)
+    - [x] Coop Login
+        - [x] Coop Dashboard
+        - [ ] Coop Profile
+            - [ ] Coop Profile Edit
+
+    - [x] Merchant Login
+        - [x] Merchant Dashboard
+        - [ ] Merchant Profile
+            - [ ] Merchant Profile Edit
+        
+    - [x] Buyer Login
+        - [x] Buyer Dashboard
+        - [ ] Buyer Profile
+            - [ ] Buyer Profile Edit
+
+#### End Notes.
+This is currently is a work in progress project with lots to debug and optimize.

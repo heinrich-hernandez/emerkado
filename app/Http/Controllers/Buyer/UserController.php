@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Buyer;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Admin_Data\{AdminModel, CoopModel, MerchantModel, BuyerModel};
+use App\Models\Admin_Data\{BuyerModel};
 use App\Helpers\Functions;
 
 class UserController extends Controller

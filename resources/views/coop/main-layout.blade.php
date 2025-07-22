@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Merchant Panel {{ isset($title) ? '| ' . $title : '' }}</title>
+    <title>Coop Panel {{ isset($title) ? '| ' . $title : '' }}</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -65,7 +65,7 @@
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
-        @include('merchant.layout.left-sidebar')
+        @include('coop.layout.left-sidebar')
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">

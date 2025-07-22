@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class AdminAuth
+class CoopAuth
 {
     /**
      * Handle an incoming request.
@@ -16,8 +16,8 @@ class AdminAuth
     public function handle(Request $request, Closure $next): Response
     {   
         if(auth()->check()){
-            if(!auth()->user()->is_admin){ //user() is the table name, is_admin is a column in user table
-                return redirect()->route('getLogin')->with('error','Must be admin to logged in to access this page');
+            if(!auth()->user()->is_coop){ //user() is the table name, is_coop is a column in user table
+                return redirect()->route('getLogin')->with('error','Must be coop to logged in to access this page');
             }
         }
         else{

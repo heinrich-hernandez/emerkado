@@ -105,13 +105,11 @@
     <script src="{{ asset('js/adminlte.min.js') }}" defer></script>
     <script src="{{ asset('js/jquery.validate.min.js') }}" defer></script>
     <script src="{{ asset('js/sweetalert2.all.min.js') }}" defer></script>
-    <script src="{{ asset('js/sweetalert2@11.js') }}" defer></script> 
     <script src="{{ asset('js/toastr.min.js') }}" defer></script> 
     <script src="{{ asset('js/form_validation.js') }}" defer></script>
     <script src="{{ asset('js/ajax_functions.js') }}" defer></script>
     <script src="{{ asset('js/bootstrap-toggle.min.js') }}"  defer></script>
     <script src="{{ asset('js/summernote-bs4.min.js') }}" defer></script>
-    <script src="{{ asset('js/summernote-bs5.min.js') }}" defer></script>
     <script src="{{ asset('js/custom_functions.js') }}" defer></script>
     
     @yield('scripts')

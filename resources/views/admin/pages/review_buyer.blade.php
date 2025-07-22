@@ -1,6 +1,4 @@
-<?php use App\Helpers\Functions; 
-use App\Helpers\CreatedAt;
-?>
+<?php use App\Helpers\Functions; ?>
 
 @extends('admin.main-layout')
 
@@ -59,65 +57,65 @@ use App\Helpers\CreatedAt;
 <!-- Modal -->
 <form action="{{ route('approved.review_buyer', $buyer->id ) }}" method="post" enctype="multipart/form-data">
 @csrf
-<div class="modal fade" id="modal-default" tabindex="-1" aria-labelledby="approvalModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-userapproval">
-    <div class="modal-content modal-userapproval">
-      <!-- Modal left: Image section -->
-      <div class="modal-left">
-        <img src="{{asset('images/magnifying-approval.png') }}" alt="Magnifying Glass">
-      </div>
+  <div class="modal fade" id="modal-default" tabindex="-1" aria-labelledby="approvalModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-userapproval">
+      <div class="modal-content modal-userapproval">
+        <!-- Modal left: Image section -->
+        <div class="modal-left">
+          <img src="{{asset('images/magnifying-approval.png') }}" alt="Magnifying Glass">
+        </div>
 
-      <!-- Modal right: Form section -->
-      <div class="modal-right">
-        <div class="modal-header modal-userapproval">
-        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-        </button>
-        </div>
-        <span class="modal-title" id="approvalModalLabel">Submit for approval?</span>
-        <p>Account will be denied if any of the following conditions are met:</p>
-        <div class="modal-body modal-userapproval">
-            <div class="form-check modal-checklist">
-              <input class="form-check-input check-item" type="checkbox" id="subCampaign1">
-              <label class="form-check-label" for="subCampaign1">Does not adhere proper naming convention</label>
-            </div>
-            <div class="form-check modal-checklist">
-              <input class="form-check-input check-item" type="checkbox" id="subCampaign2">
-              <label class="form-check-label" for="subCampaign2">Name does not match with the provided identification</label>
-            </div>
-            <div class="form-check modal-checklist">
-              <input class="form-check-input check-item" type="checkbox" id="subCampaign3">
-              <label class="form-check-label" for="subCampaign3">No valid ID (e.g., government-issued ID, passport, driver’s license)</label>
-            </div>
-            <div class="form-check modal-checklist">
-              <input class="form-check-input check-item" type="checkbox" id="subCampaign4">
-              <label class="form-check-label" for="subCampaign4">Username does not meet platform guidelines</label>
-            </div>
-            <div class="form-check modal-checklist">
-              <input class="form-check-input check-item" type="checkbox" id="subCampaign5">
-              <label class="form-check-label" for="subCampaign5">Account History has been reviewed (user had previous account)</label>
-            </div>
-            <div class="form-check modal-checklist">
-              <input class="form-check-input check-item" type="checkbox" id="subCampaign6">
-              <label class="form-check-label" for="subCampaign6">Flags or Suspicious Activity (e.g., fraudulent attempts, previous bans)</label>
-            </div>
-        </div>
-        <p style="margin-top: 10px; font-style: italic"></p>
-        <div class="modal-footer modal-userapproval">
-          <button type="submit" class="btn btn-danger" id="denied-account-modal" name="denied-account-modal" style="display: none;"><i class="fas fa-trash"></i> DENY ACCOUNT (<span id="checked-count">0</span>) </button>
-          <button type="submit" class="btn btn-success" id="approved-account-modal" name="approved-account-modal"><i class="fas fa-check"></i> APPROVED ACCOUNT</button>
-        </form>
+        <!-- Modal right: Form section -->
+        <div class="modal-right">
+          <div class="modal-header modal-userapproval">
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+          </div>
+          <span class="modal-title" id="approvalModalLabel">Submit for approval?</span>
+          <p>Account will be denied if any of the following conditions are met:</p>
+          <div class="modal-body modal-userapproval">
+              <div class="form-check modal-checklist">
+                <input class="form-check-input check-item" type="checkbox" id="subCampaign1">
+                <label class="form-check-label" for="subCampaign1">Does not adhere proper naming convention</label>
+              </div>
+              <div class="form-check modal-checklist">
+                <input class="form-check-input check-item" type="checkbox" id="subCampaign2">
+                <label class="form-check-label" for="subCampaign2">Name does not match with the provided identification</label>
+              </div>
+              <div class="form-check modal-checklist">
+                <input class="form-check-input check-item" type="checkbox" id="subCampaign3">
+                <label class="form-check-label" for="subCampaign3">No valid ID (e.g., government-issued ID, passport, driver’s license)</label>
+              </div>
+              <div class="form-check modal-checklist">
+                <input class="form-check-input check-item" type="checkbox" id="subCampaign4">
+                <label class="form-check-label" for="subCampaign4">Username does not meet platform guidelines</label>
+              </div>
+              <div class="form-check modal-checklist">
+                <input class="form-check-input check-item" type="checkbox" id="subCampaign5">
+                <label class="form-check-label" for="subCampaign5">Account History has been reviewed (user had previous account)</label>
+              </div>
+              <div class="form-check modal-checklist">
+                <input class="form-check-input check-item" type="checkbox" id="subCampaign6">
+                <label class="form-check-label" for="subCampaign6">Flags or Suspicious Activity (e.g., fraudulent attempts, previous bans)</label>
+              </div>
+          </div>
+          <p style="margin-top: 10px; font-style: italic"></p>
+          <div class="modal-footer modal-userapproval">
+            <button type="submit" class="btn btn-danger" id="denied-account-modal" name="denied-account-modal" style="display: none;"><i class="fas fa-trash"></i> DENY ACCOUNT (<span id="checked-count">0</span>) </button>
+            <button type="submit" class="btn btn-success" id="approved-account-modal" name="approved-account-modal"><i class="fas fa-check"></i> APPROVED ACCOUNT</button>
+          </form>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </form>
 <!-- /.modal -->
 
     <!-- Main content -->
     <div class="content">
-    <div class="container-fluid">
+      <div class="container-fluid">
         <div class="row">
           <div class="col-md-3">
             <!-- Profile Image -->
@@ -464,14 +462,3 @@ use App\Helpers\CreatedAt;
     </div>
 @endsection
 
-@push('scripts')
-    <script src="{{ asset('js/jquery-3.7.1.min.js') }}" ></script>
-    <script src="{{ asset('js/summernote.min.js') }}" ></script>
-    <script src="{{ asset('js/adminlte.min.js') }}" ></script>
-    <script src="{{ asset('js/jquery.validate.min.js') }}" ></script>
-    <script src="{{ asset('js/sweetalert2.all.min.js') }}" ></
-    <script src="{{ asset('js/display_file_name.js') }}"></script>
-    <script src="{{ asset('js/popper.min.js') }}" ></script>
-    <script src="{{ asset('js/bootstrap.min.js') }}" ></script>
-    <script src="{{ asset('js/bootstrap-toggle.min.js') }}" ></script>
-@endpush

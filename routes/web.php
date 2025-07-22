@@ -1,26 +1,30 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\{AuthController, ProfileController as AdminProfileController, UserController as AdminUserController, CoopController, MerchantController, BuyerController};
-use App\Http\Controllers\Merchant\ProfileController as MerchantProfileController;
+use App\Http\Controllers\Admin\{AuthAdminController, ProfileController as AdminProfileController, UserController as AdminUserController, CoopController, MerchantController, BuyerController};
+use App\Http\Controllers\Coop\{AuthCoopController, ProfileCoopController as CoopProfileController};
+use App\Http\Controllers\Merchant\{AuthMerchantController, ProfileMerchantController as MerchantProfileController};
+use App\Http\Controllers\Buyer\{AuthBuyerController, ProfileBuyerController as BuyerProfileController};
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Middleware\AdminAuth;
+use App\Http\Middleware\CoopAuth;
+use App\Http\Middleware\MerchantAuth;
+use App\Http\Middleware\BuyerAuth;
 use App\Http\Middleware\AuthenticateSysUsers;
+use Illuminate\Support\Facades\Auth; // Import Auth facade
 
 
-Route::get('/user-login', [LoginController::class, 'getLogin'])->name('getLogin');
-Route::post('/user-login', [LoginController::class, 'postLogin'])->name('postLogin');
+Route::get('/user-login', [LoginController::class, 'getLogin'])->name('getLogin')->middleware('guest');
+Route::post('/user-login', [LoginController::class, 'postLogin'])->name('postLogin')->middleware('guest');
 Route::post('/user-logout', [LoginController::class, 'Logout'])->name('Logout');
 
 
-// Redirect root URL to user login if not authenticated
-Route::get('/', function () {
-    return redirect()->route('getLogin');
-})->middleware('guest'); // Only redirect if the user is a guest
 
 
 // Admin routes
-Route::middleware('auth:admin')->group(function () {
+Route::middleware(['auth:admin', AuthenticateSysUsers::class])->group(function () {
+    Route::get('/admin/dashboard', [AdminProfileController::class, 'dashboard'])->name('admin-dashboard');
+
     Route::get('/', function () {
         return redirect()->route('admin-dashboard');
     });
@@ -28,11 +32,6 @@ Route::middleware('auth:admin')->group(function () {
     Route::get('/admin', function () {
         return redirect()->route('admin-dashboard');
     });
-});
-
-Route::middleware(['auth:admin', AuthenticateSysUsers::class])->group(function () {
-    Route::get('/admin/dashboard', [AdminProfileController::class, 'dashboard'])->name('admin-dashboard');
-
 
     // Coop routes
     Route::get('/admin/coop', [AdminUserController::class, 'coop'])->name('pages.coop');
@@ -72,7 +71,33 @@ Route::middleware(['auth:admin', AuthenticateSysUsers::class])->group(function (
     // Review Buyer
     Route::get('/admin/buyer/review_buyer/id={id}', [AdminUserController::class, 'review_buyer'])->name('pages.review_buyer');
     Route::post('/admin/buyer/review_buyer/id={id}', [AdminUserController::class, 'approved_review_buyer'])->name('approved.review_buyer');
+});
 
+// Coop routes
+Route::middleware(['auth:coop', AuthenticateSysUsers::class])->group(function () {
+    Route::get('/coop/dashboard', [CoopProfileController::class, 'dashboard'])->name('coop-dashboard');
+});
+
+// Merchant routes
+Route::middleware(['auth:merchant', AuthenticateSysUsers::class])->group(function () {
+    Route::get('/merchant/dashboard', [MerchantProfileController::class, 'dashboard'])->name('merchant-dashboard');
+});
+
+// Buyer routes
+Route::middleware(['auth:buyer', AuthenticateSysUsers::class])->group(function () {
+    Route::get('/buyer/dashboard', [BuyerProfileController::class, 'dashboard'])->name('buyer-dashboard');
 });
 
 
+Route::get('/', function () {
+    if (Auth::guard('admin')->check()) {
+        return redirect()->route('admin-dashboard');
+    } elseif (Auth::guard('coop')->check()) {
+        return redirect()->route('coop-dashboard');
+    } elseif (Auth::guard('buyer')->check()) {
+        return redirect()->route('buyer-dashboard');
+    } elseif (Auth::guard('merchant')->check()) {
+    return redirect()->route('merchant-dashboard');
+    }
+    return redirect()->route('getLogin');
+});
