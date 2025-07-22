@@ -105,7 +105,11 @@ Finally create your own admin.
 
 ### Task List
 
-- [ ] User Login
+- [ ] User Registration Form
+    -[ ] Review Step Process
+        - [ ] Logging
+        
+- [x] User Login
     - [x] Admin Login
         - [x] Admin Dashboard
             - [x] Coop Page
@@ -124,18 +128,18 @@ Finally create your own admin.
                 - [x] Review Buyer
 
         (create a condition if profile is diapproved, user should immediately only view and be able to edit their profile.)
-    - [ ] Coop Login
-        - [ ] Coop Dashboard
+    - [x] Coop Login
+        - [x] Coop Dashboard
         - [ ] Coop Profile
             - [ ] Coop Profile Edit
 
-    - [ ] Merchant Login
-        - [ ] Merchant Dashboard
+    - [x] Merchant Login
+        - [x] Merchant Dashboard
         - [ ] Merchant Profile
             - [ ] Merchant Profile Edit
         
-    - [ ] Buyer Login
-        - [ ] Buyer Dashboard
+    - [x] Buyer Login
+        - [x] Buyer Dashboard
         - [ ] Buyer Profile
             - [ ] Buyer Profile Edit
 
