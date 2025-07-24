@@ -1,11 +1,36 @@
 @extends('layouts.guest')
 
 @section('content')
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
+<body class="hold-transition login-page layout-fixed">
+    <div>
+        <div class="login-logo">
+            <a href="/">{{ config('app.name', 'eMerkado') }}</a>
+        </div>
+        <!-- /.login-logo -->
+    @if ($errors->any())
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // This assumes you have a 'showError' function available globally (e.g., from toaster.js or a custom script)
+                showError('Error processing coop registration. Please check the form for details.');
+            });
+        </script>
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    
+    <!-- Main content -->
+    <section class="content-header" style="padding-bottom: 0.2rem;">
         <div class="container-fluid">
             <div class="row mb-2">
                 <h1>{{ __('Coop Registration') }}</h1>
+            </div>
+            <div>
+                <p class="text-muted" style="margin-bottom: 0.2rem; ">{{ __('Join our platform as a Cooperative! Fill out the form below to register your organization and gain access to exclusive features tailored for coops.') }}</p>
             </div>
         </div><!-- /.container-fluid -->
     </section>
@@ -27,10 +52,8 @@
     @endif
     
     <!-- Main content -->
-    <div class="content">
+    <div class="bd-content">
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header bg-primary">
                             <h4>{{ __('Register New Coop Account') }}</h4>
@@ -249,11 +272,12 @@
                             </div>
                         </form>
                     </div>
-                </div>
-            </div>
             <!-- /.row -->
         </div><!-- /.container-fluid -->
     </div>
+    </div>
+</div>
+</body>
 @endsection
 
 @push('scripts')
