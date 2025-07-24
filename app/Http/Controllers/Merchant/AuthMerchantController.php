@@ -36,7 +36,9 @@ class AuthMerchantController extends Controller
         return redirect()->route('getLogin')->with('success', 'You have been successfully logged out.');
     }
 
-    public function getRegister(){
-        return view('merchant.auth.register'); //url path in folder resources/views/merchant/auth/register.blade.php
-    }
+    // Registration for Merchant is currently commented out as merchant creation is exclusively handled by Admin.
+    // Uncomment the following methods if you want to allow merchants to register themselves.
+    // public function getRegister(){
+    //     return view('merchant.auth.register'); //url path in folder resources/views/merchant/auth/register.blade.php
+    // }
 }
