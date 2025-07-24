@@ -53,7 +53,7 @@
                                     <thead>
                                         <tr>
                                             <th>User ID</th>
-                                            <th>Authorized Representative</th>
+                                            <th>Name</th>
                                             <th>Email</th>
                                             <th>Status</th>
                                             <th>Created at</th>
@@ -67,7 +67,7 @@
                                                 <td  class="align-middle">{{ $buyer->user_id }}</td>
                                                 <td class="align-middle">
                                                     <img src="{{ $buyer->profile_picture ? URL::to('/storage') . '/' . $buyer->profile_picture : asset('images/guest.jpg') }}" alt="Profile" class="table-avatar" onerror="this.onerror=null;this.src='{{ asset('images/guest.jpg') }}">
-                                                    {{ $buyer->authorized_representative }}
+                                                    {{ $buyer->name }}
                                                 </td>
                                                 <td class="align-middle">{{ $buyer->email }}</td>
                                                 <td>

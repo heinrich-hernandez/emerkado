@@ -19,12 +19,6 @@
                         </a>
                     </div>
                     <div class="col-12 mb-3">
-                        <a href="{{ route('merchant.auth.register') }}" class="btn btn-primary btn-block fas">
-                            {{ __('Merchant') }}
-                            <i class="nav-icon fas fa-comments-dollar"></i>
-                        </a>
-                    </div>
-                    <div class="col-12 mb-3">
                         <a href="{{ route('buyer.auth.register') }}" class="btn btn-primary btn-block fas">
                             {{ __('Buyer') }}
                             <i class="nav-icon fas fa-store"></i>
@@ -33,7 +27,7 @@
                 </div>
 
                 <p class="mb-1 text-center">
-                    <a href="{{ route('getLogin') }}">{{ __('I already have a membership') }}</a>
+                    <a href="{{ route('getLogin') }}">{{ __('I already have an account') }}</a>
                 </p>
             </div>
             <!-- /.login-card-body -->
