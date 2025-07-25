@@ -102,7 +102,7 @@
                                                 <td>
                                                     <input data-id="{{$coop->id}}" class="approve_coop" type="checkbox" data-onstyle="success {{ $coop->review_status == 'Approved' ? '' : 'warning-disabled' }}" data-offstyle="warning {{ $coop->review_status == 'Approved' ? '' : 'warning-disabled' }}" data-toggle="toggle" data-on="Activated" data-off="Inactive" {{ $coop->status ? 'checked' : '' }} {{ $coop->review_status == 'Approved' ? '' : 'disabled' }}>
                                                 </td>
-                                                <td class="align-middle">{{ Functions::GetDateInterval($coop->created_at)  === "More than a week ago" ? $coop->created_at :  Functions::GetDateInterval($coop->created_at)}}</td>
+                                                <td class="align-middle">{{ Functions::GetDateInterval($coop->created_at)  === "More than a month ago" ? $coop->created_at :  Functions::GetDateInterval($coop->created_at)}}</td>
                                                 <td class="align-middle {{ Functions::review_status_color($coop->review_status) }}"><i class="fas {{ Functions::review_status($coop->review_status) }}"></i> {{ $coop->review_status }}</td>
                                                 <td class="align-middle">
                                                     <a href="{{ route('pages.review_coop', $coop->id ) }}" class="btn btn-tool"><i class="fas fa-pen"></i></a>

@@ -113,8 +113,18 @@ class Functions
                 return "5 days ago";
             case ($interval < 10080):
                 return "6 days ago";
-            default:
+            case ($interval < 10080 * 2):
+                return "A week ago";
+            case ($interval < 10080 * 3):
                 return "More than a week ago";
+            case ($interval < 10080 * 4):
+                return "More than 2 weeks ago";
+            case ($interval < 10080 * 5):
+                return "More than 3 weeks ago";
+            case ($interval < 10080 * 6):
+                return "More than 4 weeks ago";
+            default:
+                return "More than a month ago";
         }
     }
 
