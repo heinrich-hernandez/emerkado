@@ -126,8 +126,6 @@
                        src="{{ $buyer->profile_picture ? URL::to('/storage') . '/' . $buyer->profile_picture : asset('images/guest.jpg') }}" alt="User profile picture">
                 </div>
 
-                <h3 class="profile-username text-center">{{ $buyer->authorized_representative }}</h3>
-
                 <p class="text-muted text-center">{{ $buyer->name }}</p>
 
                 <ul class="list-group list-group-unbordered mb-3">
@@ -217,11 +215,6 @@
                             <td>{{ $buyer->user_id }}</td>
                           </tr>
                           <tr>
-                            <td style="font-weight: 800;">Authorized Representative&nbsp;&nbsp;</td>
-                            <td>:</td>
-                            <td>{{ $buyer->authorized_representative }}</td>
-                          </tr>
-                          <tr>
                             <td style="font-weight: 800;">Buyer Name</td>
                             <td>:</td>
                             <td>{{ $buyer->name }}</td>
@@ -289,11 +282,6 @@
                             <td>{{ $buyer->user_id }}</td>
                           </tr>
                           <tr>
-                            <td style="font-weight: 800;">Authorized Representative&nbsp;&nbsp;</td>
-                            <td>:</td>
-                            <td>{{ $buyer->authorized_representative }}</td>
-                          </tr>
-                          <tr>
                             <td style="font-weight: 800;">Buyer Name</td>
                             <td>:</td>
                             <td>{{ $buyer->name }}</td>
@@ -346,7 +334,7 @@
               
               <div class="mailbox-read-info">
                 <h5>Compose New Message</h5>
-                <h6>To: {{ $buyer->authorized_representative }}
+                <h6>To: {{ $buyer->name }}
                   <span class="mailbox-read-time float-right">15 Feb. 2015 11:03 PM</span></h6>
               </div>
               <div class="card-body">

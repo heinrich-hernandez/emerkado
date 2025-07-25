@@ -121,7 +121,6 @@ class RegisterController extends Controller
                 break;
             case 'buyer':
                 $specificRules = [
-                    'authorized_representative' => ['required', 'string', 'max:255'],
                     'name' => ['required', 'string', 'max:255'], // Assuming 'name' maps to first_name/last_name or a general name
                     'address' => ['required', 'string', 'max:255'],
                     'contact_number' => ['required', 'string', 'max:11'],
@@ -208,7 +207,6 @@ class RegisterController extends Controller
                 break;
             case 'buyer':
                 $roleProfile = Buyer::create([
-                    'authorized_representative' => $request->authorized_representative,
                     'name' => $request->name, // Assuming 'name' field in buyers table
                     'address' => $request->address,
                     'contact_number' => $request->contact_number,
