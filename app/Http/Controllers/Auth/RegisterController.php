@@ -73,7 +73,7 @@ class RegisterController extends Controller
             case 'coop':
                 $specificRules = [
                     'authorized_representative' => ['required', 'string', 'max:255'],
-                    'coop_name' => ['required', 'string', 'max:255'],
+                    'name' => ['required', 'string', 'max:255'],
                     'address' => ['required', 'string', 'max:255'],
                     'contact_number' => ['required', 'string', 'max:11'],
                     'email' => ['required', 'email', 'max:255', 'unique:coops'], // Unique within coops table
@@ -181,7 +181,7 @@ class RegisterController extends Controller
             case 'coop':
                 $roleProfile = Coop::create([
                     'authorized_representative' => $request->authorized_representative,
-                    'coop_name' => $request->coop_name,
+                    'name' => $request->name,
                     'address' => $request->address,
                     'contact_number' => $request->contact_number,
                     'email' => $request->email,
@@ -231,7 +231,7 @@ class RegisterController extends Controller
             'user_type' => $userType,
             'role_id' => $roleProfile->id, // Link to the newly created profile
             // You might want to store a general name in the User model too, e.g.,
-            // 'name' => $request->input('coop_name') ?? $request->input('name') ?? $request->input('username'),
+            // 'name' => $request->input('name') ?? $request->input('name') ?? $request->input('username'),
         ]);
 
         Auth::login($user);

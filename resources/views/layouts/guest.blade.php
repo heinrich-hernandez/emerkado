@@ -18,10 +18,20 @@
 @yield('content')
 <!-- /.login-box -->
 
-@vite('resources/js/app.js')
 <!-- Bootstrap 5 -->
-<script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
+
+<script src="{{ asset('js/jquery-3.7.1.min.js') }}" defer></script>
+<script src="{{ asset('js/bootstrap.min.js') }}" defer></script>
 <script src="{{ asset('js/adminlte.min.js') }}" defer></script>
+<script src="{{ asset('js/summernote.min.js') }}" defer></script>
+<script src="{{ asset('js/jquery.validate.min.js') }}" defer></script>
+<script src="{{ asset('js/sweetalert2.all.min.js') }}" defer></script>
+<script src="{{ asset('js/toastr.min.js') }}" defer></script> 
+<script src="{{ asset('js/form_validation.js') }}" defer></script>
+<script src="{{ asset('js/ajax_functions.js') }}" defer></script>
+<script src="{{ asset('js/bootstrap-toggle.min.js') }}"  defer></script>
+<script src="{{ asset('js/summernote-bs4.min.js') }}" defer></script>
+<script src="{{ asset('js/custom_functions.js') }}" defer></script>
 </body>
 </html>

@@ -14,7 +14,7 @@ class CoopModel extends Model
         'id',
         'user_id',
         'authorized_representative',
-        'coop_name',
+        'name',
         'address',
         'contact_number',
         'email',

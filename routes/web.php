@@ -84,6 +84,11 @@ Route::middleware(['auth:admin', AuthenticateSysUsers::class])->group(function (
     // Review Buyer
     Route::get('/admin/buyer/review_buyer/id={id}', [AdminUserController::class, 'review_buyer'])->name('pages.review_buyer');
     Route::post('/admin/buyer/review_buyer/id={id}', [AdminUserController::class, 'approved_review_buyer'])->name('approved.review_buyer');
+
+    // Review Routes
+    Route::get('/admin/review', [AdminUserController::class, 'review'])->name('pages.review');
+    Route::get('/admin/review/id={id}', [AdminUserController::class, 'review_details'])->name('pages.review_details');
+    Route::post('/admin/review/id={id}', [AdminUserController::class, 'approved_review'])->name('approved.review');
 });
 
 // Coop routes

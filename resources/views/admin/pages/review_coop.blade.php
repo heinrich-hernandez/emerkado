@@ -128,7 +128,7 @@
 
                 <h3 class="profile-username text-center">{{ $coop->authorized_representative }}</h3>
 
-                <p class="text-muted text-center">{{ $coop->coop_name }}</p>
+                <p class="text-muted text-center">{{ $coop->name }}</p>
 
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
@@ -229,7 +229,7 @@
                           <tr>
                             <td style="font-weight: 800;">Coop Name</td>
                             <td>:</td>
-                            <td>{{ $coop->coop_name }}</td>
+                            <td>{{ $coop->name }}</td>
                           </tr>
                           <tr>
                             <td style="font-weight: 800;">Address</td>
@@ -306,7 +306,7 @@
                           <tr>
                             <td style="font-weight: 800;">Coop Name</td>
                             <td>:</td>
-                            <td>{{ $coop->coop_name }}</td>
+                            <td>{{ $coop->name }}</td>
                           </tr>
                           <tr>
                             <td style="font-weight: 800;">Address</td>

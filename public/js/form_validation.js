@@ -28,7 +28,7 @@ $(document).ready(function(){
                 required: true,
                 minlength: 3
             },
-            'coop_name': {
+            'name': {
                 required: true,
                 minlength:2
             },

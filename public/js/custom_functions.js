@@ -63,4 +63,4 @@ function showSuccess(message){
     //alert('asdasdas');
 }
 
-//# sourceMappingURL=custom_funtions.js.map
+

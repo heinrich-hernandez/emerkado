@@ -46,7 +46,7 @@ class AuthCoopController extends Controller
     {
         $validatedData = $request->validate([
             'user_id' => 'nullable',
-            'coop_name' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
             'authorized_representative' => 'required|string|max:255',
             'address' => 'required|string|max:255',
             'contact_number' => 'required|string|max:11',

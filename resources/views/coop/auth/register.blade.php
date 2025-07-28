@@ -81,11 +81,11 @@
                                             </div>
                                             <div class="col-12 col-md-6">
                                                 <div class="form-group">
-                                                    <label for="coop_name">{{ __('Coop Name') }}</label>
-                                                    <input type="text" class="form-control {{ $errors->has('coop_name') ? 'is-invalid' : '' }}" value="{{ old('coop_name') }}" id="coop_name" aria-describedby="coop_name" name="coop_name">
+                                                    <label for="name">{{ __('Coop Name') }}</label>
+                                                    <input type="text" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" value="{{ old('name') }}" id="name" aria-describedby="name" name="name">
                                                     <div class="error-container text-danger mt-1" style="font-size: 12px;">
                                                     <p class="text-danger">
-                                                        @error('coop_name')
+                                                        @error('name')
                                                             {{ $message }}
                                                         @enderror
                                                     </p>

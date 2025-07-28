@@ -28,6 +28,23 @@ class UserController extends Controller
         return view('admin.pages.coop', $data); //url path in folder resources/views/admin/pages/coop.blade.php
     }
 
+    public function review(){
+
+        $coop = CoopModel::all();
+        $buyer = BuyerModel::all();
+        $reviews = Review_AccountModel::with('reviewer')->get();
+
+        $user_id = Auth::user()->user_id;
+
+        $data = [
+            'title' => 'Review',
+            'coop' => $coop,
+            'buyer' => $buyer,
+            'reviews' => $reviews
+        ];
+        return view('admin.pages.review', $data); //url path in folder resources/views/admin/pages/review.blade.php
+    }
+
     // CREATE COOP PAGE
     public function create_coop()
     {
