@@ -31,8 +31,8 @@
       <div class="ml-auto">
         <a href="javascript:void(0)"
           class="btn {{ $coop->review_status == 'For Review' ? 'btn-danger' : ($coop->review_status == 'In Progress' ? 'btn-warning' : 'btn-success') }} approval-button fw-bolder " 
-          data-bs-toggle="modal"
-          data-bs-target="#modal-default">
+          data-toggle="modal"
+          data-target="#modal-default">
             <!-- Approval : {{ $coop->review_status == 'For Review' ? 'Unassigned' : $coop->review_status }} -->
             Approval : {{ $coop->review_status }}
         </a>
@@ -68,7 +68,7 @@
       <!-- Modal right: Form section -->
       <div class="modal-right">
         <div class="modal-header modal-userapproval">
-        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
         </button>
         </div>
@@ -477,14 +477,3 @@
     </div>
 @endsection
 
-@push('scripts')
-    <script src="{{ asset('js/jquery-3.7.1.min.js') }}" ></script>
-    <script src="{{ asset('js/summernote.min.js') }}" ></script>
-    <script src="{{ asset('js/adminlte.min.js') }}" ></script>
-    <script src="{{ asset('js/jquery.validate.min.js') }}" ></script>
-    <script src="{{ asset('js/sweetalert2.all.min.js') }}" ></
-    <script src="{{ asset('js/display_file_name.js') }}"></script>
-    <script src="{{ asset('js/popper.min.js') }}" ></script>
-    <script src="{{ asset('js/bootstrap.min.js') }}" ></script>
-    <script src="{{ asset('js/bootstrap-toggle.min.js') }}" ></script>
-@endpush

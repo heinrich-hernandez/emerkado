@@ -7,8 +7,6 @@
     },
     "devDependencies": {
         "axios": "^1.6.4",
-        "bootstrap": "^5.3.7",
-        "jquery": "^3.3.1",
         "laravel-vite-plugin": "^2.0.0",
         "popper.js": "^1.14.3",
         "resolve-url-loader": "^5.0.0",
@@ -17,10 +15,12 @@
     },
     "dependencies": {
         "@popperjs/core": "^2.11.8",
-        "admin-lte": "^4.0.0-rc3",
+        "admin-lte": "^3.1.0",
+        "bootstrap": "^4.6.1",
+        "husky": "^9.1.7",
+        "jquery": "^3.6.0",
         "jquery-validation": "^1.21.0",
         "summernote": "^0.9.1",
-        "sweetalert2": "^11.22.2",
         "toastr": "^2.1.4"
     }
 }

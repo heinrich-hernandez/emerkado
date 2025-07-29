@@ -41,7 +41,7 @@
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto"> 
                 <li class="nav-item dropdown">
-                    <a class="nav-link" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"> 
+                    <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-expanded="false"> 
                         <i class="far fa-user"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right"> 

@@ -31,8 +31,8 @@
       <div class="ml-auto">
         <a href="javascript:void(0)"
           class="btn {{ $buyer->review_status == 'For Review' ? 'btn-danger' : ($buyer->review_status == 'In Progress' ? 'btn-warning' : 'btn-success') }} approval-button fw-bolder " 
-          data-bs-toggle="modal"
-          data-bs-target="#modal-default">
+          data-toggle="modal"
+          data-target="#modal-default">
             <!-- Approval : {{ $buyer->review_status == 'For Review' ? 'Unassigned' : $buyer->review_status }} -->
             Approval : {{ $buyer->review_status }}
         </a>
@@ -68,7 +68,7 @@
         <!-- Modal right: Form section -->
         <div class="modal-right">
           <div class="modal-header modal-userapproval">
-          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
           </button>
           </div>
