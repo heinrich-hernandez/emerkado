@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\{AuthAdminController, ProfileController as AdminProfileController, UserController as AdminUserController, CoopController, MerchantController, BuyerController};
 use App\Http\Controllers\Coop\{AuthCoopController, ProfileCoopController as CoopProfileController};
-use App\Http\Controllers\Merchant\{AuthMerchantController, ProfileMerchantController as MerchantProfileController};
+use App\Http\Controllers\Merchant\{AuthMerchantController, ProfileMerchantController as MerchantProfileController, UserController as MerchantUserController};
 use App\Http\Controllers\Buyer\{AuthBuyerController, ProfileBuyerController as BuyerProfileController};
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -99,6 +99,14 @@ Route::middleware(['auth:coop', AuthenticateSysUsers::class])->group(function ()
 // Merchant routes
 Route::middleware(['auth:merchant', AuthenticateSysUsers::class])->group(function () {
     Route::get('/merchant/dashboard', [MerchantProfileController::class, 'dashboard'])->name('merchant-dashboard');
+
+    // Review Routes
+    Route::get('/merchant/review', [MerchantUserController
+    ::class, 'review'])->name('pages.review');
+    Route::get('/merchant/review/id={id}', [MerchantUserController
+    ::class, 'review_details'])->name('pages.review_details');
+    Route::post('/merchant/review/id={id}', [MerchantUserController
+    ::class, 'approved_review'])->name('approved.review');
 });
 
 // Buyer routes

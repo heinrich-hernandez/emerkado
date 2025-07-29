@@ -16,6 +16,11 @@
         "vite": "^7.0.4"
     },
     "dependencies": {
-        "@popperjs/core": "^2.11.8"
+        "@popperjs/core": "^2.11.8",
+        "admin-lte": "^4.0.0-rc3",
+        "jquery-validation": "^1.21.0",
+        "summernote": "^0.9.1",
+        "sweetalert2": "^11.22.2",
+        "toastr": "^2.1.4"
     }
 }
