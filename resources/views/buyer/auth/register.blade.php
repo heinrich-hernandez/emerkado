@@ -68,11 +68,11 @@
                                         <div class="form-row">
                                             <div class="col-12 md-3">
                                                 <div class="form-group">
-                                                    <label for="buyer_name">{{ __('Buyer Name') }}</label>
-                                                    <input type="text" class="form-control {{ $errors->has('buyer_name') ? 'is-invalid' : '' }}" value="{{ old('buyer_name') }}" id="buyer_name" aria-describedby="buyer_name" name="buyer_name">
+                                                    <label for="name">{{ __('Buyer Name') }}</label>
+                                                    <input type="text" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" value="{{ old('name') }}" id="name" aria-describedby="name" name="name">
                                                     <div class="error-container text-danger mt-1" style="font-size: 12px;">
                                                     <p class="text-danger">
-                                                        @error('buyer_name')
+                                                        @error('name')
                                                             {{ $message }}
                                                         @enderror
                                                     </p>

@@ -38,21 +38,23 @@ class AuthCoopController extends Controller
         return redirect()->route('getLogin')->with('success', 'You have been successfully logged out.');
     }
 
-    public function getRegister(){
+    public function getRegisterCoop(){
         return view('coop.auth.register'); //url path in folder resources/views/coop/auth/register.blade.php
     }
 
-    public function postRegister(Request $request)
+    public function postRegisterCoop(Request $request)
     {
-        $validatedData = $request->validate([
+        \Log::info('postRegisterCoop initiated.');
+
+        $data = $request->validate([
             'user_id' => 'nullable',
-            'name' => 'required|string|max:255',
             'authorized_representative' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
             'address' => 'required|string|max:255',
             'contact_number' => 'required|string|max:11',
-            'email' => 'required|email|max:255',
-            'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:512',
-            'valid_id_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:512',
+            'email' => 'required|email|max:255|unique:coop',
+            'coop_profile_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:512',
+            'coop_valid_id_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:512',
             'username' => 'required|string|max:255|unique:coop',
             'password' => [
                 'required',
@@ -72,36 +74,55 @@ class AuthCoopController extends Controller
             ],
             'user_role' => 'nullable|string|max:255',
             'business_discription' => 'nullable|string|max:255',
+            'review_status' => 'nullable|string|max:255',
             'approved_by' => 'nullable|string|max:255',
             'date' => 'nullable|date'
         ]);
 
-        // $latestCoop = CoopModel::orderBy('id', 'desc')->first();
-        // $nextId = $latestCoop ? $latestCoop->id + 1 : 1;
-        // $formattedId = 'VNDR-' . str_pad($nextId, 4, '0', STR_PAD_LEFT);
-
-
-
-        $data = $validatedData;
-        $data['user_id'] = Functions::IDGenerator(new CoopModel, 'user_id', 'COOP', $length, $id );
+        $data['user_id'] = $data['user_id'] ?? 'temp-id';
         $data['user_role'] = $data['user_role'] ?? 'Coop';
         $data['date'] = $data['date'] ?? date('Y-m-d');
         $data['status'] = $data['status'] ?? '0';
-        $data['profile_picture'] = $request->hasFile('profile_picture') ? $request->file('profile_picture')->store('profile_pictures', 'public') : null;
-        $data['valid_id_picture'] = $request->hasFile('valid_id_picture') ? $request->file('valid_id_picture')->store('valid_id_picture', 'public') : null;
-        $data['approved_by'] = $data['approved_by'] ?? '';
+        $data['review_status'] = $data['review_status'] ?? 'For Review';
 
-        //dd($data);
-
-        try {
-            CoopModel::create($data);
-
-            $success = ['status' => 'success', 'user_id' => $data['user_id']];
-            return redirect()->route('pages.coop', $success);
-        } catch (\Exception $e) {
-            $error = ['status' => 'error', 'user_id' => $data['user_id']];
-            return redirect()->route('create.coop', $error);
+        $filename = $data['username'];
+        $filename_sanitized = preg_replace('/[^A-Za-z0-9]/', '', $filename);
+        if ($request->hasFile('coop_profile_picture')) {
+            $data['profile_picture'] = ImageResizer::resizeAndSaveImage($request->file('coop_profile_picture'), 'coop_profile_picture', $filename_sanitized);
         }
+
+        // Handle and resize valid ID picture
+        if ($request->hasFile('coop_valid_id_picture')) {
+            $data['valid_id_picture'] = ImageResizer::resizeAndSaveImage($request->file('coop_valid_id_picture'), 'coop_valid_id_picture', $filename_sanitized);
+        }
+       
+
+        //encryp password before storing to database
+        $data['password'] = bcrypt($data['password']);
+
+        // dd($data);
+        CoopModel::create($data);
+
+        // CREATE ID WITH PREFIX (this is after coop create executed above.)
+        $id = CoopModel::max('id');
+        $newRecord = CoopModel::find($id);
+        if ($newRecord === null) {
+            // Handle the case when the table is empty
+            return response()->json(['message' => 'No records found.'], 404);
+        } 
+        // dd($newRecord);
+        $user_id = Functions::IDGenerator(new CoopModel, 'user_id', 'COOP', 5, $id);
+        // dd($user_id);
+        // Define the user ID you want to set (e.g., from the request or another source)
+        //$userId = $request->input($data_update); // Replace with your logic
+
+        // Update the user_id column
+        $newRecord->user_id = $user_id;
+        // dd($newRecord);
+        $newRecord->save();
+
+        $success = ['status' => 'success'];
+        return redirect()->route('getLogin', $success);
     }
 
 }

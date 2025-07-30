@@ -74,13 +74,3 @@ class LoginController extends Controller
         }
 }
 
-
-
-// xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-
-// public function login(Request $request)
-// {
-
-// }
-
-
