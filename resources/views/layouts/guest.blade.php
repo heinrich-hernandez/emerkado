@@ -45,3 +45,30 @@
 <script src="{{ asset('js/custom_functions.js') }}" defer></script>
 </body>
 </html>
+
+@if (request()->query('status') === 'success')
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            showSuccess(
+                "Success! your account was added."
+            ); //SHOW SUCCESS MESSAGE VIA TOASTER.JS
+        });
+    </script>
+@elseif (request()->query('status') === 'error' && request()->query('user_id'))
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            showError(
+                "Record creation failed."
+            ); //SHOW ERROR MESSAGE VIA TOASTER.JS
+        });
+    </script>
+@endif
+@if (session('error'))
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            showError(
+                "{{ session('error') }}"
+            ); //SHOW ERROR MESSAGE VIA TOASTER.JS
+        });
+    </script>
+@endif

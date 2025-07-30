@@ -75,7 +75,7 @@ class AuthBuyerController extends Controller
         $data['user_id'] = $data['user_id'] ?? 'temp-id';
         $data['user_role'] = $data['user_role'] ?? 'Buyer';
         $data['date'] = $data['date'] ?? date('Y-m-d');
-        $data['status'] = $data['status'] ?? '0';
+        $data['status'] = $data['status'] ?? '1';
         $data['review_status'] = $data['review_status'] ?? 'For Review';
 
         $filename = $data['username'];

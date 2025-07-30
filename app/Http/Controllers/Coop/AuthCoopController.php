@@ -38,10 +38,12 @@ class AuthCoopController extends Controller
         return redirect()->route('getLogin')->with('success', 'You have been successfully logged out.');
     }
 
+    // Show the registration form for Coop
     public function getRegisterCoop(){
         return view('coop.auth.register'); //url path in folder resources/views/coop/auth/register.blade.php
     }
 
+    // Handle the registration of a new Coop
     public function postRegisterCoop(Request $request)
     {
         \Log::info('postRegisterCoop initiated.');
@@ -82,7 +84,7 @@ class AuthCoopController extends Controller
         $data['user_id'] = $data['user_id'] ?? 'temp-id';
         $data['user_role'] = $data['user_role'] ?? 'Coop';
         $data['date'] = $data['date'] ?? date('Y-m-d');
-        $data['status'] = $data['status'] ?? '0';
+        $data['status'] = $data['status'] ?? '1';
         $data['review_status'] = $data['review_status'] ?? 'For Review';
 
         $filename = $data['username'];

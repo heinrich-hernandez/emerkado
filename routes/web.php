@@ -19,9 +19,9 @@ Route::post('/register', [RegisterController::class, 'register'])->name('postReg
 
 // Register Role Routes
 Route::get('/coop/register', [AuthCoopController::class, 'getRegisterCoop'])->name('coop.auth.register')->middleware('guest');
-Route::post('/coop', [AuthCoopController::class, 'postRegisterCoop'])->name('user.create.coop')->middleware('coop');
+Route::post('/coop/register', [AuthCoopController::class, 'postRegisterCoop'])->name('user.create.coop')->middleware('guest');
 Route::get('/buyer/register', [AuthBuyerController::class, 'getRegisterBuyer'])->name('buyer.auth.register')->middleware('guest');
-Route::post('/buyer', [AuthBuyerController::class, 'postRegisterBuyer'])->name('user.create.buyer')->middleware('buyer');
+Route::post('/buyer/register', [AuthBuyerController::class, 'postRegisterBuyer'])->name('user.create.buyer')->middleware('guest');
 
 
 

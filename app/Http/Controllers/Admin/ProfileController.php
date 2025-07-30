@@ -9,15 +9,7 @@ use App\Models\Admin_Data\{AdminModel, CoopModel, MerchantModel, BuyerModel};
 class ProfileController extends Controller
 {
     public function dashboard(){
-        // $admin = AdminModel::all();
-        // $coop = CoopModel::all();
-        // $data=[
-        //     'title'=>'Dashboard',
-        //     'admin'=>$admin,
-        //     'coop'=>$coop
-        // ];
 
-        // Retrieve data from both tables
         $admin = AdminModel::select('user_id', 'name as name', 'user_role', 'status')->get();
         $coop = CoopModel::select('user_id', 'authorized_representative as name', 'user_role', 'status')->get();
         $merchant = MerchantModel::select('user_id', 'name as name', 'user_role', 'status')->get();

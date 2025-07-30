@@ -105,7 +105,7 @@ Finally create your own admin.
 
 ### Task List
 
-- [ ] User Registration Form
+- [x] User Registration Form
     -[ ] Review Step Process
         - [ ] Logging
 
@@ -135,8 +135,6 @@ Finally create your own admin.
 
     - [x] Merchant Login
         - [x] Merchant Dashboard
-        - [ ] Merchant Profile
-            - [ ] Merchant Profile Edit
         
     - [x] Buyer Login
         - [x] Buyer Dashboard

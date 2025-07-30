@@ -5,9 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin_Data\{AdminModel, CoopModel, MerchantModel, Review_AccountModel, BuyerModel};
-use App\Helpers\Functions;
+use App\Helpers\{Functions, ImageResizer};
 use Illuminate\Support\Facades\Auth;
-use App\Helpers\ImageResizer;
 
 class UserController extends Controller
 {
