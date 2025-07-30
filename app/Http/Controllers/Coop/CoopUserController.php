@@ -7,7 +7,7 @@ use App\Models\Admin_Data\CoopModel;
 use Illuminate\Http\Request;
 use App\Helpers\Functions;
 
-class CoopUserController extends Controller
+class CoopController extends Controller
 {
 
     public function add_coop(Request $request)

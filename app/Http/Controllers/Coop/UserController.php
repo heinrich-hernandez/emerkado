@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Coop;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Coop\{CoopModel};
+use App\Models\Admin_Data\{CoopModel};
 use App\Helpers\Functions;
 
 class UserController extends Controller
@@ -17,7 +17,7 @@ class UserController extends Controller
             'title' => 'Coop',
             'coop' => $coop
         ];
-        return view('coop.pages.coop', $data); //url path in folder resources/views/coop/pages/coop.blade.php
+        return view('admin.pages.coop', $data); //url path in folder resources/views/admin/pages/coop.blade.php
     }
 
     public function create_coop()
@@ -25,6 +25,6 @@ class UserController extends Controller
         $data = [
             'title' => 'Registration'
         ];
-        return view('coop.pages.coop_profile', $data);
+        return view('admin.pages.create_coop', $data);
     }
 }

@@ -24,8 +24,8 @@ Route::get('/register', [RegisterController::class, 'showRoleSelectionForm'])->n
 Route::post('/register', [RegisterController::class, 'register'])->name('postRegister')->middleware('guest');
 
 // Register Role Routes
-Route::get('/coop/register', [AuthCoopController::class, 'getRegisterCoop'])->name('coop.auth.register')->middleware('guest');
-Route::post('/coop/register', [AuthCoopController::class, 'postRegisterCoop'])->name('coop.auth.register')->middleware('guest');
+Route::get('/coop/register', [AuthCoopController::class, 'getRegister'])->name('coop.auth.register')->middleware('guest');
+Route::post('/coop/register', [AuthCoopController::class, 'postRegister'])->name('coop.auth.register')->middleware('guest');
 // Route::get('/merchant/register', [AuthMerchantController::class, 'getRegister'])->name('merchant.auth.register')->middleware('guest');
 // Route::post('/merchant/register', [AuthMerchantController::class, 'postRegister'])->name('merchant.auth.register')->middleware('guest');
 Route::get('/buyer/register', [AuthBuyerController::class, 'getRegister'])->name('buyer.auth.register')->middleware('guest');
@@ -94,7 +94,6 @@ Route::middleware(['auth:admin', AuthenticateSysUsers::class])->group(function (
 // Coop routes
 Route::middleware(['auth:coop', AuthenticateSysUsers::class])->group(function () {
     Route::get('/coop/dashboard', [CoopProfileController::class, 'dashboard'])->name('coop-dashboard');
-    
 });
 
 // Merchant routes

@@ -36,4 +36,7 @@ class AuthBuyerController extends Controller
         return redirect()->route('getLogin')->with('success', 'You have been successfully logged out.');
     }
 
+    public function getRegister(){
+        return view('buyer.auth.register'); //url path in folder resources/views/buyer/auth/register.blade.php
+    }
 }
