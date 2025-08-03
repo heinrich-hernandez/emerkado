@@ -19,7 +19,12 @@
       </div><!-- /.container-fluid -->
     </section>
     
-    <div class="identity-clause"><b>Current Logged In ID:</b> {{Auth::user()->user_id; }}</div>
+    <div>
+    <p>
+        <span class="identity-clause">Logged In ID:</span> 
+        {{Auth::user()->user_id; }}<br/>
+    </p>
+</div>
 
     <br>
     <!-- Main content -->

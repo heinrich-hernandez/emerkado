@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Admin_Data\{AdminModel, CoopModel, MerchantModel, Review_AccountModel, BuyerModel};
 use App\Helpers\{Functions, ImageResizer};
 use Illuminate\Support\Facades\Auth;
+use Closure;
 
 class UserController extends Controller
 {
@@ -93,22 +94,26 @@ class UserController extends Controller
 
     // APPROVED REVIEW COOP PAGE
     public function approved_review_coop(Request $request, $id){
+        $user = Auth::user();
+        $user_id = $user->user_id; // Get the user ID of the currently authenticated user
         $coop = CoopModel::find($id);
         // Check if the coop record exists
         if ($coop) {
-            // Check which button was clicked
+        // Check which button was clicked
             if ($request->has('approved-account-modal')) {
                 // Update the approve_coop column for approval
                 $coop->review_status = 'Approved';
+                $coop->reviewed_by = $user_id;
                 $notif = 'approved_account';
                 // Save the changes to the database
                 $coop->save();
             } elseif ($request->has('denied-account-modal')) {
                 // Update the approve_coop column for denial
                 $coop->review_status = 'In Progress';
+                $coop->reviewed_by = $user_id;
                 $notif = 'denied_account';
-                 // Save the changes to the database
-                 $coop->save();
+                // Save the changes to the database
+                $coop->save();
             }
 
             
@@ -244,12 +249,14 @@ class UserController extends Controller
             if ($request->has('approved-account-modal')) {
                 // Update the approve_buyer column for approval
                 $buyer->review_status = 'Approved';
+                $buyer->reviewed_by = $user_id;
                 $notif = 'approved_account';
                 // Save the changes to the database
                 $buyer->save();
             } elseif ($request->has('denied-account-modal')) {
                 // Update the approve_buyer column for denial
                 $buyer->review_status = 'In Progress';
+                $buyer->reviewed_by = $user_id;
                 $notif = 'denied_account';
                  // Save the changes to the database
                  $buyer->save();

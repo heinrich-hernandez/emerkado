@@ -10,10 +10,10 @@ class ProfileController extends Controller
 {
     public function dashboard(){
 
-        $admin = AdminModel::select('user_id', 'name as name', 'user_role', 'status')->get();
+        $admin = AdminModel::select('user_id', 'name', 'user_role', 'status')->get();
         $coop = CoopModel::select('user_id', 'authorized_representative as name', 'user_role', 'status')->get();
-        $merchant = MerchantModel::select('user_id', 'name as name', 'user_role', 'status')->get();
-        $buyer = BuyerModel::select('user_id', 'name as name', 'user_role', 'status')->get();
+        $merchant = MerchantModel::select('user_id', 'name', 'user_role', 'status')->get();
+        $buyer = BuyerModel::select('user_id', 'name', 'user_role', 'status')->get();
 
         // Merge both collections
         $users = $admin->concat($coop)->concat($merchant)->concat($buyer);

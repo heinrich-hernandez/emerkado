@@ -35,7 +35,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form id="merchant_form"method="post" action="{{ route('create.merchant') }}" enctype="multipart/form-data">
+                <form id="merchantForm"method="post" action="{{ route('create.merchant') }}" enctype="multipart/form-data">
                     @csrf
                     @method('post')
                     <div class="card-body">

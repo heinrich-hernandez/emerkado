@@ -68,7 +68,7 @@
                                         <div class="form-row">
                                             <div class="col-12 md-3">
                                                 <div class="form-group">
-                                                    <label for="name">{{ __('Buyer Name') }}</label>
+                                                    <label for="name">Buyer Name</label>
                                                     <input type="text" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" value="{{ old('name') }}" id="name" aria-describedby="name" name="name">
                                                     <div class="error-container text-danger mt-1" style="font-size: 12px;">
                                                     <p class="text-danger">
@@ -229,39 +229,13 @@
                             </div>
                         </form>
                     </div>
+                </div>
+            </div>
             <!-- /.row -->
         </div><!-- /.container-fluid -->
     </div>
-    </div>
-</div>
-</body>
 @endsection
 
 @push('scripts')
     <script src="{{ asset('js/display_file_name.js') }}"></script>
-    <script>
-        // JavaScript to show/hide agency affiliation name field
-        document.addEventListener('DOMContentLoaded', function() {
-            const agencyAffiliationSelect = document.getElementById('agency_affiliation');
-            const agencyAffiliationDetails = document.getElementById('agency_affiliation_details');
-            const agencyAffiliationNameInput = document.getElementById('agency_affiliation_name');
-
-            function toggleAgencyAffiliationName() {
-                if (agencyAffiliationSelect.value === 'yes') {
-                    agencyAffiliationDetails.classList.remove('d-none');
-                    agencyAffiliationNameInput.setAttribute('required', 'required'); // Make required if 'yes'
-                } else {
-                    agencyAffiliationDetails.classList.add('d-none');
-                    agencyAffiliationNameInput.removeAttribute('required'); // Remove required if 'no' or empty
-                    agencyAffiliationNameInput.value = ''; // Clear value when hidden
-                }
-            }
-
-            // Initial check on page load
-            toggleAgencyAffiliationName();
-
-            // Add event listener for changes
-            agencyAffiliationSelect.addEventListener('change', toggleAgencyAffiliationName);
-        });
-    </script>
 @endpush

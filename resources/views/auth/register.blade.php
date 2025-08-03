@@ -21,7 +21,7 @@
                     <div class="col-12 mb-3">
                         <a href="{{ route('buyer.auth.register') }}" class="btn btn-primary btn-block fas">
                             {{ __('Buyer') }}
-                            <i class="nav-icon fas fa-store"></i>
+                            <i class="nav-icon fas fa-cart-shopping"></i>
                         </a>
                     </div>
                 </div>
