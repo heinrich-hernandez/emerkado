@@ -242,6 +242,8 @@ class UserController extends Controller
 
     // APPROVED REVIEW BUYER PAGE
     public function approved_review_buyer(Request $request, $id){
+        $user = Auth::user();
+        $user_id = $user->user_id; // Get the user ID of the currently authenticated user
         $buyer = BuyerModel::find($id);
         // Check if the buyer record exists
         if ($buyer) {
