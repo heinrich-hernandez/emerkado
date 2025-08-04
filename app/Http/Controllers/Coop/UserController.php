@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Coop;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -17,14 +17,14 @@ class UserController extends Controller
             'title' => 'Coop',
             'coop' => $coop
         ];
-        return view('admin.pages.coop', $data); //url path in folder resources/views/admin/pages/coop.blade.php
+        return view('coop.pages.profile', $data); //url path in folder resources/views/admin/pages/coop.blade.php
     }
 
-    public function create_coop()
+    public function guest_create_coop() 
     {
         $data = [
             'title' => 'Registration'
         ];
-        return view('admin.pages.create_coop', $data);
+        return view('coop.pages.profile', $data);
     }
 }

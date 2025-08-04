@@ -20,7 +20,12 @@
       </div><!-- /.container-fluid -->
     </section>
 
-    <div class="identity-clause"><b>Current Logged In ID:</b> {{Auth::user()->user_id; }}</div>
+    <div>
+    <p>
+        <span class="identity-clause">Logged In ID:</span> 
+        {{Auth::user()->user_id; }}<br/>
+    </p>
+</div>
 
 <br>
     <!-- Main content -->
@@ -53,7 +58,7 @@
                                     <thead>
                                         <tr>
                                             <th>User ID</th>
-                                            <th>Authorized Representative</th>
+                                            <th>Name</th>
                                             <th>Email</th>
                                             <th>Status</th>
                                             <th>Created at</th>
@@ -67,13 +72,13 @@
                                                 <td  class="align-middle">{{ $buyer->user_id }}</td>
                                                 <td class="align-middle">
                                                     <img src="{{ $buyer->profile_picture ? URL::to('/storage') . '/' . $buyer->profile_picture : asset('images/guest.jpg') }}" alt="Profile" class="table-avatar" onerror="this.onerror=null;this.src='{{ asset('images/guest.jpg') }}">
-                                                    {{ $buyer->authorized_representative }}
+                                                    {{ $buyer->name }}
                                                 </td>
                                                 <td class="align-middle">{{ $buyer->email }}</td>
                                                 <td>
                                                     <input data-id="{{$buyer->id}}" class="approve_buyer" type="checkbox" data-onstyle="success {{ $buyer->review_status == 'Approved' ? '' : 'warning-disabled' }}" data-offstyle="warning {{ $buyer->review_status == 'Approved' ? '' : 'warning-disabled' }}" data-toggle="toggle" data-on="Activated" data-off="Inactive" {{ $buyer->status ? 'checked' : '' }} {{ $buyer->review_status == 'Approved' ? '' : 'disabled' }}>
                                                 </td>
-                                                <td class="align-middle">{{ Functions::GetDateInterval($buyer->created_at)  === "More than a week ago" ? $buyer->created_at :  Functions::GetDateInterval($buyer->created_at)}}</td>
+                                                <td class="align-middle">{{ Functions::GetDateInterval($buyer->created_at)  === "More than a month ago" ? $buyer->created_at :  Functions::GetDateInterval($buyer->created_at)}}</td>
                                                 <td class="align-middle {{ Functions::review_status_color($buyer->review_status) }}"><i class="fas {{ Functions::review_status($buyer->review_status) }}"></i> {{ $buyer->review_status }}</td>
                                                 <td class="align-middle">
                                                     <a href="{{ route('pages.review_buyer', $buyer->id ) }}" class="btn btn-tool"><i class="fas fa-pen"></i></a>

@@ -42,7 +42,7 @@ class LoginController extends Controller
             } else {
                 \Log::warning('User not approved or does not exist.');
                 // return back()->withErrors(['Your account is not approved or does not exist.']);
-                return redirect()->back()->with('error','Your account is not approved or does not exist.');
+                return redirect()->back()->with('error','Your account has been disabled or does not exist.');
             }
         } catch (\Exception $e) {
             \Log::error('Exception caught:', ['message' => $e->getMessage()]);
@@ -73,14 +73,4 @@ class LoginController extends Controller
             }
         }
 }
-
-
-
-// xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-
-// public function login(Request $request)
-// {
-
-// }
-
 

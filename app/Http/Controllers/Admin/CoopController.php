@@ -5,8 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Admin_Data\CoopModel;
 use Illuminate\Http\Request;
-use App\Helpers\Functions;
-use App\Helpers\ImageResizer;
+use App\Helpers\{Functions, ImageResizer};
 
 class CoopController extends Controller
 {
@@ -19,7 +18,7 @@ class CoopController extends Controller
         $data = $request->validate([
             'user_id' => 'nullable',
             'authorized_representative' => 'required|string|max:255',
-            'coop_name' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
             'address' => 'required|string|max:255',
             'contact_number' => 'required|string|max:11',
             'email' => 'required|email|max:255|unique:coop',

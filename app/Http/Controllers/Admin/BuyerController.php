@@ -5,8 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Admin_Data\BuyerModel;
 use Illuminate\Http\Request;
-use App\Helpers\Functions;
-use App\Helpers\ImageResizer;
+use App\Helpers\{Functions, ImageResizer};
 
 class BuyerController extends Controller
 {
@@ -18,7 +17,6 @@ class BuyerController extends Controller
 
         $data = $request->validate([
             'user_id' => 'nullable',
-            'authorized_representative' => 'required|string|max:255',
             'name' => 'required|string|max:255',
             'address' => 'required|string|max:255',
             'contact_number' => 'required|string|max:11',

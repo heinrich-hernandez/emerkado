@@ -28,7 +28,7 @@ $(document).ready(function(){
                 required: true,
                 minlength: 3
             },
-            'coop_name': {
+            'name': {
                 required: true,
                 minlength:2
             },
@@ -86,7 +86,7 @@ $(document).ready(function(){
 
 
     // client-side validation for merchant
-    $('#merchant_form').validate({
+    $('#merchantForm').validate({
         rules: {
             'name' : {
                 required: true,
@@ -133,7 +133,7 @@ $(document).ready(function(){
     });
 
 
-    $('#BuyerForm').validate({
+    $('#buyerForm').validate({
         rules: {
             'authorized_representative' : {
                 required: false,

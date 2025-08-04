@@ -58,7 +58,7 @@ $current_route=request()->route()->getName();
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('pages.buyer') }}" class="nav-link {{ $current_route=='pages.buyer' || $current_route == 'pages.create_buyer' || $current_route == 'pages.review_buyer' ? 'active':'' }}">
-                                <i class="nav-icon fas fa-store"></i>
+                                <i class="nav-icon fas fa-cart-shopping"></i> 
                                 <p>Buyer</p>
                             </a>
                         </li>

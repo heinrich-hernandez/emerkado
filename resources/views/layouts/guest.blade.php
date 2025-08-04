@@ -7,30 +7,68 @@
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+        href="{{ asset('css/google_fonts_source_sans_pro.css') }}">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('css/fontawesome.min.css') }}">
-    <!-- icheck bootstrap -->
-    <link rel="stylesheet" href="{{ asset('css/icheck-bootstrap.min.css') }}">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="{{ asset('css/ionicons.min.css ') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/default.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/sweetalert2.min.css') }}"> 
+    <link rel="stylesheet" href="{{ asset('css/toastr.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/summernote.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/summernote-bs4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-toggle.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/jquery-ui.min.css') }}">
 </head>
-<body class="hold-transition login-page layout-fixed">
-<div class="login-box">
-    <div class="login-logo">
-        <a href="/">{{ config('app.name', 'eMerkado') }}</a>
-    </div>
-    <!-- /.login-logo -->
-    <div class="card">
-        @yield('content')
-    </div>
-</div>
+@yield('content')
 <!-- /.login-box -->
 
-@vite('resources/js/app.js')
 <!-- Bootstrap 5 -->
-<script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
+
+<script src="{{ asset('js/jquery.min.js') }}" ></script>
+<script src="{{ asset('js/jquery-ui.min.js') }}" defer></script>
 <script src="{{ asset('js/adminlte.min.js') }}" defer></script>
+<script src="{{ asset('js/jquery.validate.min.js') }}" defer></script>
+<script src="{{ asset('js/bootstrap.js') }}" ></script>
+<script src="{{ asset('js/bootstrap.bundle.min.js') }}" defer></script>
+<script src="{{ asset('js/sweetalert2.min.js') }}" defer></script>
+<script src="{{ asset('js/toastr.min.js') }}" defer></script> 
+<script src="{{ asset('js/form_validation.js') }}" defer></script>
+<script src="{{ asset('js/ajax_functions.js') }}" defer></script>
+<script src="{{ asset('js/bootstrap-toggle.min.js') }}"  defer></script>
+<script src="{{ asset('js/summernote.min.js') }}" defer></script>
+<script src="{{ asset('js/summernote-bs4.min.js') }}" defer></script>
+<script src="{{ asset('js/custom_functions.js') }}" defer></script>
 </body>
 </html>
+
+@if (request()->query('status') === 'success')
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            showSuccess(
+                "Success! your account was added."
+            ); //SHOW SUCCESS MESSAGE VIA TOASTER.JS
+        });
+    </script>
+@elseif (request()->query('status') === 'error' && request()->query('user_id'))
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            showError(
+                "Record creation failed."
+            ); //SHOW ERROR MESSAGE VIA TOASTER.JS
+        });
+    </script>
+@endif
+@if (session('error'))
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            showError(
+                "{{ session('error') }}"
+            ); //SHOW ERROR MESSAGE VIA TOASTER.JS
+        });
+    </script>
+@endif

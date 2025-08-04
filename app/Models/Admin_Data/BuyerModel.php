@@ -13,7 +13,6 @@ class BuyerModel extends Model
     protected $fillable = [
         'id',
         'user_id',
-        'authorized_representative',
         'name',
         'address',
         'contact_number',

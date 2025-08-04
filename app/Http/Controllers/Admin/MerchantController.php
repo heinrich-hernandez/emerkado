@@ -5,8 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Admin_Data\MerchantModel;
 use Illuminate\Http\Request;
-use App\Helpers\Functions;
-use App\Helpers\ImageResizer;
+use App\Helpers\{Functions, ImageResizer};
 
 class MerchantController extends Controller
 {

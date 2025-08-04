@@ -19,7 +19,12 @@
       </div><!-- /.container-fluid -->
     </section>
     
-    <div class="identity-clause"><b>Current Logged In ID:</b> {{Auth::user()->user_id; }}</div>
+    <div>
+    <p>
+        <span class="identity-clause">Logged In ID:</span> 
+        {{Auth::user()->user_id; }}<br/>
+    </p>
+</div>
 
     <br>
     <!-- Main content -->
@@ -68,7 +73,7 @@
                         <td>
                             <input data-id="{{$merchant->id}}" class="approve_merchant" type="checkbox" data-onstyle="success" data-offstyle="warning" data-toggle="toggle" data-on="Activated" data-off="Inactive" {{ $merchant->status ? 'checked' : '' }}>
                         </td>
-                        <td class="align-middle">{{ Functions::GetDateInterval($merchant->created_at)  === "More than a week ago" ? $merchant->created_at :  Functions::GetDateInterval($merchant->created_at)}}</td>
+                        <td class="align-middle">{{ Functions::GetDateInterval($merchant->created_at)  === "More than a month ago" ? $merchant->created_at :  Functions::GetDateInterval($merchant->created_at)}}</td>
                         <td class="align-middle">
                             <a href="javascript:void(0)" onclick="delete_merchant('{{ $merchant->id }}')" class="btn btn-tool"><i class="fa fa-trash color-danger"></i></a>
                         </td>

@@ -21,3 +21,4 @@ yarn-error.log
 .backup
 .v2
 .vite/deps
+package-lock.json

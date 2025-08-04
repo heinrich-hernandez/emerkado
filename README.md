@@ -32,7 +32,7 @@ Let's start with:
 git clone https://github.com/heinrich-hernandez/emerkado.git
 ```
 
-Make sure to have both node, php and composer installed.
+Make sure to have node, php and composer installed.
 
 
 Now let's go to our project directory:
@@ -105,10 +105,10 @@ Finally create your own admin.
 
 ### Task List
 
-- [ ] User Registration Form
+- [x] User Registration Form
     -[ ] Review Step Process
         - [ ] Logging
-        
+
 - [x] User Login
     - [x] Admin Login
         - [x] Admin Dashboard
@@ -127,7 +127,7 @@ Finally create your own admin.
                 - [x] Approve Buyer
                 - [x] Review Buyer
 
-        (create a condition if profile is diapproved, user should immediately only view and be able to edit their profile.)
+        (create a condition if profile is dispproved, user should immediately only view and be able to edit their profile.)
     - [x] Coop Login
         - [x] Coop Dashboard
         - [ ] Coop Profile
@@ -135,8 +135,6 @@ Finally create your own admin.
 
     - [x] Merchant Login
         - [x] Merchant Dashboard
-        - [ ] Merchant Profile
-            - [ ] Merchant Profile Edit
         
     - [x] Buyer Login
         - [x] Buyer Dashboard

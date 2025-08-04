@@ -50,20 +50,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-row">
-                                            <div class="col-12 col-md-6">
-                                                <div class="form-group">
-                                                    <label for="authorized_representative">Authorized Representative</label>
-                                                    <input type="text" class="form-control {{ $errors->has('authorized_representative') ? 'is-invalid' : '' }}" value="{{ old('authorized_representative') }}" id="authorized_representative" aria-describedby="authorized_representative" name="authorized_representative">
-                                                    <div class="error-container text-danger mt-1" style="font-size: 12px;">
-                                                    <p class="text-danger">
-                                                        @error('authorized_representative')
-                                                            {{ $message }}
-                                                        @enderror
-                                                    </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-12 col-md-6">
+                                            <div class="col-12 md-3">
                                                 <div class="form-group">
                                                     <label for="name">Buyer name</label>
                                                     <input type="text" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" value="{{ old('name') }}" id="name" aria-describedby="name" name="name">
@@ -198,7 +185,6 @@
                                 <button type="submit" class="btn btn-primary px-5">Submit</button>
                             </div>
                         </form>
-
                     </div>
                 </div>
             </div>
