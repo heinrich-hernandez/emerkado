@@ -21,6 +21,13 @@ class ProfileCoopController extends Controller
             return view('coop.pages.dashboard',$data); //url path in folder resources/views/admin/dashboard.blade.php
         }
     }
+    // Coop Profile
+    // This function is used to display the profile of the coop
+    // It fetches the coop data from the CoopModel and passes it to the view
+    // The view is located at resources/views/coop/pages/profile.blade.php
+    // It also passes the profile picture, valid ID picture, address, contact number, email, username, and business description to the view
+    // The profile picture is fetched from the storage
+    // If the user is not logged in, it will redirect to the login page
     public function profile(){
         // Fetch the coop data from the CoopModel
         $coop = CoopModel::where('user_id', Auth::id())->first(); // Fetch the coop data for the authenticated user

@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="{{ asset('css/summernote-bs4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap-toggle.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/jquery-ui.min.css') }}">
+    @livewireStyles
     @yield('styles')
 </head>
 
@@ -116,7 +117,7 @@
     <script src="{{ asset('js/summernote.min.js') }}" defer></script>
     <script src="{{ asset('js/summernote-bs4.min.js') }}" defer></script>
     <script src="{{ asset('js/custom_functions.js') }}" defer></script>
-    
+    @livewireScripts
     @yield('scripts')
     @stack('scripts')
 </body>

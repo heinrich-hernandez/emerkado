@@ -130,7 +130,7 @@ Finally create your own admin.
         (create a condition if profile is dispproved, user should immediately only view and be able to edit their profile.)
     - [x] Coop Login
         - [x] Coop Dashboard
-        - [ ] Coop Profile
+        - [x] Coop Profile
             - [ ] Coop Profile Edit
 
     - [x] Merchant Login

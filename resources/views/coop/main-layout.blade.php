@@ -47,7 +47,7 @@
                         <i class="far fa-user"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right"> 
-                        <a href="#" class="dropdown-item">
+                        <a href="{{ route('coop-profile') }}" class="dropdown-item">
                             <i class="mr-2 fas fa-file"></i>
                             {{ __('My profile') }}
                         </a>
@@ -116,6 +116,7 @@
     <script src="{{ asset('js/summernote.min.js') }}" defer></script>
     <script src="{{ asset('js/summernote-bs4.min.js') }}" defer></script>
     <script src="{{ asset('js/custom_functions.js') }}" defer></script>
+    
     
     @yield('scripts')
     @stack('scripts')

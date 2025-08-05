@@ -87,9 +87,6 @@ Route::middleware(['auth:admin', AuthenticateSysUsers::class])->group(function (
 // Coop routes
 Route::middleware(['auth:coop', AuthenticateSysUsers::class])->group(function () {
     Route::get('/coop/dashboard', [CoopProfileController::class, 'dashboard'])->name('coop-dashboard');
-    Route::get('/coop/profile/', function () {
-        return redirect()->route('coop.profile');
-    });
     Route::get('/coop/profile/', [CoopProfileController::class, 'profile'])->name('coop-profile');
 });
 

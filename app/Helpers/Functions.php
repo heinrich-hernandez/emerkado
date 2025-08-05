@@ -36,8 +36,6 @@ class Functions
                 return 'badge-success';
             case '0':
                 return 'badge-warning';
-            case 'Disapproved':
-                return 'badge-danger';
             default:
                 return 'badge-secondary';
         }

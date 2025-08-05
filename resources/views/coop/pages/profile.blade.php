@@ -3,6 +3,39 @@
 @extends('coop.main-layout')
 
 @section('content')
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="{{ route('coop-dashboard') }}">Home</a></li>
+                        <li class="breadcrumb-item active">Profile</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+        
+    @if ($errors->any())
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                showError('Error processing coop record.'); //SHOW WARNING MESSAGE VIA TOASTER.JS
+            });
+        </script>
+        <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
+ 
+
     <!-- Main content -->
     <div class="content">
     <div class="container-fluid">
@@ -80,12 +113,12 @@
               <div class="card-header p-2">
                 <ul class="nav nav-pills">
                   <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Activity</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#notification" data-toggle="tab">Notification</a></li>
+                  <livewire:notification />
                   <li class="nav-item"><a class="nav-link" href="#information" data-toggle="tab">Information</a></li>
                 </ul>
               </div><!-- /.card-header -->
               <div class="card-body">
-                <div class="tab-content" id="information">
+                <div class="tab-content">
                   <div class="active tab-pane" id="activity">
                     <!-- Post -->
                     @if($coop->review_status !='Approved')
@@ -99,7 +132,7 @@
                         <br/><br/>
                         Please review your account information provided below:
                         <br/><br/>
-                      <div class="active tab-pane" id="information" >
+                      <div class="active tab-pane" id="activity" >
                         <table class="table table-bordered table-striped">
                         <tr>
                             <th></th>
@@ -246,63 +279,10 @@
                     <!-- /.post -->
                   </div>
                   <!-- /.tab-pane -->
-              <div class="tab-pane" id="notification">
-              <!-- /.card-header -->
               
-              <div class="mailbox-read-info">
-                <h5>Compose New Message</h5>
-                <h6>To: {{ $coop->authorized_representative }}
-                  <span class="mailbox-read-time float-right">15 Feb. 2015 11:03 PM</span></h6>
-              </div>
-              <div class="card-body">
-                
-                <div class="form-group">
-                  <input class="form-control" placeholder="Subject:">
-                </div>
-                <div class="form-group">
-                    <textarea id="compose-textarea" class="form-control" style="height: 300px">
-                      <h1><u>Heading Of Message</u></h1>
-                      <h4>Subheading</h4>
-                      <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain
-                        was born and I will give you a complete account of the system, and expound the actual teachings
-                        of the great explorer of the truth, the master-builder of human happiness. No one rejects,
-                        dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know
-                        how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again
-                        is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain,
-                        but because occasionally circumstances occur in which toil and pain can procure him some great
-                        pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise,
-                        except to obtain some advantage from it? But who has any right to find fault with a man who
-                        chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that
-                        produces no resultant pleasure? On the other hand, we denounce with righteous indignation and
-                        dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so
-                        blinded by desire, that they cannot foresee</p>
-                      <ul>
-                        <li>List item one</li>
-                        <li>List item two</li>
-                        <li>List item three</li>
-                        <li>List item four</li>
-                      </ul>
-                      <p>Thank you,</p>
-                      <p>John Doe</p>
-                    </textarea>
-                </div>
-                <div class="form-group">
-                  <div class="btn btn-default btn-file">
-                    <i class="fas fa-paperclip"></i> Attachment
-                    <input type="file" name="attachment">
+                  <div class="tab-pane " id="notification">
                   </div>
-                  <p class="help-block">Max. 32MB</p>
-                </div>
-              </div>
-              <!-- /.card-body -->
-              <div class="card-footer">
-                <div class="float-right">
-                  <button type="button" class="btn btn-default"><i class="fas fa-pencil-alt"></i> Draft</button>
-                  <button type="submit" class="btn btn-primary"><i class="far fa-envelope"></i> Send</button>
-                </div>
-                <button type="reset" class="btn btn-default"><i class="fas fa-times"></i> Discard</button>
-              </div>
-                  </div>
+              
                   <!-- /.tab-pane -->
 
                   <div class="tab-pane" id="information">
