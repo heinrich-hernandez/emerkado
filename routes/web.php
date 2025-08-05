@@ -7,6 +7,7 @@ use App\Http\Controllers\Merchant\{AuthMerchantController, ProfileMerchantContro
 use App\Http\Controllers\Buyer\{AuthBuyerController, ProfileBuyerController as BuyerProfileController};
 use App\Http\Controllers\Auth\{LoginController, RegisterController};
 use App\Http\Middleware\{AuthenticateSysUsers, AdminAuth, CoopAuth, BuyerAuth, MerchantAuth};
+use App\Http\Livewire\Notification;
 
 // Login routes
 Route::get('/user-login', [LoginController::class, 'getLogin'])->name('getLogin')->middleware('guest');
@@ -86,6 +87,10 @@ Route::middleware(['auth:admin', AuthenticateSysUsers::class])->group(function (
 // Coop routes
 Route::middleware(['auth:coop', AuthenticateSysUsers::class])->group(function () {
     Route::get('/coop/dashboard', [CoopProfileController::class, 'dashboard'])->name('coop-dashboard');
+    Route::get('/coop/profile/', function () {
+        return redirect()->route('coop.profile');
+    });
+    Route::get('/coop/profile/', [CoopProfileController::class, 'profile'])->name('coop-profile');
 });
 
 // Merchant routes
