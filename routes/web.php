@@ -92,6 +92,8 @@ Route::middleware(['auth:coop', AuthenticateSysUsers::class])->group(function ()
 
 // Merchant routes
 Route::middleware(['auth:merchant', AuthenticateSysUsers::class])->group(function () {
+    Route::get('/merchant/profile/', [MerchantProfileController::class, 'profile'])->name('merchant-profile');
+
     Route::get('/merchant/dashboard', [MerchantProfileController::class, 'dashboard'])->name('merchant-dashboard');
 
     // Coop routes

@@ -47,7 +47,7 @@
                         <i class="far fa-user"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right"> 
-                        <a href="#" class="dropdown-item">
+                        <a href="{{ route('merchant-profile') }}" class="dropdown-item">
                             <i class="mr-2 fas fa-file"></i>
                             {{ __('My profile') }}
                         </a>

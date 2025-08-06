@@ -104,7 +104,6 @@
               <div class="card-header p-2">
                 <ul class="nav nav-pills">
                   <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Activity</a></li>
-                  <livewire:timeline />
                   <li class="nav-item"><a class="nav-link" href="#information" data-toggle="tab">Information</a></li>
                 </ul>
               </div><!-- /.card-header -->
