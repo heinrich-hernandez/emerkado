@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin_Data\{MerchantModel};
 use App\Helpers\Functions;
+use App\Models\Admin_Data\{CoopModel, BuyerModel, Review_AccountModel};
+use Illuminate\Support\Facades\Auth;
+use Closure;
 
 class UserController extends Controller
 {
@@ -17,10 +20,10 @@ class UserController extends Controller
             'title' => 'Merchant',
             'merchant' => $merchant
         ];
-        return view('merchant.pages.merchant', $data); //url path in folder resources/views/merchant/pages/merchant.blade.php
+        return view('merchant.pages-merchant', $data); //url path in folder resources/views/merchant/pages/merchant.blade.php
     }
 
-    public function review(){
+    public function merchant_review(){
 
         $coop = CoopModel::all();
         $buyer = BuyerModel::all();
@@ -34,11 +37,11 @@ class UserController extends Controller
             'buyer' => $buyer,
             'reviews' => $reviews
         ];
-        return view('merchant.pages.review', $data); //url path in folder resources/views/merchant/pages/review.blade.php
+        return view('merchant.pages-review', $data); //url path in folder resources/views/merchant/pages/review.blade.php
     }
 
     // COOP PAGE
-    public function coop()
+    public function merchant_coop()
     {
         $coop = CoopModel::all();
         $user_id = Auth::user()->user_id;
@@ -53,17 +56,9 @@ class UserController extends Controller
         return view('merchant.pages.coop', $data); //url path in folder resources/views/merchant/pages/coop.blade.php
     }
     
-    // CREATE COOP PAGE
-    public function create_coop()
-    {
-            $data = [
-                'title' => 'Registration'
-            ];
-            return view('merchant.pages.create_coop', $data);
-        }
 
     // REVIEW COOP PAGE
-    public function review_coop(Request $request, $id){
+    public function merchant_review_coop(Request $request, $id){
         $coop = CoopModel::find($id); 
         $data = [
             'title' => 'Review Coop',
@@ -72,14 +67,14 @@ class UserController extends Controller
         return view('merchant.pages.review_coop', $data);
     }
     // ACTIVATE and DEACTIVATE COOP
-    public function approve_coop(Request $request){
+    public function merchant_approve_coop(Request $request){
         $coop = CoopModel::find($request->id); 
         $coop->status = $request->status;
         $coop->save();
     }
 
     // DELETE COOP
-    public function delete_coop($id){
+    public function merchant_delete_coop($id){
         $data= CoopModel::find($id);
         if (!$data) {
             return response()->json(['success' => false, 'message' => 'Record not found'], 404);
@@ -101,7 +96,7 @@ class UserController extends Controller
     }
 
     // APPROVED REVIEW COOP PAGE
-    public function approved_review_coop(Request $request, $id){
+    public function merchant_approved_review_coop(Request $request, $id){
         $user = Auth::user();
         $user_id = $user->user_id; // Get the user ID of the currently authenticated user
         $coop = CoopModel::find($id);
@@ -127,15 +122,15 @@ class UserController extends Controller
             
 
             $status = ['status' => $notif];
-            return redirect()->route('pages.coop', $status); //url path in folder resources/views/merchant/pages/coop.blade.php
+            return redirect()->route('merchant.pages.coop', $status); //url path in folder resources/views/merchant/pages/coop.blade.php
         } else {
             $success = ['status' => 'denied_account'];
-            return redirect()->route('pages.coop', $success); //url path in folder resources/views/merchant/pages/coop.blade.php
+            return redirect()->route('merchant.pages.coop', $success); //url path in folder resources/views/merchant/pages/coop.blade.php
         }
     }
 
     // BUYER PAGE
-    public function buyer()
+    public function merchant_buyer()
     {
         $buyer = BuyerModel::all();
         $user_id = Auth::user()->user_id;
@@ -149,17 +144,9 @@ class UserController extends Controller
         ];
         return view('merchant.pages.buyer', $data); //url path in folder resources/views/merchant/pages/buyer.blade.php
     }
-    // CREATE BUYER PAGE
-    public function create_buyer()
-    {
-            $data = [
-                'title' => 'Registration'
-            ];
-            return view('merchant.pages.create_buyer', $data);
-        }
 
     // REVIEW BUYER PAGE
-    public function review_buyer(Request $request, $id){
+    public function merchant_review_buyer(Request $request, $id){
         $buyer = BuyerModel::find($id); 
         $data = [
             'title' => 'Review Buyer',
@@ -169,14 +156,14 @@ class UserController extends Controller
     }
 
     // ACTIVATE and DEACTIVATE BUYER
-    public function approve_buyer(Request $request){
+    public function merchant_approve_buyer(Request $request){
         $buyer = BuyerModel::find($request->id); 
         $buyer->status = $request->status;
         $buyer->save();
     }
 
     // DELETE BUYER
-    public function delete_buyer($id){
+    public function merchant_delete_buyer($id){
         $data= BuyerModel::find($id);
         if (!$data) {
             return response()->json(['success' => false, 'message' => 'Record not found'], 404);
@@ -198,7 +185,7 @@ class UserController extends Controller
     }
 
     // APPROVED REVIEW BUYER PAGE
-    public function approved_review_buyer(Request $request, $id){
+    public function merchant_approved_review_buyer(Request $request, $id){
         $user = Auth::user();
         $user_id = $user->user_id; // Get the user ID of the currently authenticated user
         $buyer = BuyerModel::find($id);
@@ -224,10 +211,10 @@ class UserController extends Controller
             
 
             $status = ['status' => $notif];
-            return redirect()->route('pages.buyer', $status); //url path in folder resources/views/merchant/pages/buyer.blade.php
+            return redirect()->route('merchant.pages.buyer', $status); //url path in folder resources/views/merchant/pages/buyer.blade.php
         } else {
             $success = ['status' => 'denied_account'];
-            return redirect()->route('pages.buyer', $success); //url path in folder resources/views/merchant/pages/buyer.blade.php
+            return redirect()->route('merchant.pages.buyer', $success); //url path in folder resources/views/merchant/pages/buyer.blade.php
         }
     }
 

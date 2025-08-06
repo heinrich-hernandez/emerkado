@@ -13,7 +13,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ route('merchant-dashboard') }}">Home</a></li>
-                        <li class="breadcrumb-item active"><a href="{{ route('pages.coop') }}">Coop</a></li>
+                        <li class="breadcrumb-item active"><a href="{{ route('merchant.pages.coop') }}">Coop</a></li>
                         <li class="breadcrumb-item active">Review</li>
                     </ol>
                 </div>

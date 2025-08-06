@@ -16,7 +16,7 @@ class ProfileMerchantController extends Controller
         $buyer = BuyerModel::select('user_id', 'name', 'user_role', 'status')->get();
     
         // Merge both collections
-        $users = ($coop)->concat($merchant)->concat($buyer);
+        $users = ($coop)->concat($buyer);
     
         // Sort by id if needed
         $users = $users->sortBy('id');

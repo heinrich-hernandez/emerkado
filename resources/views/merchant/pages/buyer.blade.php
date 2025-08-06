@@ -41,12 +41,6 @@
                                 </button>
                             </div>
 
-                            <div class="d-flex flex-column">
-                                <h3 class="card-title">Buyer Users</h3>
-                                <a href="{{ route('pages.create_buyer') }}" class="pt-2">
-                                    <button class="btn btn-primary">Add Buyer</button>
-                                </a>
-                                </div>
                                 Role: <span id="status-badgeRole" class="badge badge-pill fontcolor-white {{ Functions::userrole_color('Buyer') }}">Buyer</span>
                             <!--div class="d-flex flex-column">
                                 <h3 class="card-title">Buyer Users</h3>
@@ -76,7 +70,7 @@
                                                 </td>
                                                 <td class="align-middle">{{ $buyer->email }}</td>
                                                 <td>
-                                                    <input data-id="{{$buyer->id}}" class="approve_buyer" type="checkbox" data-onstyle="success {{ $buyer->review_status == 'Approved' ? '' : 'warning-disabled' }}" data-offstyle="warning {{ $buyer->review_status == 'Approved' ? '' : 'warning-disabled' }}" data-toggle="toggle" data-on="Activated" data-off="Inactive" {{ $buyer->status ? 'checked' : '' }} {{ $buyer->review_status == 'Approved' ? '' : 'disabled' }}>
+                                                    <input data-id="{{$buyer->id}}" class="merchant_approve_buyer" type="checkbox" data-onstyle="success {{ $buyer->review_status == 'Approved' ? '' : 'warning-disabled' }}" data-offstyle="warning {{ $buyer->review_status == 'Approved' ? '' : 'warning-disabled' }}" data-toggle="toggle" data-on="Activated" data-off="Inactive" {{ $buyer->status ? 'checked' : '' }} {{ $buyer->review_status == 'Approved' ? '' : 'disabled' }}>
                                                 </td>
                                                 <td class="align-middle">{{ Functions::GetDateInterval($buyer->created_at)  === "More than a month ago" ? $buyer->created_at :  Functions::GetDateInterval($buyer->created_at)}}</td>
                                                 <td class="align-middle {{ Functions::review_status_color($buyer->review_status) }}"><i class="fas {{ Functions::review_status($buyer->review_status) }}"></i> {{ $buyer->review_status }}</td>

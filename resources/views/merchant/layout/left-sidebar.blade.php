@@ -34,6 +34,30 @@ $current_route=request()->route()->getName();
                         </p>
                     </a>
                 </li>
+
+                <li class="nav-item {{ in_array($current_route, ['merchant.pages.coop', 'merchant.pages.buyer', 'pages-merchant', 'pages-create_merchant', 'pages-create_coop', 'pages-review_coop', 'pages-create_buyer', 'pages-review_buyer' ]) ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ in_array($current_route, ['merchant.pages.coop', 'merchant.pages.buyer', 'pages-merchant', 'pages-create_merchant', 'pages-create_coop', 'pages-review_coop', 'pages-create_buyer', 'pages-review_buyer']) ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-users nav-icon"></i>
+                        <p>
+                            {{ __('Users Management') }}
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('merchant.pages.coop') }}" class="nav-link {{ $current_route=='merchant.pages.coop' || $current_route == 'pages-create_coop' || $current_route == 'pages-review_coop' ? 'active':'' }}">
+                                <i class="nav-icon fas fa-store"></i>
+                                <p>Coop</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('merchant.pages.buyer') }}" class="nav-link {{ $current_route=='merchant.pages.buyer' || $current_route == 'pages-create_buyer' || $current_route == 'pages-review_buyer' ? 'active':'' }}">
+                                <i class="nav-icon fas fa-cart-shopping"></i> 
+                                <p>Buyer</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

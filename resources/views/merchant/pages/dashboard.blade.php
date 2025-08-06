@@ -99,6 +99,35 @@
                   </button>
                 </div>
               </div>
+              <!-- /.card-header -->
+              <div class="card-body p-0">
+                <div class="table-striped table-responsive">
+                  <table class="table m-0">
+                    <thead>
+                    <tr>
+                      <th>User ID</th>
+                      <th>Name</th>
+                      <th>User Role</th>
+                      <th>Status</th>
+                      <!-- <th>View Profile</th> -->
+                    </tr> 
+                    </thead>
+                    <tbody>
+                    @foreach($users as $column)
+                    <tr>
+                        <td>{{$column->user_id}}</td>
+                        <td>{{$column->name}}</td>
+                        <td><span id="status-badgeRole" class="badge badge-pill {{ Functions::userrole_color($column->user_role) }}">{{$column->user_role}}</span></td>
+                        <td><span id="status-badgeStatus" class="badge badge-pill {{ Functions::status_color($column->status) }}">{{ $column->status ? 'Activated' : 'Deactivated' }}</span></td>
+                        <!-- <td class="align-middle"><i class="fas fa-search"></i></td> -->
+                    </tr>
+                    @endforeach
+                    </tbody>
+                  </table>
+                </div>
+                <!-- /.table-responsive -->
+              </div>
+          </div> <!-- /.card-body -->
           <!-- END TABLE: DASHBOARD -->
 
         </div>
