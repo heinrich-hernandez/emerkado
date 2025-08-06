@@ -12,22 +12,6 @@ use Closure;
 class UserController extends Controller
 {
 
-    // COOP PAGE
-    public function coop()
-    {
-        $coop = CoopModel::all();
-        $user_id = Auth::user()->user_id;
-        $reviews = Review_AccountModel::with('reviewer')->where('reviewer_id', $user_id)->get();
-
-        // $reviews = $account->reviews;
-        $data = [
-            'title' => 'COOP',
-            'coop' => $coop,
-            'reviews' => $reviews
-        ];
-        return view('admin.pages.coop', $data); //url path in folder resources/views/admin/pages/coop.blade.php
-    }
-
     public function review(){
 
         $coop = CoopModel::all();
@@ -45,6 +29,22 @@ class UserController extends Controller
         return view('admin.pages.review', $data); //url path in folder resources/views/admin/pages/review.blade.php
     }
 
+    // COOP PAGE
+    public function coop()
+    {
+        $coop = CoopModel::all();
+        $user_id = Auth::user()->user_id;
+        $reviews = Review_AccountModel::with('reviewer')->where('reviewer_id', $user_id)->get();
+
+        // $reviews = $account->reviews;
+        $data = [
+            'title' => 'COOP',
+            'coop' => $coop,
+            'reviews' => $reviews
+        ];
+        return view('admin.pages.coop', $data); //url path in folder resources/views/admin/pages/coop.blade.php
+    }
+    
     // CREATE COOP PAGE
     public function create_coop()
     {
