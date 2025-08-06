@@ -3,7 +3,7 @@
  * Copyright 2014-2021 Colorlib <https://colorlib.com>
  * Licensed under MIT (https://github.com/ColorlibHQ/AdminLTE/blob/master/LICENSE)
  */
-$(document).ready(function() {
+$(document).jQuery(function() {
     //*************************************************************************/
 
     var Toast = Swal.mixin({

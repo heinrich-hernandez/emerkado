@@ -1,5 +1,5 @@
 
-$(document).ready(function(){
+$(document).jQuery(function(){
 
     $('#agency_affiliation').change(function() {
         if ($(this).val() === 'yes') {
