@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Coop;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Admin_Data\CoopModel; // Import CoopModel if needed
+use App\Models\Admin_Data\CoopModel; 
 use Illuminate\Support\Facades\Auth;
-// use App\Models\Admin_Data\{AdminModel, CoopModel, MerchantModel}; //Insert Merchant Models here..
+
 
 class ProfileCoopController extends Controller
 {

@@ -1,6 +1,6 @@
 <?php use App\Helpers\Functions; ?>
 
-@extends('merchant.main-layout')
+@extends('buyer.main-layout')
 
 @section('content')
     <!-- Content Header (Page header) -->
@@ -11,7 +11,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{ route('merchant-dashboard') }}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('buyer-dashboard') }}">Home</a></li>
                         <li class="breadcrumb-item active">Profile</a></li>
                     </ol>
                 </div>
@@ -22,7 +22,7 @@
     @if ($errors->any())
         <script>
             document.addEventListener('DOMContentLoaded', function() {
-                showError('Error processing merchant record.'); //SHOW WARNING MESSAGE VIA TOASTER.JS
+                showError('Error processing buyer record.'); //SHOW WARNING MESSAGE VIA TOASTER.JS
             });
         </script>
         <div class="alert alert-danger">
@@ -46,17 +46,22 @@
               <div class="card-body box-profile">
                 <div class="text-center">
                   <img class="profile-user-img img-fluid img-circle"
-                       src="{{ $merchant->profile_picture ? URL::to('/storage') . '/' . $merchant->profile_picture : asset('images/guest.jpg') }}" alt="User profile picture">
+                       src="{{ $buyer->profile_picture ? URL::to('/storage') . '/' . $buyer->profile_picture : asset('images/guest.jpg') }}" alt="User profile picture">
                 </div>
 
-                <p class="text-muted text-center">{{ $merchant->name }}</p>
+                <h3 class="profile-username text-center">{{ $buyer->authorized_representative }}</h3>
+
+                <p class="text-muted text-center">{{ $buyer->name }}</p>
 
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
-                    <b>Account Created</b> <a class="float-right">{{ $merchant->created_at->format('d/m/Y') }}</a>
+                    <b>Account Created</b> <a class="float-right">{{ $buyer->created_at->format('d/m/Y') }}</a>
                   </li>
                   <li class="list-group-item">
-                    <b>Account Activation</b> <a class="float-right">{{ $merchant->status ? 'Activated' : 'For Activation' }}</a>
+                    <b>Account Activation</b> <a class="float-right">{{ $buyer->status ? 'Activated' : 'For Activation' }}</a>
+                  </li>
+                  <li class="list-group-item">
+                    <b>Account Status</b> <a class="float-right">{{ $buyer->review_status == 'For Review' ? 'Unassigned' : $buyer->review_status }}</a>
                   </li>
                 </ul>
                 <!-- <textarea class="form-control form-control-sm" type="text" placeholder="Type a comment"></textarea>
@@ -70,29 +75,30 @@
             <!-- About Me Box -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">About Merchant</h3>
+                <h3 class="card-title">About Coop</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
                 <strong><i class="fas fa-envelope mr-1"></i> Email</strong>
 
                 <p class="text-muted">
-                {{ $merchant->email }}
+                {{ $buyer->email }}
                 </p>
 
                 <hr>
 
                 <strong><i class="fas fa-map-marker-alt mr-1"></i> Address</strong>
 
-                <p class="text-muted">{{ $merchant->address }}</p>
+                <p class="text-muted">{{ $buyer->address }}</p>
 
                 <hr>
 
                 <strong><i class="fas fa-phone mr-1"></i> Contact Number</strong>
 
-                <p class="text-muted">{{ $merchant->contact_number }}</p>
+                <p class="text-muted">{{ $buyer->contact_number }}</p>
 
                 <hr>
+
               </div>
               <!-- /.card-body -->
             </div>
@@ -112,12 +118,12 @@
                 <div class="tab-content">
                   <div class="active tab-pane" id="activity">
                     <!-- Post -->
-                    @if($merchant->status !='1')
+                    @if($buyer->review_status !='Approved')
                     <div class="post">
                       <div class="banner-review"><img src="{{asset('images/banner-design-review.png') }}" alt="user image"></div>
                       <div class="user-block account-review">
                         <h5>This account is <b>FOR REVIEW</b>.  You may contact our support team for urgent account activation or call us at&nbsp;&nbsp;<i class="fas fa-phone fa-2xs"></i> +63 994 566 301.</h5>
-                        <h4><b>Dear {{ $merchant->username }}</b>,</h4>
+                        <h4><b>Dear {{ $buyer->username }}</b>,</h4>
                         <br/>
                         For added security, our system requires a thorough check of all accounts. This process ensures that each account is verified and meets our security standards. You may experience a brief delay in accessing certain features. We appreciate your patience as we work to keep your account secure.
                         <br/><br/>
@@ -133,42 +139,37 @@
                           <tr>
                             <td style="font-weight: 800;">ID</td>
                             <td>:</td>
-                            <td>{{ $merchant->user_id }}</td>
+                            <td>{{ $buyer->user_id }}</td>
                           </tr>
                           <tr>
-                            <td style="font-weight: 800;">Authorized Representative&nbsp;&nbsp;</td>
+                            <td style="font-weight: 800;">Coop Name</td>
                             <td>:</td>
-                            <td>{{ $merchant->authorized_representative }}</td>
-                          </tr>
-                          <tr>
-                            <td style="font-weight: 800;">Merchant Name</td>
-                            <td>:</td>
-                            <td>{{ $merchant->name }}</td>
+                            <td>{{ $buyer->name }}</td>
                           </tr>
                           <tr>
                             <td style="font-weight: 800;">Address</td>
                             <td>:</td>
-                            <td>{{ $merchant->address }}</td>
+                            <td>{{ $buyer->address }}</td>
                           </tr>
                           <tr>
                             <td style="font-weight: 800;">Contact Number</td>
                             <td>:</td>
-                            <td>{{ $merchant->contact_number }}</td>
+                            <td>{{ $buyer->contact_number }}</td>
                           </tr>
                           <tr>
                             <td style="font-weight: 800;">Email</td>
                             <td>:</td>
-                            <td>{{ $merchant->email }}</td>
+                            <td>{{ $buyer->email }}</td>
                           </tr>
                           <tr>
                             <td style="font-weight: 800;">Username</td>
                             <td>:</td>
-                            <td>{{ $merchant->username }}</td>
+                            <td>{{ $buyer->username }}</td>
                           </tr>
                           <tr>
                             <td style="font-weight: 800;">Account Created</td>
                             <td>:</td>
-                            <td>{{ $merchant->created_at->format('d/m/Y') }}</td>
+                            <td>{{ $buyer->created_at->format('d/m/Y') }}</td>
                           </tr>
                         </table>
                       </div>
@@ -183,9 +184,9 @@
                       <div class="banner-review-bottom"><img src="{{asset('images/banner-design.png') }}" alt="user image"></div>
                       <div class="user-block account-approved">
                         <h5>This account is <b>ACTIVATED</b>. You may now log in to access your account.</h5>
-                        <h4><b>Dear {{ $merchant->username }}</b>,</h4>
+                        <h4><b>Dear {{ $buyer->username }}</b>,</h4>
                         <br/>
-                        Your account has been successfully <b>APPROVED.</b> Account verification has been completed, You may now access all features and functionalities. Thank you for your merchanteration!
+                        Your account has been successfully <b>APPROVED.</b> Account verification has been completed, You may now access all features and functionalities. Thank you for your cooperation!
                         <br/><br/>
                         Please review your account information provided below:
                         <br/><br/>
@@ -198,37 +199,54 @@
                           <tr>
                             <td style="font-weight: 800;">ID</td>
                             <td>:</td>
-                            <td>{{ $merchant->user_id }}</td>
+                            <td>{{ $buyer->user_id }}</td>
                           </tr>
                           <tr>
-                            <td style="font-weight: 800;">Merchant Name</td>
+                            <td style="font-weight: 800;">Authorized Representative&nbsp;&nbsp;</td>
                             <td>:</td>
-                            <td>{{ $merchant->name }}</td>
+                            <td>{{ $buyer->authorized_representative }}</td>
+                          </tr>
+                          <tr>
+                            <td style="font-weight: 800;">Coop Name</td>
+                            <td>:</td>
+                            <td>{{ $buyer->name }}</td>
                           </tr>
                           <tr>
                             <td style="font-weight: 800;">Address</td>
                             <td>:</td>
-                            <td>{{ $merchant->address }}</td>
+                            <td>{{ $buyer->address }}</td>
                           </tr>
                           <tr>
                             <td style="font-weight: 800;">Contact Number</td>
                             <td>:</td>
-                            <td>{{ $merchant->contact_number }}</td>
+                            <td>{{ $buyer->contact_number }}</td>
                           </tr>
                           <tr>
                             <td style="font-weight: 800;">Email</td>
                             <td>:</td>
-                            <td>{{ $merchant->email }}</td>
+                            <td>{{ $buyer->email }}</td>
                           </tr>
                           <tr>
                             <td style="font-weight: 800;">Username</td>
                             <td>:</td>
-                            <td>{{ $merchant->username }}</td>
+                            <td>{{ $buyer->username }}</td>
                           </tr>
+                          @if($buyer->agency_affiliation =='yes')
+                          <tr>
+                            <td style="font-weight: 800;">Agency Affiliation Name</td>
+                            <td>:</td>
+                            <td>{{ $buyer->agency_affiliation_name }}</td>
+                          </tr>
+                          @endif
                           <tr>
                             <td style="font-weight: 800;">Account Created</td>
                             <td>:</td>
-                            <td>{{ $merchant->created_at->format('d/m/Y') }}</td>
+                            <td>{{ $buyer->created_at->format('d/m/Y') }}</td>
+                          </tr>
+                          <tr>
+                            <td style="font-weight: 800;">Business Description</td>
+                            <td>:</td>
+                            <td>{{ $buyer->business_description }}</td>
                           </tr>
                         </table>
                       <br/><br/>

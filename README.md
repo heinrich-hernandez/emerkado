@@ -135,10 +135,18 @@ Finally create your own admin.
 
     - [x] Merchant Login
         - [x] Merchant Dashboard
-        
+        - [x] Merchant Profile
+            - [ ] Merchant Profile Edit
+            - [x] Coop Page
+                - [x] Approve Coop
+                - [x] Review Coop
+            - [x] Buyer Page
+                - [x] Approve Buyer
+                - [x] Review Buyer
+
     - [x] Buyer Login
         - [x] Buyer Dashboard
-        - [ ] Buyer Profile
+        - [x] Buyer Profile
             - [ ] Buyer Profile Edit
 
 #### End Notes.

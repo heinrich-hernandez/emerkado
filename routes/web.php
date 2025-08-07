@@ -90,6 +90,13 @@ Route::middleware(['auth:coop', AuthenticateSysUsers::class])->group(function ()
     Route::get('/coop/profile/', [CoopProfileController::class, 'profile'])->name('coop-profile');
 });
 
+// Buyer routes
+Route::middleware(['auth:buyer', AuthenticateSysUsers::class])->group(function () {
+    Route::get('/buyer/dashboard', [BuyerProfileController::class, 'dashboard'])->name('buyer-dashboard');
+    Route::get('/buyer/profile/', [BuyerProfileController::class, 'profile'])->name('buyer-profile');
+});
+
+
 // Merchant routes
 Route::middleware(['auth:merchant', AuthenticateSysUsers::class])->group(function () {
     Route::get('/merchant/profile/', [MerchantProfileController::class, 'profile'])->name('merchant-profile');
@@ -117,11 +124,6 @@ Route::middleware(['auth:merchant', AuthenticateSysUsers::class])->group(functio
     Route::get('/merchant/buyer/review_buyer/id={id}', [MerchantUserController::class, 'merchant_review_buyer'])->name('pages.review_buyer');
     Route::post('/merchant/buyer/review_buyer/id={id}', [MerchantUserController::class, 'merchant_approved_review_buyer'])->name('approved.review_buyer');
     
-});
-
-// Buyer routes
-Route::middleware(['auth:buyer', AuthenticateSysUsers::class])->group(function () {
-    Route::get('/buyer/dashboard', [BuyerProfileController::class, 'dashboard'])->name('buyer-dashboard');
 });
 
 
