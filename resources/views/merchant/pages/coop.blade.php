@@ -103,7 +103,7 @@
                                                 <td class="align-middle">{{ Functions::GetDateInterval($coop->created_at)  === "More than a month ago" ? $coop->created_at :  Functions::GetDateInterval($coop->created_at)}}</td>
                                                 <td class="align-middle {{ Functions::review_status_color($coop->review_status) }}"><i class="fas {{ Functions::review_status($coop->review_status) }}"></i> {{ $coop->review_status }}</td>
                                                 <td class="align-middle">
-                                                    <a href="{{ route('pages.review_coop', $coop->id ) }}" class="btn btn-tool"><i class="fas fa-pen"></i></a>
+                                                    <a href="{{ route('merchant.pages.review_coop', $coop->id ) }}" class="btn btn-tool"><i class="fas fa-pen"></i></a>
                                                 </td>
                                             </tr>
                                         @endforeach

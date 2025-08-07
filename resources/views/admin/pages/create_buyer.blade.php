@@ -11,7 +11,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ route('admin-dashboard') }}">Home</a></li>
-                        <li class="breadcrumb-item active"><a href="{{ route('pages.buyer') }}">Buyer</a></li>
+                        <li class="breadcrumb-item active"><a href="{{ route('admin.pages.buyer') }}">Buyer</a></li>
                         <li class="breadcrumb-item active">Registration</li>
                     </ol>
                 </div>
@@ -43,7 +43,7 @@
                         <div class="card-header bg-primary">
                             <h4>Add New Buyer</h4>
                         </div>
-                        <form id="BuyerForm" action="{{ route('create.buyer') }}" method="post" enctype="multipart/form-data">
+                        <form id="buyerForm" action="{{ route('create.buyer') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('post')
                             <div class="card-body">

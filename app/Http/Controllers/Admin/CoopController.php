@@ -90,6 +90,6 @@ class CoopController extends Controller
         $newRecord->save();
 
         $success = ['status' => 'success'];
-        return redirect()->route('pages.coop', $success);
+        return redirect()->route('admin.pages.coop', $success);
     }
 }

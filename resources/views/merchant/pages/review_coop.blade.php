@@ -55,7 +55,7 @@
 
  
 <!-- Modal -->
-<form action="{{ route('approved.review_coop', $coop->id ) }}" method="post" enctype="multipart/form-data">
+<form action="{{ route('merchant.pages.approved.review_coop', $coop->id ) }}" method="post" enctype="multipart/form-data">
 @csrf
 <div class="modal fade" id="modal-default" tabindex="-1" aria-labelledby="approvalModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-userapproval">
@@ -190,7 +190,7 @@
               <div class="card-header p-2">
                 <ul class="nav nav-pills">
                   <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Activity</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#notification" data-toggle="tab">Notification</a></li>
+                  <livewire:notification />
                   <li class="nav-item"><a class="nav-link" href="#information" data-toggle="tab">Information</a></li>
                 </ul>
               </div><!-- /.card-header -->
@@ -358,8 +358,6 @@
                   <!-- /.tab-pane -->
               <div class="tab-pane" id="notification">
               <!-- /.card-header -->
-            
-                <livewire:notification />
                 
                   
 

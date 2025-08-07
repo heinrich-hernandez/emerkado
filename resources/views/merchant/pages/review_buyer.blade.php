@@ -55,7 +55,7 @@
 
  
 <!-- Modal -->
-<form action="{{ route('approved.review_buyer', $buyer->id ) }}" method="post" enctype="multipart/form-data">
+<form action="{{ route('merchant.pages.approved.review_buyer', $buyer->id ) }}" method="post" enctype="multipart/form-data">
 @csrf
   <div class="modal fade" id="modal-default" tabindex="-1" aria-labelledby="approvalModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-userapproval">

@@ -72,7 +72,7 @@
 
                             <div class="d-flex flex-column">
                                 <h3 class="card-title">Coop Users</h3>
-                                <a href="{{ route('pages.create_coop') }}" class="pt-2">
+                                <a href="{{ route('admin.pages.create_coop') }}" class="pt-2">
                                     <button class="btn btn-primary">Add Coop</button>
                                 </a>
                                 </div>
@@ -110,7 +110,7 @@
                                                 <td class="align-middle">{{ Functions::GetDateInterval($coop->created_at)  === "More than a month ago" ? $coop->created_at :  Functions::GetDateInterval($coop->created_at)}}</td>
                                                 <td class="align-middle {{ Functions::review_status_color($coop->review_status) }}"><i class="fas {{ Functions::review_status($coop->review_status) }}"></i> {{ $coop->review_status }}</td>
                                                 <td class="align-middle">
-                                                    <a href="{{ route('pages.review_coop', $coop->id ) }}" class="btn btn-tool"><i class="fas fa-pen"></i></a>
+                                                    <a href="{{ route('admin.pages.review_coop', $coop->id ) }}" class="btn btn-tool"><i class="fas fa-pen"></i></a>
                                                     <a href="javascript:void(0)" onclick="delete_coop('{{ $coop->id }}')" class="btn btn-tool"><i class="fa fa-trash color-danger"></i></a>
                                                 </td>
                                             </tr>

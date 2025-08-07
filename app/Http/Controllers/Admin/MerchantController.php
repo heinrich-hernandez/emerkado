@@ -76,6 +76,6 @@ class MerchantController extends Controller
         $newRecord->save();
 
         $success = ['status' => 'success'];
-        return redirect()->route('pages.merchant', $success);
+        return redirect()->route('admin.pages.merchant', $success);
     }
 }

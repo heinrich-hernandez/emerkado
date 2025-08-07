@@ -83,6 +83,6 @@ class BuyerController extends Controller
         $newRecord->save();
 
         $success = ['status' => 'success'];
-        return redirect()->route('pages.buyer', $success);
+        return redirect()->route('admin.pages.buyer', $success);
     }
 }

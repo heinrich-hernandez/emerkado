@@ -41,7 +41,7 @@
 
                 <div class="d-flex flex-column">
                     <h3 class="card-title">Merchant Users</h3>
-                    <a href="{{ route('pages.create_merchant') }}" class="pt-2">
+                    <a href="{{ route('admin.pages.create_merchant') }}" class="pt-2">
                         <button class="btn btn-primary">Add Merchant</button>
                     </a>
                 </div>

@@ -43,7 +43,7 @@
 
                             <div class="d-flex flex-column">
                                 <h3 class="card-title">Buyer Users</h3>
-                                <a href="{{ route('pages.create_buyer') }}" class="pt-2">
+                                <a href="{{ route('admin.pages.create_buyer') }}" class="pt-2">
                                     <button class="btn btn-primary">Add Buyer</button>
                                 </a>
                                 </div>
@@ -81,7 +81,7 @@
                                                 <td class="align-middle">{{ Functions::GetDateInterval($buyer->created_at)  === "More than a month ago" ? $buyer->created_at :  Functions::GetDateInterval($buyer->created_at)}}</td>
                                                 <td class="align-middle {{ Functions::review_status_color($buyer->review_status) }}"><i class="fas {{ Functions::review_status($buyer->review_status) }}"></i> {{ $buyer->review_status }}</td>
                                                 <td class="align-middle">
-                                                    <a href="{{ route('pages.review_buyer', $buyer->id ) }}" class="btn btn-tool"><i class="fas fa-pen"></i></a>
+                                                    <a href="{{ route('admin.pages.review_buyer', $buyer->id ) }}" class="btn btn-tool"><i class="fas fa-pen"></i></a>
                                                     <a href="javascript:void(0)" onclick="delete_buyer('{{ $buyer->id }}')" class="btn btn-tool"><i class="fa fa-trash color-danger"></i></a>
                                                 </td>
                                             </tr>

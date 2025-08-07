@@ -13,7 +13,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ route('admin-dashboard') }}">Home</a></li>
-                        <li class="breadcrumb-item active"><a href="{{ route('pages.buyer') }}">Buyer</a></li>
+                        <li class="breadcrumb-item active"><a href="{{ route('admin.pages.buyer') }}">Buyer</a></li>
                         <li class="breadcrumb-item active">Review</li>
                     </ol>
                 </div>
@@ -55,7 +55,7 @@
 
  
 <!-- Modal -->
-<form action="{{ route('approved.review_buyer', $buyer->id ) }}" method="post" enctype="multipart/form-data">
+<form action="{{ route('admin.approved.review_buyer', $buyer->id ) }}" method="post" enctype="multipart/form-data">
 @csrf
   <div class="modal fade" id="modal-default" tabindex="-1" aria-labelledby="approvalModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-userapproval">

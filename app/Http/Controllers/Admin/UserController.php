@@ -119,10 +119,10 @@ class UserController extends Controller
             
 
             $status = ['status' => $notif];
-            return redirect()->route('pages.coop', $status); //url path in folder resources/views/admin/pages/coop.blade.php
+            return redirect()->route('admin.pages.coop', $status); //url path in folder resources/views/admin/pages/coop.blade.php
         } else {
             $success = ['status' => 'denied_account'];
-            return redirect()->route('pages.coop', $success); //url path in folder resources/views/admin/pages/coop.blade.php
+            return redirect()->route('admin.pages.coop', $success); //url path in folder resources/views/admin/pages/coop.blade.php
         }
     }
 
@@ -267,10 +267,10 @@ class UserController extends Controller
             
 
             $status = ['status' => $notif];
-            return redirect()->route('pages.buyer', $status); //url path in folder resources/views/admin/pages/buyer.blade.php
+            return redirect()->route('admin.pages.buyer', $status); //url path in folder resources/views/admin/pages/buyer.blade.php
         } else {
             $success = ['status' => 'denied_account'];
-            return redirect()->route('pages.buyer', $success); //url path in folder resources/views/admin/pages/buyer.blade.php
+            return redirect()->route('admin.pages.buyer', $success); //url path in folder resources/views/admin/pages/buyer.blade.php
         }
     }
 
