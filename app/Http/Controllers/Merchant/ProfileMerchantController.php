@@ -13,8 +13,8 @@ class ProfileMerchantController extends Controller
 
 
     public function dashboard(){
-        $coop = CoopModel::select('user_id', 'authorized_representative as name', 'user_role', 'status')->get();
-        $buyer = BuyerModel::select('user_id', 'name', 'user_role', 'status')->get();
+        $coop = CoopModel::select('user_id', 'authorized_representative as name', 'user_role', 'status', 'review_status')->get();
+        $buyer = BuyerModel::select('user_id', 'name', 'user_role', 'status', 'review_status')->get();
     
         // Merge both collections
         $users = ($coop)->concat($buyer);
