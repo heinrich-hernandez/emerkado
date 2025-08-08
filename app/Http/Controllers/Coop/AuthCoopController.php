@@ -77,7 +77,6 @@ class AuthCoopController extends Controller
             'user_role' => 'nullable|string|max:255',
             'business_discription' => 'nullable|string|max:255',
             'review_status' => 'nullable|string|max:255',
-            'approved_by' => 'nullable|string|max:255',
             'date' => 'nullable|date'
         ]);
 

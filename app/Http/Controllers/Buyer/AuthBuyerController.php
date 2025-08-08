@@ -68,7 +68,6 @@ class AuthBuyerController extends Controller
             'password_confirmation' => 'nullable|string|min:8',
             'user_role' => 'nullable|string|max:255',
             'review_status' => 'nullable|string|max:255',
-            'approved_by' => 'nullable|string|max:255',
             'date' => 'nullable|date'
         ]);
 

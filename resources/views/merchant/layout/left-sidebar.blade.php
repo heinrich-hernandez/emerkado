@@ -57,6 +57,7 @@ $current_route=request()->route()->getName();
                             </a>
                         </li>
                     </ul>
+                    <livewire:monthly-user-tracker />
                 </li>
             </ul>
         </nav>
