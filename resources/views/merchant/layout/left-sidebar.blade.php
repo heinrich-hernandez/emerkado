@@ -44,18 +44,8 @@ $current_route=request()->route()->getName();
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route('merchant.pages.coop') }}" class="nav-link {{ $current_route=='merchant.pages.coop' || $current_route == 'pages-create_coop' || $current_route == 'pages-review_coop' ? 'active':'' }}">
-                                <i class="nav-icon fas fa-store"></i>
-                                <p>Coop</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('merchant.pages.buyer') }}" class="nav-link {{ $current_route=='merchant.pages.buyer' || $current_route == 'pages-create_buyer' || $current_route == 'pages-review_buyer' ? 'active':'' }}">
-                                <i class="nav-icon fas fa-cart-shopping"></i> 
-                                <p>Buyer</p>
-                            </a>
-                        </li>
+                        <livewire:unapproved-coop-user-tracker />
+                        <livewire:unapproved-buyer-user-tracker />
                     </ul>
                     <livewire:monthly-user-tracker />
                 </li>

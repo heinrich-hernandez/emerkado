@@ -1,5 +1,5 @@
 
-<li class="nav-item" wire:poll.10s wire:ignore.self>
+<li class="nav-item">
     <a class="nav-link" href="{{ route('merchant-dashboard') }}" > 
         <i class="nav-icon ion ion-person-add"></i>                       
         <p>
