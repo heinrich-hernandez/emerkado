@@ -91,7 +91,7 @@
         <!-- TABLE: DASHBOARD -->
         <div id="dashboard" class="card">
               <div class="card-header border-transparent">
-                <h3 class="card-title">System Users</h3>
+                <h3 class="card-title"><p class="text-xl-left">System Users<p></h3>
 
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse">

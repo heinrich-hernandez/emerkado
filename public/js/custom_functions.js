@@ -44,8 +44,7 @@ $(document).ready(function() {
         "responsive": true,
         "lengthChange": false,
         "autoWidth": false,
-        "buttons": ["copy"],
-        "pageLength": true,
+        "pageLength": '10',
     });
 
     // Initialize Bootstrap tooltips
