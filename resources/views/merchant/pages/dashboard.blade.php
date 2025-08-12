@@ -131,7 +131,7 @@
               </div>
           </div> <!-- /.card-body -->
           <!-- END TABLE: DASHBOARD -->
-
+          <livewire:account-timeline />
         </div>
     </div><!-- /.container-fluid -->
     <!-- /.content -->

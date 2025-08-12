@@ -20,6 +20,8 @@ function initializeFileUploads() {
         'coop_valid_id_picture',
         'merchant_profile_picture',
         'merchant_valid_id_picture',
+        'buyer_profile_picture',
+        'buyer_valid_id_picture',
         // Add more input IDS as needed
     ];
 

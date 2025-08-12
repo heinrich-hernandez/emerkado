@@ -1,6 +1,6 @@
 
 <li class="nav-item">
-    <a class="nav-link" href="{{ route('merchant-dashboard') }}" > 
+    <a class="nav-link" href="{{ route('merchant-dashboard') }}#account-timeline" > 
         <i class="nav-icon ion ion-person-add"></i>                       
         <p>
             {{ __('Timeline') }}
