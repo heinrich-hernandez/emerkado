@@ -6,7 +6,7 @@
         <p>
             Coop
             @if ($unapprovedCoopCount > 0)
-            <span class="badge badge-info right">
+            <span class="badge badge-danger right">
                 <ion-icon name="storefront-outline"></ion-icon> {{ $unapprovedCoopCount }}
             </span>
             @endif

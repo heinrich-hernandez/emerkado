@@ -155,5 +155,44 @@ $(function() {
 });
 
 
+function merchant_delete_coop(id)
+{
+    if(confirm("Are you sure you want to delete this"))
+    {
+        $.ajaxSetup({
+    headers:
+        {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+        });
+        $.ajax({
+            url:'/merchant/coop/delete_coop/'+id,
+            type:'DELETE',
+            success:function(result)
+            {
+                $("#"+result['table_row']).remove()
+            }
+        });
+    }
+}
 
-
+function merchant_delete_buyer(id)
+{
+    if(confirm("Are you sure you want to delete this"))
+    {
+        $.ajaxSetup({
+    headers:
+        {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+        });
+        $.ajax({
+            url:'/merchant/buyer/delete_buyer/'+id,
+            type:'DELETE',
+            success:function(result)
+            {
+                $("#"+result['table_row']).remove()
+            }
+        });
+    }
+}

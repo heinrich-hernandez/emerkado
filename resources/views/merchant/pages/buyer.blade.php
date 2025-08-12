@@ -76,6 +76,7 @@
                                                 <td class="align-middle {{ Functions::review_status_color($buyer->review_status) }}"><i class="fas {{ Functions::review_status($buyer->review_status) }}"></i> {{ $buyer->review_status }}</td>
                                                 <td class="align-middle">
                                                     <a href="{{ route('merchant.pages.review_buyer', $buyer->id ) }}" class="btn btn-tool"><i class="fas fa-pen"></i></a>
+                                                    <a href="javascript:void(0)" onclick="merchant_delete_buyer('{{ $buyer->id }}')" class="btn btn-tool"><i class="fa fa-trash color-danger"></i></a>
                                                 </td>
                                             </tr>
                                         @endforeach

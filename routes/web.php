@@ -115,7 +115,8 @@ Route::middleware(['auth:merchant', AuthenticateSysUsers::class])->group(functio
     // Review Coop
     Route::get('/merchant/coop/review_coop/id={id}', [MerchantUserController::class, 'merchant_review_coop'])->name('merchant.pages.review_coop');
     Route::post('/merchant/coop/review_coop/id={id}', [MerchantUserController::class, 'merchant_approved_review_coop'])->name('merchant.pages.approved.review_coop');
-    
+    // Delete Coop
+    Route::delete('/merchant/coop/delete_coop/{id}', [MerchantUserController::class, 'merchant_delete_coop']);
 
 
     // Approve Buyer
@@ -124,6 +125,8 @@ Route::middleware(['auth:merchant', AuthenticateSysUsers::class])->group(functio
     Route::get('/merchant/buyer/review_buyer/id={id}', [MerchantUserController::class, 'merchant_review_buyer'])->name('merchant.pages.review_buyer');
     Route::post('/merchant/buyer/review_buyer/id={id}', [MerchantUserController::class, 'merchant_approved_review_buyer'])->name('merchant.approved.review_buyer');
     
+    // Delete Buyer
+    Route::delete('/merchant/buyer/delete_buyer/{id}', [MerchantUserController::class, 'merchant_delete_buyer']);    
 });
 
 

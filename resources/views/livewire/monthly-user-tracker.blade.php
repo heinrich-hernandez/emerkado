@@ -7,7 +7,7 @@
         </p>
         @if ($monthlyUserCount > 0)
         <ion-icon name="notification-outline" size="large"></ion-icon>
-            <span class="badge badge-info right">
+            <span class="badge badge-danger right">
                 <ion-icon name="person-add-outline"></ion-icon> {{ $monthlyUserCount }}
             </span>
         @endif
