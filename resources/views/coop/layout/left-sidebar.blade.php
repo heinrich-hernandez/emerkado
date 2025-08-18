@@ -17,8 +17,11 @@ $current_route=request()->route()->getName();
     <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <img src="{{ Auth::user()->profile_picture ? URL::to('/storage') . '/' . Auth::user()->profile_picture : asset('images/guest.jpg') }}" alt="Profile" class="img-circle elevation-2" onerror="this.onerror=null;this.src='{{ asset('images/guest.jpg') }}">
+            </div>
             <div class="info">
-                <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+                <a href="#" class="d-block">{{ Auth::user()->authorized_representative }}</a>
             </div>
         </div>
 

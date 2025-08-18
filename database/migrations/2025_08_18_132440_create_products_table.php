@@ -22,16 +22,28 @@ return new class extends Migration
             $table->string('name');
     
             // Description of the product
-            $table->text('description');
+            $table->text('description')->nullable();
+
+            //Availability of the product in stock
+            $table->unsignedBigInteger('available_quantity')->default(0);
     
             // Price of the product, with a total of 10 digits and 2 decimal places
-            $table->decimal('price', 10, 2);
+            $table->decimal('price', 10, 2)->default(0.00);
+
+            // Stock Keeping Unit, must be unique
+            $table->string('sku')->unique();
+
+            // Image URL for the product
+            $table->string('image')->nullable();
     
             // Foreign key referencing the categories table
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
     
             // Timestamps for tracking when the product was created and last updated
             $table->timestamps();
+
+            // Soft delete column to allow for soft deletion of products
+            $table->softDeletes();
         });
     }
 
