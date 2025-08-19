@@ -29,6 +29,7 @@ $current_route=request()->route()->getName();
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
+                @if(Auth::user()->review_status == 'Approved')
                 <li class="nav-item">
                     <a href="{{ route('coop-dashboard') }}" class="nav-link {{ $current_route=='coop-dashboard'?'active':'' }}"> {{-- route('coop-dashboard') is the name route in web.php --}}
                         <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -37,6 +38,15 @@ $current_route=request()->route()->getName();
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link {{ $current_route=='coop-products'?'active':'' }}"> {{-- route('coop-dashboard') is the name route in web.php --}}
+                        <i class="nav-icon fas fa-basket-shopping"></i>
+                        <p>
+                            {{ __('Products Page') }}
+                        </p>
+                    </a>
+                </li>
+                @endif
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

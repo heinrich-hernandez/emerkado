@@ -124,7 +124,7 @@
     <script src="{{ asset('js/dataTables.responsive.min.js') }}" defer></script>
     <script src="{{ asset('js/responsive.bootstrap4.min.js') }}" defer></script>
     <script src="{{ asset('js/dataTables.buttons.min.js') }}" defer></script>
-
+    <script src="{{ asset('js/dataTables.js') }}" defer></script>
     
     @yield('scripts')
     @stack('scripts')

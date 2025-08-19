@@ -6,6 +6,7 @@ use App\Http\Controllers\Coop\{AuthCoopController, ProfileCoopController as Coop
 use App\Http\Controllers\Merchant\{AuthMerchantController, ProfileMerchantController as MerchantProfileController, UserController as MerchantUserController};
 use App\Http\Controllers\Buyer\{AuthBuyerController, ProfileBuyerController as BuyerProfileController};
 use App\Http\Controllers\Auth\{LoginController, RegisterController};
+use App\Http\Controllers\ProductController;
 use App\Http\Middleware\{AuthenticateSysUsers, AdminAuth, CoopAuth, BuyerAuth, MerchantAuth};
 use App\Http\Livewire\Notification;
 
@@ -88,6 +89,12 @@ Route::middleware(['auth:admin', AuthenticateSysUsers::class])->group(function (
 Route::middleware(['auth:coop', AuthenticateSysUsers::class])->group(function () {
     Route::get('/coop/dashboard', [CoopProfileController::class, 'dashboard'])->name('coop-dashboard');
     Route::get('/coop/profile/', [CoopProfileController::class, 'profile'])->name('coop-profile');
+
+    // Route to show the product creation form
+    Route::get('coop/products/create', [ProductController::class, 'create'])->name('coop.pages.create-products');
+
+    // Route to handle the form submission and store the new product
+    Route::post('coop/products', [ProductController::class, 'store'])->name('store-products');
 });
 
 // Buyer routes

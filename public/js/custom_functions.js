@@ -38,14 +38,6 @@ $(document).ready(function() {
         maxHeight: null, // set maximum height of editor
         focus: true // set focus to editable area after initializing summernote
     });
-    
-    // Initialize DataTables for tables
-    $('#dashboardTable').DataTable({
-        "responsive": true,
-        "lengthChange": false,
-        "autoWidth": false,
-        "pageLength": '10',
-    });
 
     // Initialize Bootstrap tooltips
     $('[data-toggle="tooltip"]').tooltip(); 
